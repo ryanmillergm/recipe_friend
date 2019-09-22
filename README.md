@@ -1,8 +1,8 @@
 # Recipe Friend
 
-This project is the back end for an app where users can find others who ride motorcycles and meet to ride specific routes. A user can find "rides" where people meet and ride motorcycles together. A user can create or join groups and once in a group can chat with each other in a chatroom. The front end project can be found [here](https://github.com/baldm0mma/ride_with_me).
+This project is for users to find, add, share and convert recipes. Greate for restaurants who need different batch sizes! Users can input in the number of portions they want and the recipe will automatically convert the quantity for ingredients. This app also makes it easy to create a grocery list according to ingredients in a recipe. Recipe's are of course rated and commented on by any registered user. A user can create or join groups and once in a group can chat with each other in a chatroom. 
 
-This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **etc** and **groups**. All responses are JSON.
+This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **comments**, **grocery_list**, **friends** and **groups**. All responses are JSON.
 
 The app is deployed at https://somewhere.com.
 
