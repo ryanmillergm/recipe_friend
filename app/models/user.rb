@@ -7,4 +7,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :telephone, presence: true, uniqueness: true
+
+  has_and_belongs_to_many :friends,
+                        class_name: 'User',
+                        join_table: :friends,
+                        foreign_key: :users_id,
+                        association_foreign_key: :friend_id
 end

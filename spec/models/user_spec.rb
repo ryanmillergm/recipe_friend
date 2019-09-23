@@ -10,5 +10,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "relationships" do
+    it { should have_and_belong_to_many :friends }
   end
 end
