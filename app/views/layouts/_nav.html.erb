@@ -1,0 +1,28 @@
+<!-- app/views/layouts/_nav.html.erb -->
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- Image and text -->
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="public/images/recipe-hound.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Bootstrap
+        </a>
+      </nav>
+      <li class="nav-item active">
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+          <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'About', root_path, class: 'nav-link' %>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto navbar-right">
+    </ul>
+  </div>
+</nav>
