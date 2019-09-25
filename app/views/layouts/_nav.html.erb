@@ -23,9 +23,19 @@
     </ul>
 
     <ul class="navbar-nav mr-auto navbar-center">
-      <span class="navbar-text">
-        Recipe Hound
+      <span class="navbar-text" id="recipe-hound">
+        <p class="h3">Recipe Hound</p>
       </span>
+    </ul>
+
+    <ul class="navbar-nav mr-auto navbar-left">
+      <span class="navbar-text"></span>
+      <%= form_tag :recipes, method: :get, class: "form-inline" do %>
+      <div class="form-group search-field">
+        <%= text_field_tag(:q) %>
+        <%= submit_tag "Search Recipes", class: "btn btn-primary" %>
+      </div>
+      <% end %>
     </ul>
 
     <ul class="navbar-nav">
