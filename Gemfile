@@ -5,8 +5,6 @@ ruby '2.6.3'
 gem "active_model_serializers"
 gem 'figaro'
 gem 'faraday'
-gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
