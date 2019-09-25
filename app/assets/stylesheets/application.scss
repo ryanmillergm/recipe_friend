@@ -9,6 +9,29 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
  */
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
+
+
+
+
+ .search-field { margin-top: 7px;}
+
+ #work .img-responsive{
+   margin: 0 auto;
+ }
+
+ body {
+   background-color: lightgrey;
+
+   margin: 0;
+   padding: 0;
+ }
+ .btn-lg {
+   padding: 20px 20px;
+   font-size: 70px;
+   border-radius: 10px;
+   background-color: red;
+ }
