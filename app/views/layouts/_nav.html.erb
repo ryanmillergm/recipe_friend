@@ -1,6 +1,6 @@
 <!-- app/views/layouts/_nav.html.erb -->
 
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-light" id="nav">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,6 +19,9 @@
       </li>
       <li class="nav-item">
         <%= link_to 'Dashboard', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Favorites', root_path, class: 'nav-link' %>
       </li>
     </ul>
 
