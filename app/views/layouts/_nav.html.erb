@@ -1,0 +1,51 @@
+<!-- app/views/layouts/_nav.html.erb -->
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-light" id="nav">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+
+    <a class="navbar-brand" href="/">
+      <%=image_tag("recipe-hound.jpg", height: '50', width: '50')%>
+    </a>
+
+    <ul class="navbar-nav mr-auto navbar-left">
+      <li class="nav-item active">
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+          <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Dashboard', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Favorites', root_path, class: 'nav-link' %>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto navbar-center">
+      <span class="navbar-text" id="recipe-hound">
+        <p class="h3">Recipe Hound</p>
+      </span>
+    </ul>
+
+    <ul class="navbar-nav mr-auto navbar-left">
+      <span class="navbar-text"></span>
+      <%= form_tag :recipes, method: :get, class: "form-inline" do %>
+      <div class="form-group search-field">
+        <%= text_field_tag(:q) %>
+        <%= submit_tag "Search Recipes", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </ul>
+
+    <ul class="navbar-nav">
+      <span class="navbar-text">
+        <%= link_to 'Log in', root_path, class: 'nav-link' %>
+      </span>
+    </ul>
+
+  </div>
+</nav>
