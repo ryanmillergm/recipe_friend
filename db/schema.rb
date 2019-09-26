@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_172250) do
   create_table "recipe_ingredients", force: :cascade do |t|
     t.integer "measurement_type"
     t.integer "measurement"
-    t.integer "quantity"
+    t.decimal "quantity"
     t.bigint "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
