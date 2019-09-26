@@ -71,6 +71,7 @@ jobs: # a collection of steps
       - run:
           name: Run rspec in parallel
           command: |
+            mkdir -p /tmp/test-results
             bundle exec rspec --profile 10 \
                               --format RspecJunitFormatter \
                               --out test_results/rspec.xml \
