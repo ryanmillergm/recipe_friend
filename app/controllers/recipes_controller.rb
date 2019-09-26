@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
     binding.pry
-    @recipes = Recipe.where(name: search_params[:q])
+    @recipes = Recipe.all
   end
 
   private

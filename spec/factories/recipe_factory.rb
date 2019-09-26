@@ -3,7 +3,7 @@ FactoryBot.define do
     user
     sequence(:title) { |n| "spaghetti #{n}" }
     sequence(:description) { |n| "This is a recipe for spaghetti #{n}" }
-    sequence(:type) { rand(3) }
+    sequence(:recipe_type) { rand(3) }
     sequence(:user_id) { rand(4) }
   end
 end
