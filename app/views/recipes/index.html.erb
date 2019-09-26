@@ -1,0 +1,15 @@
+<h1>Recipes</h1>
+<div>
+  <p>Results: <%= @recipe_results.count %></p>
+  <ul class="recipe-results">
+  <% @recipe_results.each do |recipe| %>
+    <li class="title"><%= recipe.title %></li>
+    <li class="description"><%= recipe.description %></li>
+    <ul class="ingredients">
+      <% recipe.ingredients.each do |ingredient| %>
+        <li class="name"><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </ul>
+</div>
