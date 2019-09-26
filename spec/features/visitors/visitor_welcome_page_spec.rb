@@ -2,9 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe 'I can visit the home page' do
+    before :each do
+    # @user = create(:user)
+    @user = User.create(first_name: "ryan", last_name: "miller", username: "rm", password: "password", email: "rm@gmail.com", role: 0)
+    binding.pry
+  end
     xit 'I see a nav bar with a login' do
       visit root_path
-      save_and_open_page
 
       expect(page).to have_content("Log in")
       expect(page).to have_content("Search Recipes")
@@ -14,6 +18,7 @@ RSpec.describe 'As a visitor' do
     end
 
     it 'I see a recipe search bar' do
+      binding.pry
       visit root_path
 
       fill_in "q", with: "spaghetti"

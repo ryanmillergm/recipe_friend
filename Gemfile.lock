@@ -232,7 +232,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
-  factory_bot_rails (~> 5.0)
+  factory_bot_rails
   faraday
   figaro
   jbuilder (~> 2.5)
