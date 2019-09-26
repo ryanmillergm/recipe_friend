@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IngredientRecipe, type: :model do
+RSpec.describe RecipeIngredient, type: :model do
   describe 'validations' do
     it { should validate_presence_of :recipe_id }
     it { should validate_presence_of :ingredient_id }
