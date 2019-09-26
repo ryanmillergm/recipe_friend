@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_204226) do
+ActiveRecord::Schema.define(version: 2019_09_26_171334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 2019_09_23_204226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["users_id"], name: "index_friends_on_users_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.boolean "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.boolean "measurement_type"
+    t.boolean "measurement"
+    t.integer "quantity"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +54,5 @@ ActiveRecord::Schema.define(version: 2019_09_23_204226) do
   end
 
   add_foreign_key "friends", "users", column: "users_id"
+  add_foreign_key "recipe_ingredients", "ingredients"
 end
