@@ -21,12 +21,11 @@ jobs: # a collection of steps
 
       # Which version of bundler?
       - run:
-         name: Configure Bundler
+          name: Configure Bundler
           command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
-            bundle install
 
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
