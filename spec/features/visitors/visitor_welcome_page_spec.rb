@@ -13,12 +13,15 @@ RSpec.describe 'As a visitor' do
 
     end
 
-    xit 'I see a recipe search bar' do
+    it 'I see a recipe search bar' do
       visit root_path
 
-      within '.recipe-search' do
-        expect(page).to have_content("Search Recipes")
-      end
+      fill_in "q", with: "spaghetti"
+
+      click_on "Search Recipes"
+
+      expect(current_path).to eq('/recipes')
+      # expect(background).to have_key(:owner)
     end
   end
 end
