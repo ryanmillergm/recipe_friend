@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 2019_09_26_172250) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.boolean "type"
+    t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.boolean "measurement_type"
-    t.boolean "measurement"
+    t.integer "measurement_type"
+    t.integer "measurement"
     t.integer "quantity"
     t.bigint "ingredient_id"
     t.datetime "created_at", null: false
@@ -45,14 +45,10 @@ ActiveRecord::Schema.define(version: 2019_09_26_172250) do
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "type"
-    t.bigint "step_id"
-    t.bigint "ingredient_id"
+    t.integer "type"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_recipes_on_ingredient_id"
-    t.index ["step_id"], name: "index_recipes_on_step_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -68,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_172250) do
     t.string "username"
     t.string "password_digest"
     t.string "email"
+    t.integer "role", default: 0
     t.text "avatar"
     t.text "about"
     t.bigint "telephone"
@@ -78,8 +75,6 @@ ActiveRecord::Schema.define(version: 2019_09_26_172250) do
   add_foreign_key "friends", "users", column: "users_id"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
-  add_foreign_key "recipes", "ingredients"
-  add_foreign_key "recipes", "steps"
   add_foreign_key "recipes", "users"
   add_foreign_key "steps", "recipes"
 end

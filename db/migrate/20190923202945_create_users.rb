@@ -5,10 +5,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :username
       t.string :password_digest
-      t.string :email
+      t.string :email, unique: true
+      t.integer :role, default: 0
       t.text :avatar
       t.text :about
-      t.bigint :telephone
+      t.bigint :telephone, unique: true
 
       t.timestamps
     end
