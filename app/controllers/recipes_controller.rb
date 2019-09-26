@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    binding.pry
-    @recipes = Recipe.all
+    @recipe_results = Recipe.where("title LIKE ?", "%#{search_params[:q]}%")
   end
 
   private
