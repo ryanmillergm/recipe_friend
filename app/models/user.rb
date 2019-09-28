@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :telephone, presence: true, uniqueness: true
+  validates_presence_of :password, on: :create
 
   has_and_belongs_to_many :friends,
                         class_name: 'User',

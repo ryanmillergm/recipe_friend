@@ -11,10 +11,11 @@ RSpec.describe 'as a visitor' do
     @about = 'about'
     @telephone = 5555555555
   end
+
   it 'I can register and create account' do
     visit root_path
 
-    click_on 'Sign In'
+    click_on 'Log in'
 
     expect(current_path).to eq(login_path)
 
@@ -36,8 +37,8 @@ RSpec.describe 'as a visitor' do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as #{User.last.first_name}")
     expect(page).to have_content('This account has not yet been activated. Please check your email.')
-    expect(page).to have_content(email)
-    expect(page).to have_content(first_name)
+    expect(page).to have_content(@email)
+    expect(page).to have_content(@first_name)
     expect(page).to_not have_content('Sign In')
   end
 end
