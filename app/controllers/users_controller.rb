@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       ready_messages
-      redirect_to dashboard_path
+      redirect_to verify_email_path
     else
       render :new
     end
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def ready_messages
-
+    flash[:message] = "#{@user.username}'s account has been created"
+    flash[:success] = 'This account has not yet been activated. Please check your email.'
   end
 end
