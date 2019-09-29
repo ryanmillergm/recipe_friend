@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    binding.pry
+    @user = current_user
     render locals: {
       facade: UserDashboardFacade.new(current_user)
     }
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       ready_messages
-      redirect_to verify_email_path
+      redirect_to user_path(@user.id)
     else
       render :new
     end
