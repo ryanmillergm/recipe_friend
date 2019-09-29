@@ -19,26 +19,27 @@ RSpec.describe 'as a visitor' do
 
     expect(current_path).to eq(new_session_path)
 
-    click_on 'Sign up now'
+    click_on 'Click here to create an account'
 
-    expect(current_path).to eq(registration_path)
+    expect(current_path).to eq(new_user_path)
 
     fill_in 'user[first_name]', with: @first_name
     fill_in 'user[last_name]', with: @last_name
     fill_in 'user[username]', with: @username
     fill_in 'user[password]', with: @password
+    fill_in 'user[password_confirmation]', with: @password
     fill_in 'user[email]', with: @email
     fill_in 'user[avatar]', with: @avatar
     fill_in 'user[about]', with: @about
     fill_in 'user[telephone]', with: @telephone
 
     click_on 'Create Account'
+    save_and_open_page
+    user = User.last
 
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Logged in as #{User.last.first_name}")
-    expect(page).to have_content('This account has not yet been activated. Please check your email.')
-    expect(page).to have_content(@email)
-    expect(page).to have_content(@first_name)
+    expect(current_path).to eq(user_path(user.id))
+    expect(page).to have_content("Logged in as #{user.first_name}")
+    expect(page).to have_content('This account has not yet been activated. Please check your email to confirm your email address.')
     expect(page).to_not have_content('Sign In')
   end
 end
