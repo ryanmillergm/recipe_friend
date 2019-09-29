@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/recipes', to: 'recipes#index'
 
   resources :users, only: [:create, :new, :update, :edit]
-  resources :sessions, only: [:index]
+  resources :sessions, only: [:new, :create]
 end
