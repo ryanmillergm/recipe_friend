@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: login_params[:email])
     if user&.authenticate(login_params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to user_show_path
     else
       flash[:error] = 'Oops! Looks like your email or password is invalid'
       render :new

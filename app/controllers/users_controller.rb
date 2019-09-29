@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  def show
+    rend locals :{
+      UserDashboardFacade.new(current_user)
+    }
+  end
+
   def new
     @user = User.new
   end
