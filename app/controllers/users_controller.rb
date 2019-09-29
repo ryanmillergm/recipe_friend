@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    rend locals :{
-      UserDashboardFacade.new(current_user)
+    binding.pry
+    render locals: {
+      facade: UserDashboardFacade.new(current_user)
     }
   end
 
