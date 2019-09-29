@@ -1,0 +1,23 @@
+
+<br>
+<div class="user-login">
+  <div>
+    <h4>Log In</h4>
+    <section>
+      <%= form_for :session, url: sessions_path do |f| %>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <%= f.submit 'Log In' %>
+      <% end %>
+    </section>
+  </div>
+</div>
+<div>
+  <p>Not a member yet? <%= link_to 'Click here to create an account', new_user_path %></p>
+</div>
