@@ -34,11 +34,11 @@ RSpec.describe 'as a visitor' do
     fill_in 'user[telephone]', with: @telephone
 
     click_on 'Create Account'
-    save_and_open_page
+
     user = User.last
 
     expect(current_path).to eq(user_path(user.id))
-    expect(page).to have_content("Logged in as #{user.first_name}")
+    expect(page).to have_content("Logged in as #{user.username}")
     expect(page).to have_content('This account has not yet been activated. Please check your email to confirm your email address.')
     expect(page).to_not have_content('Sign In')
   end
