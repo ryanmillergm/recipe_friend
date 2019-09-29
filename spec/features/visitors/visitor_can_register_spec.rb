@@ -17,7 +17,7 @@ RSpec.describe 'as a visitor' do
 
     click_on 'Log in'
 
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(login_index_path)
 
     click_on 'Sign up now'
 

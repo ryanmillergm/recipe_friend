@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
-  def index    
+  def index
+    @new_user = User.new 
   end
 end
