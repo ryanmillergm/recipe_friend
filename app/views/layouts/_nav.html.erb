@@ -50,7 +50,7 @@
     <% else %>
     <ul class="navbar-nav">
       <span class="navbar-text">
-        <%= link_to 'Log out', session_path(current_user.id), class: 'nav-link' %>
+        <%= link_to 'Log out', session_path(current_user.id), method: :delete, class: 'nav-link' %>
       </span>
     </ul>
     <% end %>
