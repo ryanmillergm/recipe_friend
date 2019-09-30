@@ -42,4 +42,22 @@ RSpec.describe 'as a visitor' do
     expect(page).to have_content('This account has not yet been activated. Please check your email to confirm your email address.')
     expect(page).to_not have_content('Sign In')
   end
+
+  it 'I cannot register without required fields' do
+    visit new_user_path
+
+    fill_in 'user[last_name]', with: @last_name
+    fill_in 'user[username]', with: @username
+    fill_in 'user[password]', with: @password
+    fill_in 'user[password_confirmation]', with: @password
+    fill_in 'user[email]', with: @email
+    fill_in 'user[avatar]', with: @avatar
+    fill_in 'user[about]', with: @about
+    fill_in 'user[telephone]', with: @telephone
+
+    click_on 'Create Account'
+
+    expect(current_path).to eq(users_path)
+    expect(page).to have_content("First name can't be blank")
+  end
 end
