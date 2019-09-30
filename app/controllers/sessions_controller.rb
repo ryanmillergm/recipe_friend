@@ -25,4 +25,15 @@ class SessionsController < ApplicationController
   def login_params
     params.require(:session).permit(:email, :password)
   end
+
+  def confirm_email
+    @user = User.find_by_confirm_token(params[:id])
+    if @user
+      @user.email_activate
+      redirect_to user_path(@user.id)
+    else
+      flash[:error] = 'Sorry, User does not exist'
+      redirect_to root_url
+    end
+  end
 end
