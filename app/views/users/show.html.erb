@@ -1,5 +1,6 @@
 <br>
 <%= "Logged in as #{@user.username}" %>
-<% if @user.role == 0 %>
+<br>
+<% if @user.email_confirmed == false %>
   <%= 'This account has not yet been activated. Please check your email to confirm your email address.' %>
 <% end %>
