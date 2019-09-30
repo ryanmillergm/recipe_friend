@@ -24,6 +24,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    binding.pry
+    if user
+      user.email_activate
+      redirect_to user_path(user.id)
+    else
+      flash[:error] = 'Sorry, User does not exist'
+      redirect_to root_url
+    end
+  end
+
   private
 
   def user_params
