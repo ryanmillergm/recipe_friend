@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-    default :from => "no-reply@recipehound.com"
+    default :from => "recipehound2019@gmail.com"
 
  def registration_confirmation(user)
     @user = user
