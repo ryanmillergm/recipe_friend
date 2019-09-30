@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@recipehound.com'
+  default from: 'recipehound2020@gmail.com'
   layout 'mailer'
 end
