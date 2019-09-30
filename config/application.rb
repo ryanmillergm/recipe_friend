@@ -19,30 +19,16 @@ Bundler.require(*Rails.groups)
 
 module RecipeFriend
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
-
-    # Don't generate system test files.
+    config.action_mailer.smtp_settings = {
+      :address => "email-smtp.us-west-2.amazonaws.com",
+      :port => 587,
+      :user_name => ENV["SES_SMTP_USERNAME"],
+      :password => ENV["SES_SMTP_PASSWORD"],
+      :authentication => :login,
+      :enable_starttls_auto => true
+    }
     config.generators.system_tests = nil
   end
-end
-
-class Application < Rails::Application
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
-    port:                 '587',
-    domain:               'example.com',
-    user_name:            ENV["SENDGRID_USERNAME"],
-    password:             ENV["SENDGRID_PASSWORD"],
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
-  config.generators.system_tests = nil
 end
