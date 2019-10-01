@@ -39,7 +39,7 @@ RSpec.describe 'as a visitor' do
 
     expect(current_path).to eq(user_path(user.id))
     expect(page).to have_content("Logged in as #{user.username}")
-    expect(page).to have_content('This account has not yet been activated. Please check your email to confirm your email address.')
+    expect(page).to have_content('A confirmation email has been sent. To gain full access, please confirm your email. Thanks!')
     expect(page).to_not have_content('Sign In')
   end
 
