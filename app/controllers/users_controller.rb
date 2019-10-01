@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.registration_confirmation(@user).deliver
+      UserMailerAwsSdk.registration_confirmation_aws(@user).deliver
       session[:user_id] = @user.id
       ready_messages
       redirect_to user_path(@user.id)
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
 
   def confirm_email
     user = User.find_by_confirm_token(params[:id])
-    binding.pry
     if user
       user.email_activate
       redirect_to user_path(user.id)
