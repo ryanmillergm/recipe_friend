@@ -16,17 +16,18 @@ class User < ApplicationRecord
                         foreign_key: :users_id,
                         association_foreign_key: :friend_id
 
+
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+
   private
 
   def confirmation_token
     if self.confirm_token.blank?
         self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
-  end
-
-  def email_activate
-    self.email_confirmed = true
-    self.confirm_token = nil
-    save!(:validate => false)
   end
 end
