@@ -13,7 +13,7 @@ RSpec.describe 'as a visitor' do
   end
 
   it 'I can register and create account' do
-    VCR.use_cassette('flickr_request') do
+    VCR.use_cassette('email_verification_when_registering') do
       visit root_path
 
       click_on 'Log in'
