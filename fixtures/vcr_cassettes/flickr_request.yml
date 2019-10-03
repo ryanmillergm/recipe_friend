@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://email.us-west-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=SendEmail&ConfigurationSetName=ConfigSet&Destination.ToAddresses.member.1=riseabove428%40gmail.com&Message.Body.Html.Charset=UTF-8&Message.Body.Html.Data=%3Ch1%3EHi%20Joe%2C%3C%2Fh1%3E%3Cp%3EThanks%20for%20registering%21%20To%20confirm%20your%20registration%20click%20the%20URL%20below.http%3A%2F%2Flocalhost%2Fusers%2FG9jf2I1DfMUPTKU3kSoq2A%2Fconfirm_email&Message.Body.Text.Charset=UTF-8&Message.Body.Text.Data=This%20email%20was%20sent%20with%20Amazon%20SES%20using%20the%20AWS%20SDK%20for%20Ruby.&Message.Subject.Charset=UTF-8&Message.Subject.Data=Amazon%20SES%20test%20%28AWS%20SDK%20for%20Ruby%29&Source=recipehound2020%40gmail.com&Version=2010-12-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.68.0 ruby/2.6.3 x86_64-darwin18 aws-sdk-ses/1.26.0
+      Host:
+      - email.us-west-2.amazonaws.com
+      X-Amz-Date:
+      - 20191003T203445Z
+      X-Amz-Content-Sha256:
+      - 8568e6f9a9d49cacaf2abeadbf25ad1f04bbb89bf1852f037d24bcac54ae7977
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAJGIS7AOSG5O2HEBA/20191003/us-west-2/ses/aws4_request,
+        SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=57c5e24734a3a13a74067f821f893b4ab945d5c73acd00889555db7a77444d53
+      Content-Length:
+      - '663'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - b10c912c-89c0-4270-93da-f05c6244846f
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '326'
+      Date:
+      - Thu, 03 Oct 2019 20:34:46 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <SendEmailResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+          <SendEmailResult>
+            <MessageId>0101016d935505e2-a1daff29-d486-46e7-a570-04e235147bd8-000000</MessageId>
+          </SendEmailResult>
+          <ResponseMetadata>
+            <RequestId>b10c912c-89c0-4270-93da-f05c6244846f</RequestId>
+          </ResponseMetadata>
+        </SendEmailResponse>
+    http_version: 
+  recorded_at: Thu, 03 Oct 2019 20:34:46 GMT
+recorded_with: VCR 5.0.0
