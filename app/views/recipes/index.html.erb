@@ -8,7 +8,11 @@
     <ul class="ingredients">
       <% recipe.ingredients.each do |ingredient| %>
       <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(recipe.id, ingredient.id) %>
-        <li class="name"><%= "#{recipe_ingredient.measurement} #{recipe_ingredient.measurement_type} #{ingredient.name}" %></li>
+        <% if recipe_ingredient.quantity > 1 %>
+          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></li>
+          <% else %>
+          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></li>
+        <% end %>
       <% end %>
     </ul>
     <% end %>
