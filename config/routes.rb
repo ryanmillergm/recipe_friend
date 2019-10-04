@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   root 'home#index'
 
   resources :users, only: [:create, :new, :update, :edit, :show] do
