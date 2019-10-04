@@ -28,4 +28,11 @@ module ApplicationHelper
     ]
 
   end
+
+  def ingredient_type
+    [
+      ['spice'],
+      ['vegetable']
+    ]
+  end
 end
