@@ -11,7 +11,7 @@ RSpec.describe 'As a user' do
 
     fill_in 'recipe[title]', with: "Spaghetti"
     fill_in 'recipe[description]', with: "This is a recipe for spaghetti"
-    select 'pasta', from: :food_type_list
+    select 'American', from: :recipe_type_list
 
     click_on 'Add Ingredients'
 
