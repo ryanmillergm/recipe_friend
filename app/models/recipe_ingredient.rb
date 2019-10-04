@@ -1,4 +1,7 @@
 class RecipeIngredient < ApplicationRecord
+  enum measurement_type: [:volume, :weight, :each]
+  enum measurement: [:ounce, :cup, :pint, :quart, :gallon]
+
   validates_presence_of :measurement_type
   validates_presence_of :measurement
   validates_presence_of :quantity
