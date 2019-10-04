@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :recipes, only: [:index, :new, :create, :destroy, :edit, :show]
+  resources :recipes, only: [:index, :show]
   resources :dashboard, only: [:index]
+  resources :ingredients, only: [:create, :new, :edit, :update, :destroy]
+
+  resources :users do
+    resources :recipes, only: [:create, :new, :edit, :update, :destroy]
+  end
 end
