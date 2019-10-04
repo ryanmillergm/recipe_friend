@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
   root 'home#index'
 
   resources :users, only: [:create, :new, :update, :edit, :show] do
@@ -10,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, only: [:index, :new, :create, :destroy, :edit, :show]
+  resources :dashboard, only: [:index]
 end

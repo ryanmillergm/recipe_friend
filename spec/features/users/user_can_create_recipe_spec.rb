@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'As a user' do
   it 'I can add a new recipe' do
 
-    visit dashboard_path
+    visit dashboard_index_path
 
     click_on 'Add Recipe'
 
