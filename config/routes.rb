@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :recipes, only: [:index]
+  resources :recipes, only: [:index, :new, :create, :destroy, :edit, :show]
 end
