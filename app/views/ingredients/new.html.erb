@@ -1,0 +1,28 @@
+
+<br>
+  <div class="new-recipe">
+    <h3> <%= @recipe.title %> </h3>
+    <p>Ingredients: </p>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <div>
+        <%= ingredient.name %>
+      </div>
+    <% end %>
+    <br>
+    <h5>Add Ingredients</h5>
+    <section>
+      <%= form_for @ingredient do |form| %>
+      <div>
+        <div>
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+        <div>
+          <%= label_tag :recipe_type, "Ingredient Type" %>
+          <%= select_tag :ingredient_type, options_for_select(ingredient_type) %>
+        </div>
+      <%= form.submit 'Add Ingredient' %>
+      <% end %>
+  </section>
+  </div>
+</div>
