@@ -16,4 +16,16 @@ module ApplicationHelper
       ['Gallon'],
     ]
   end
+
+  def recipe_type
+    [
+      ['American'],
+      ['Indian'],
+      ['Asian'],
+      ['Vegan'],
+      ['Vegetarian'],
+      ['Just good old food']
+    ]
+
+  end
 end
