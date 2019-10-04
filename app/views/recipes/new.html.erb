@@ -3,7 +3,7 @@
   <div class="new-recipe">
     <h4>Create a Recipe</h4>
     <section>
-      <%= form_for @recipe do |form| %>
+      <%= form_for [@user, @recipe] do |form| %>
       <div>
         <%= form.label :title %>
         <%= form.text_field :title %>
@@ -13,7 +13,7 @@
         <%= form.text_field :description %>
       </div>
       <div>
-        <%= label_tag :dead_man_switch, "Timer Interval" %>
+        <%= label_tag :recipe_type, "Recipe Type" %>
         <%= select_tag :recipe_type, options_for_select(recipe_type) %>
       </div>
       <%= form.submit 'Create Recipe' %>
