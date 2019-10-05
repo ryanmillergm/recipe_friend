@@ -45,6 +45,29 @@ RSpec.describe 'as a visitor' do
     end
   end
 
+  it 'I click the registration link in email with valid confirmation token' do
+    user = create(:user)
+    user.update(confirm_token: 'GbnhJzPxJR5f3uCJVJKQgA')
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit confirm_email_user_path(id: 'GbnhJzPxJR5f3uCJVJKQgA')
+
+    expect(page).to have_content('Thanks for confirming your email address! You now have full access.')
+  end
+
+  it 'I click the registration link in email with invalid confirmation token' do
+    user = create(:user)
+    user.update(confirm_token: 'GbnhJzPxJR5f3uCJVJKQgA')
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit confirm_email_user_path(id: 'fake_token')
+
+    expect(page).to have_content('Sorry, User does not exist')
+  end
+
+
   it 'I cannot register without required fields' do
     visit new_user_path
 
