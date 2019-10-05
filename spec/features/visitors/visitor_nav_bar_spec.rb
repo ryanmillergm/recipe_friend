@@ -6,10 +6,11 @@ describe 'Navigation Requests Spec' do
     it 'should show the navigation on the home page' do
       visit root_path
 
-      page.should have_link('Home')
-      page.should have_link('Dashboard')
-      page.should have_link('Favorites')
-      page.should have_link('Log in')
+      expect(page).to have_link('Home')
+      expect(page).to_not have_link('Dashboard')
+      expect(page).to_not have_link('Favorites')
+      expect(page).to_not have_link('Log out')
+      expect(page).to have_link('Log in')
     end
   end
 end
