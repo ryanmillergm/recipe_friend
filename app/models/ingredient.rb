@@ -1,4 +1,6 @@
 class Ingredient < ApplicationRecord
+  enum ingredient_type: [ :herb, :fruit, :liquid, :protein, :spice, :vegetable ]
+
   validates_presence_of :name
   validates_presence_of :ingredient_type
 

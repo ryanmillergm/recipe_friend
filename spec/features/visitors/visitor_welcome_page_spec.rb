@@ -24,7 +24,7 @@ RSpec.describe 'As a visitor' do
     it 'I see a recipe search bar' do
       visit root_path
 
-      fill_in "q", with: "spaghetti"
+      # fill_in "q", with: "spaghetti"
 
       click_on "Search Recipes"
 

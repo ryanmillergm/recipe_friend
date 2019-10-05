@@ -1,0 +1,23 @@
+
+<br>
+  <div class="new-recipe">
+    <h4>Create a Recipe</h4>
+    <section>
+      <%= form_for [@user, @recipe] do |form| %>
+      <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+      <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+      </div>
+      <div>
+        <%= label_tag :recipe_type, "Recipe Type" %>
+        <%= select_tag :recipe_type, options_for_select(recipe_type) %>
+      </div>
+      <%= form.submit 'Create Recipe' %>
+      <% end %>
+  </section>
+  </div>
+</div>

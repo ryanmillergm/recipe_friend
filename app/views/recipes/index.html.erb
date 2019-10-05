@@ -1,13 +1,18 @@
 <h1>Recipes</h1>
 <div>
-  <p>Results: <%= @recipe_results.count %></p>
+  <p>Results: <%= @recipes.count %></p>
   <ul class="recipe-results">
-  <% @recipe_results.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <li class="title"><%= recipe.title %></li>
     <li class="description"><%= recipe.description %></li>
     <ul class="ingredients">
       <% recipe.ingredients.each do |ingredient| %>
-        <li class="name"><%= ingredient.name %></li>
+      <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(recipe.id, ingredient.id) %>
+        <% if recipe_ingredient.quantity > 1 %>
+          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></li>
+          <% else %>
+          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></li>
+        <% end %>
       <% end %>
     </ul>
     <% end %>

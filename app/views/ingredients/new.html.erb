@@ -1,0 +1,42 @@
+
+<br>
+  <div class="new-recipe">
+    <h3> <%= @recipe.title %> </h3>
+    <p>Ingredients: </p>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <div>
+        <%= ingredient.name %>
+      </div>
+    <% end %>
+    <br>
+    <h5>Add Ingredients</h5>
+    <section>
+      <%= form_for @ingredient do |form| %>
+      <div>
+        <div>
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+        <div>
+          <%= label_tag :recipe_type, "Ingredient Type" %>
+          <%= select_tag :ingredient_type, options_for_select(ingredient_type) %>
+        </div>
+        <%= form.fields_for :recipe_ingredients do |recipe_ingredient| %>
+          <div>
+            <%= label_tag :recipe_type, "Measurement Type" %>
+            <%= select_tag :measurement_type, options_for_select(measurement_type) %>
+          </div>
+          <div>
+            <%= label_tag :recipe_type, "Measurement" %>
+            <%= select_tag :measurement, options_for_select(measurement) %>
+          </div>
+          <div>
+            <%= recipe_ingredient.label :quantity %>
+            <%= recipe_ingredient.number_field :quantity, step: 0.25 %>
+          </div>
+        <% end %>
+      <%= form.submit 'Add Ingredient' %>
+      <% end %>
+  </section>
+  </div>
+</div>
