@@ -9,7 +9,7 @@ RSpec.describe 'As a visitor' do
   end
 
   it 'I cannot visit my favorites page' do
-    visit(favorites_index_path)
+    visit(favorites_path)
 
     expect(current_path).to eq(new_session_path)
     expect(page).to have_content('You must log in or register to become a member')
