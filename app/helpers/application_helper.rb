@@ -7,7 +7,37 @@ module ApplicationHelper
     ]
   end
 
+  def measurement_volume
+    [
+      ['fluid Ounce'],
+      ['cup'],
+      ['pint'],
+      ['quart'],
+      ['gallon'],
+    ]
+  end
+
   def measurement
+    [
+      ['fluid Ounce'],
+      ['cup'],
+      ['pint'],
+      ['quart'],
+      ['gallon'],
+    ]
+  end
+
+  def measurement_weight
+    [
+      ['fluid Ounce'],
+      ['cup'],
+      ['pint'],
+      ['quart'],
+      ['gallon'],
+    ]
+  end
+
+  def measurement_each
     [
       ['fluid Ounce'],
       ['cup'],
@@ -31,6 +61,10 @@ module ApplicationHelper
 
   def ingredient_type
     [
+      ['herb'],
+      ['fruit'],
+      ['liquid'],
+      ['protein'],
       ['spice'],
       ['vegetable']
     ]
