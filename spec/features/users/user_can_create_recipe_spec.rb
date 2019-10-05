@@ -4,8 +4,6 @@ RSpec.describe 'As a user' do
   it 'I can add a new recipe' do
     user = create(:user)
 
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
     visit root_path
 
     click_on 'Log in'
