@@ -13,34 +13,36 @@ RSpec.describe 'as a visitor' do
   end
 
   it 'I can register and create account' do
-    visit root_path
+    VCR.use_cassette('email_verification_when_registering') do
+      visit root_path
 
-    click_on 'Log in'
+      click_on 'Log in'
 
-    expect(current_path).to eq(new_session_path)
+      expect(current_path).to eq(new_session_path)
 
-    click_on 'Click here to create an account'
+      click_on 'Click here to create an account'
 
-    expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq(new_user_path)
 
-    fill_in 'user[first_name]', with: @first_name
-    fill_in 'user[last_name]', with: @last_name
-    fill_in 'user[username]', with: @username
-    fill_in 'user[password]', with: @password
-    fill_in 'user[password_confirmation]', with: @password
-    fill_in 'user[email]', with: @email
-    fill_in 'user[avatar]', with: @avatar
-    fill_in 'user[about]', with: @about
-    fill_in 'user[telephone]', with: @telephone
+      fill_in 'user[first_name]', with: @first_name
+      fill_in 'user[last_name]', with: @last_name
+      fill_in 'user[username]', with: @username
+      fill_in 'user[password]', with: @password
+      fill_in 'user[password_confirmation]', with: @password
+      fill_in 'user[email]', with: @email
+      fill_in 'user[avatar]', with: @avatar
+      fill_in 'user[about]', with: @about
+      fill_in 'user[telephone]', with: @telephone
 
-    click_on 'Create Account'
+      click_on 'Create Account'
 
-    user = User.last
+      user = User.last
 
-    expect(current_path).to eq(user_path(user.id))
-    expect(page).to have_content("Logged in as #{user.username}")
-    expect(page).to have_content('A confirmation email has been sent. To gain full access, please confirm your email. Thanks!')
-    expect(page).to_not have_content('Sign In')
+      expect(current_path).to eq(user_path(user.id))
+      expect(page).to have_content("Logged in as #{user.username}")
+      expect(page).to have_content('A confirmation email has been sent. To gain full access, please confirm your email. Thanks!')
+      expect(page).to_not have_content('Sign In')
+    end
   end
 
   it 'I cannot register without required fields' do
