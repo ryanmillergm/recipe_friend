@@ -29,7 +29,7 @@ RSpec.describe 'As a visitor' do
       click_on "Search Recipes"
 
       expect(current_path).to eq('/recipes')
-      save_and_open_page
+
       within(first('.recipe-results')) do
         expect(page).to have_css(".title")
         expect(page).to have_css(".description")
