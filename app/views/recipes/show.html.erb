@@ -1,0 +1,20 @@
+<h1><%= @recipe.title %></h1>
+<div>
+  <section class="description">
+    <%=  @recipe.description%>
+    <br>
+    <br>
+    <div class="ingredients">
+      <p>Ingredients:</p>
+      <ul class="ingredient"><% @recipe.ingredients.each do |ingredient| %>
+        <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(@recipe.id, ingredient.id) %>
+          <% if recipe_ingredient.quantity > 1 %>
+            <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></li>
+            <% else %>
+            <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+</div>

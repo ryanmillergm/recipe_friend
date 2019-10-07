@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :steps
 
-  def self.get_recipe_results(search_params)
+  def self.get_recipes(search_params)
     Recipe.where("title LIKE ?", "%#{search_params[:q].downcase.titleize}%").includes(:recipe_ingredients, :ingredients)
   end
 end
