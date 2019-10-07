@@ -1,12 +1,16 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.get_recipe_results(search_params)
-    @recipes_facade = RecipeFacade.new(@recipes)
+    @recipes = Recipe.get_recipes(search_params)
   end
 
   def new
     @user = current_user
     @recipe = Recipe.new
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+    @recipes_facade = RecipeFacade.new(@recipes)
   end
 
   def create
