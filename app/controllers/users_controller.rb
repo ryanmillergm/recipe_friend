@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
+      flash[:message] = 'Thanks for confirming your email address! You now have full access.'
       redirect_to user_path(user.id)
     else
       flash[:error] = 'Sorry, User does not exist'
