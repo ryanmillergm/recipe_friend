@@ -15,7 +15,7 @@ RSpec.describe 'As a visitor' do
       @ri3 = create(:recipe_ingredient, recipe_id: @recipe1.id, ingredient_id: @ingredients3.id)
       @user2 = User.create(first_name: "ryan", last_name: "miller", username: "rm", password: "password", email: "rm@gmail.com", role: 0)
     end
-    
+
     it 'I see a nav bar with a login' do
       visit root_path
 
@@ -32,10 +32,6 @@ RSpec.describe 'As a visitor' do
       within(first('.recipe-results')) do
         expect(page).to have_css(".title")
         expect(page).to have_css(".description")
-      end
-
-      within(first('.ingredients')) do
-        expect(page).to have_css(".name")
       end
     end
   end
