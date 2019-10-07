@@ -3,13 +3,11 @@
   <div class="new-recipe">
     <h4>Create a Recipe</h4>
     <section>
-      <%= form_for [@user, @recipe] do |form| %>
+      <%= bootstrap_form_for [@user, @recipe] do |form| %>
       <div>
-        <%= form.label :title %>
         <%= form.text_field :title %>
       </div>
       <div>
-        <%= form.label :description %>
         <%= form.text_field :description %>
       </div>
       <div>
