@@ -2,20 +2,17 @@
 <div>
   <p>Results: <%= @recipes.count %></p>
   <ul class="recipe-results">
-  <% @recipes.each do |recipe| %>
-    <li class="title"><%= link_to recipe.title, recipe_path(recipe.id) %></li>
-    <ul class="description">
-      <li><%= link_to recipe.description, recipe_path(recipe.id) %></li>
-    </ul>
-    <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
-      <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(recipe.id, ingredient.id) %>
-        <% if recipe_ingredient.quantity > 1 %>
-          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></li>
-          <% else %>
-          <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></li>
+  <% @recipes.each_with_index do |recipe, i| %>
+    <section id="recipe-<% i + 1 %>">
+      <li class="title"><%= link_to recipe.title, recipe_path(recipe.id) %></li>
+      <ul class="description">
+        <li><%= link_to recipe.description, recipe_path(recipe.id) %></li>
+      </ul>
+      <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
         <% end %>
-      <% end %>
-    </ul>
-    <% end %>
+      </ul>
+    </section>
+    <br>
+  <% end %>
   </ul>
 </div>
