@@ -22,22 +22,18 @@ RSpec.describe 'As a visitor' do
 
     click_on "Search Recipes"
 
-    # save_and_open_page
-
     expect(current_path).to eq('/recipes')
 
     within('.recipe-1')
 
-    click_on 'recipe-1'
+    click_on @recipe1.title
 
     expect(current_path).to eq(recipe_path(@recipe1.id))
 
-    within(first('.recipe-results')) do
-      expect(page).to have_css(".title")
-      expect(page).to have_css(".description")
-    end
+    expect(page).to have_content(@recipe1.title)
+    expect(page).to have_css(".description")
 
-    within(first('.ingredients')) do
+    within(first('.ingredient')) do
       expect(page).to have_css(".name")
     end
   end
