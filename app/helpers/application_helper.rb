@@ -50,8 +50,10 @@ module ApplicationHelper
   def recipe_type
     [
       ['American'],
-      ['Indian'],
       ['Asian'],
+      ['Indian'],
+      ['Italian'],
+      ['Mexican'],
       ['Vegan'],
       ['Vegetarian'],
       ['Just good old food']
