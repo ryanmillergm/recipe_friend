@@ -11,9 +11,10 @@
     <br>
     <h5>Add Ingredients</h5>
     <section>
-      <%= bootstrap_form_for @ingredient do |form| %>
+      <%= form_for @ingredient do |form| %>
       <div>
         <div>
+          <%= form.label :name %>
           <%= form.text_field :name %>
         </div>
         <div>
@@ -30,6 +31,7 @@
             <%= select_tag :measurement, options_for_select(measurement) %>
           </div>
           <div>
+            <%= recipe_ingredient.label :quantity %>
             <%= recipe_ingredient.number_field :quantity, step: 0.25 %>
           </div>
         <% end %>

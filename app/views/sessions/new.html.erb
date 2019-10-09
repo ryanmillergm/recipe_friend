@@ -4,11 +4,13 @@
   <div>
     <h4>Log In</h4>
     <section>
-      <%= bootstrap_form_for :session, url: sessions_path do |f| %>
+      <%= form_for :session, url: sessions_path do |f| %>
       <div>
+        <%= f.label :email %>
         <%= f.email_field :email %>
       </div>
       <div>
+        <%= f.label :password %>
         <%= f.password_field :password %>
       </div>
       <%= f.submit 'Log In' %>
