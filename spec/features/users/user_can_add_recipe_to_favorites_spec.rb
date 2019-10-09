@@ -25,7 +25,7 @@ RSpec.describe 'As a user' do
     click_on 'Search Recipes'
 
     expect(current_path).to eq('/recipes')
-    # save_and_open_page
+
     click_on "#{@recipe1.title}"
 
     expect(current_path).to eq("/recipes/#{@recipe1.id}")
