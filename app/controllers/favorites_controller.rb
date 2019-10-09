@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @user = current_user
     check_logged_in
+    
   end
 
   private
