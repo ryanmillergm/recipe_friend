@@ -1,2 +1,9 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<br>
+<h1>Favorites</h1>
+<br>
+<br>
+<% @favorites.each do |favorite_recipe| %>
+  <div>
+    <li><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></li>
+  </div>
+<% end %>
