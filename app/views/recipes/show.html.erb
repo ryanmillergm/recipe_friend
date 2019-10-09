@@ -15,10 +15,12 @@
           <% end %>
         <% end %>
       </ul>
-      <% if @recipes_facade.recipe_favorited?(@recipe.id, @user.id).nil? %>
-        <%= link_to 'Add to Favorites', favorites_path(@recipe), method: :post %>
-      <% else %>
-        <%= link_to 'Remove from my Favorites', favorite_path(@recipe), method: :delete %>
+      <% if current_user %>
+        <% if @recipes_facade.recipe_favorited?(@recipe.id, @user.id).nil? %>
+          <%= link_to 'Add to Favorites', favorites_path(@recipe), method: :post %>
+        <% else %>
+          <%= link_to 'Remove from my Favorites', favorite_path(@recipe), method: :delete %>
+        <% end %>
       <% end %>
     </div>
   </section>
