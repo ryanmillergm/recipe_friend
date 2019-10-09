@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :telephone, presence: true, uniqueness: true
   validates_presence_of :password, on: :create
 
+  has_many :favorites
   has_and_belongs_to_many :friends,
                         class_name: 'User',
                         join_table: :friends,
