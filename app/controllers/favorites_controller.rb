@@ -8,7 +8,17 @@ class FavoritesController < ApplicationController
     @user = current_user
     @recipe = Recipe.find(params[:format].to_i)
     @favorite = Favorite.create(favorite_params(@user, @recipe))
-    flash[:message] = "#{@recipe.title} has been added to your favorites!"
+    flash[:success] = "#{@recipe.title} has been added to your favorites!"
+    redirect_to recipe_path(@recipe.id)
+  end
+
+  def destroy
+    # binding.pry
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    @favorite = Favorite.where(user_id: @user.id).find_by(recipe_id: @recipe.id)
+    @favorite.destroy
+    flash[:success] = "#{@recipe.title} has been removed from your favorites!"
     redirect_to recipe_path(@recipe.id)
   end
 
