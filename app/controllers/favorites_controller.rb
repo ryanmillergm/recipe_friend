@@ -1,7 +1,12 @@
 class FavoritesController < ApplicationController
   def index
-    @user = current_user
-    check_logged_in
+    if current_user
+      @user = current_user
+      @favorites = Favorite.where(user_id: @user.id)
+    else
+      flash[:message] = 'You must log in or register to become a member'
+      redirect_to new_session_path
+    end
   end
 
   def create
@@ -13,7 +18,6 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @user = current_user
     @recipe = Recipe.find(params[:id])
     @favorite = Favorite.where(user_id: @user.id).find_by(recipe_id: @recipe.id)
@@ -24,15 +28,9 @@ class FavoritesController < ApplicationController
 
   private
 
-  def check_logged_in
-    if current_user.nil?
-      flash[:message] = 'You must log in or register to become a member'
-      redirect_to new_session_path
-    end
-  end
-
   def favorite_params(user, recipe)
     fav_params = {
+      title: recipe.title,
       user_id: user.id,
       recipe_id: recipe.id
     }
