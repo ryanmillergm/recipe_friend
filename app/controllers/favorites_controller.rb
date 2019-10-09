@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   def create
     @user = current_user
     @recipe = Recipe.find(params[:format].to_i)
-    @favorite = Favorite.create(favorite_params(@user, @recipe))
+    @favorite = Favorite.find_or_create_by(favorite_params(@user, @recipe))
     flash[:success] = "#{@recipe.title} has been added to your favorites!"
     redirect_to recipe_path(@recipe.id)
   end
