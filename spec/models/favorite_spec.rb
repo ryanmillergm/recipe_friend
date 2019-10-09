@@ -8,6 +8,6 @@ RSpec.describe Favorite, type: :model do
 
   describe 'relationships' do
     it { should belong_to :user }
-    it { should have_many :recipes }
+    it { should belong_to :recipe }
   end
 end
