@@ -1,0 +1,43 @@
+<!-- app/views/layouts/_nav.html.erb -->
+  <nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-light" id="nav">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'About Me', root_path, class: 'nav-link' %>
+          </span>
+        </li>
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'My Recipes', root_path, class: 'nav-link' %>
+          </span>
+        </li>
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'Friends', root_path, class: 'nav-link' %>
+          </span>
+        </li>
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'My Reviews', root_path, class: 'nav-link' %>
+          </span>
+        </li>
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'My Photos', root_path, class: 'nav-link' %>
+          </span>
+        </li>
+        <li class="nav-item active">
+          <span class="navbar-text">
+            <%= link_to 'Add Recipe', new_user_recipe_path(@user.id), class: 'nav-link' %>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </nav>
