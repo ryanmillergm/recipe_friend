@@ -170,9 +170,7 @@ RSpec.describe 'As a user' do
     select 'cup', from: :measurement
 
     click_on 'Add Ingredient'
-    save_and_open_page
 
-    # expect(current_path).to eq(new_ingredient_path)
-    # expect(page).to have_content("Quantity can't be blank")
+    expect(page).to have_content("Quantity can't be blank")
   end
 end
