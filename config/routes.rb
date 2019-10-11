@@ -9,11 +9,15 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, only: [:index, :show]
-  resources :dashboard, only: [:index]
+  # resources :dashboard, only: [:index]
   resources :ingredients, only: [:create, :new, :edit, :update, :destroy]
   resources :favorites, only: [:index, :create, :destroy]
 
   resources :users do
     resources :recipes, only: [:create, :new, :edit, :update, :destroy]
+  end
+
+  namespace :dashboard do
+    get '/', to: 'dashboard#index'
   end
 end
