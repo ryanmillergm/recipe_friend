@@ -4,7 +4,7 @@ This project is for users to find, add, share and convert recipes. Greate for re
 
 This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **comments**, **grocery_list**, **friends** and **groups**. All responses are JSON.
 
-The app is deployed at https://somewhere.com.
+The app is deployed at http://recipehound.km6rdxpp4h.us-west-2.elasticbeanstalk.com/.
 
 View the project board at https://github.com/ryanmillergm/recipe_friend/projects/1
 
