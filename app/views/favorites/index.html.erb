@@ -4,6 +4,6 @@
 <br>
 <% @favorites.each do |favorite_recipe| %>
   <div>
-    <li><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></li>
+    <ul><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></ul>
   </div>
 <% end %>
