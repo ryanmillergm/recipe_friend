@@ -11,8 +11,6 @@ class IngredientsController < ApplicationController
     if @ingredient.save
       @ingredient.update(ingredient_type: params[:ingredient_type])
       create_recipe_ingredient(@recipe, @ingredient)
-      # flash[:message] = "Your ingredient has been added to #{@recipe.title}"
-      # redirect_to new_ingredient_path
     else
       flash[:error] = @ingredient.errors.full_messages
       render :new
