@@ -1,2 +1,10 @@
   <%= render '/dashboard/dashboard/dash_nav' %>
   <br>
+  <div class="fav-dashboard">
+    <h3><%= link_to 'Favorites', favorites_path, class: 'nav-link' %></h3>
+      <% @favorites_facade.favorites.each do |favorite_recipe| %>
+        <div>
+          <ul><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></ul>
+        </div>
+      <% end %>
+  </div>
