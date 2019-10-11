@@ -7,34 +7,34 @@
 
     <div class="collapse navbar-collapse" id="navbarText">
 
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item active">
-          <span class="navbar-text">
+          <span class="navbar-text" id="nav-about">
             <%= link_to 'About Me', root_path, class: 'nav-link' %>
           </span>
         </li>
         <li class="nav-item active">
-          <span class="navbar-text">
+          <span class="navbar-text" id="nav-recipes">
             <%= link_to 'My Recipes', root_path, class: 'nav-link' %>
           </span>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active", id="nav-friends">
           <span class="navbar-text">
             <%= link_to 'Friends', root_path, class: 'nav-link' %>
           </span>
         </li>
         <li class="nav-item active">
-          <span class="navbar-text">
+          <span class="navbar-text" id="nav-reviews">
             <%= link_to 'My Reviews', root_path, class: 'nav-link' %>
           </span>
         </li>
         <li class="nav-item active">
-          <span class="navbar-text">
+          <span class="navbar-text" id="nav-photos">
             <%= link_to 'My Photos', root_path, class: 'nav-link' %>
           </span>
         </li>
         <li class="nav-item active">
-          <span class="navbar-text">
+          <span class="navbar-text" id="nav-add-recipe">
             <%= link_to 'Add Recipe', new_user_recipe_path(@user.id), class: 'nav-link' %>
           </span>
         </li>
