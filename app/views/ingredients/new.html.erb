@@ -15,27 +15,27 @@
       <div>
         <div>
           <%= form.label :name %>
-          <%= form.text_field :name %>
+          <%= form.text_field :name, class: "form-control" %>
         </div>
         <div>
           <%= label_tag :recipe_type, "Ingredient Type" %>
-          <%= select_tag :ingredient_type, options_for_select(ingredient_type) %>
+          <%= select_tag :ingredient_type, options_for_select(ingredient_type), class: "form-control" %>
         </div>
         <%= form.fields_for :recipe_ingredients do |recipe_ingredient| %>
           <div>
             <%= label_tag :recipe_type, "Measurement Type" %>
-            <%= select_tag :measurement_type, options_for_select(measurement_type) %>
+            <%= select_tag :measurement_type, options_for_select(measurement_type), class: "form-control" %>
           </div>
           <div>
             <%= label_tag :recipe_type, "Measurement" %>
-            <%= select_tag :measurement, options_for_select(measurement) %>
+            <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
           </div>
           <div>
             <%= recipe_ingredient.label :quantity %>
-            <%= recipe_ingredient.number_field :quantity, step: 0.25 %>
+            <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
           </div>
         <% end %>
-      <%= form.submit 'Add Ingredient' %>
+      <%= form.submit 'Add Ingredient', class: "btn btn-primary" %>
       <% end %>
   </section>
   </div>
