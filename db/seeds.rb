@@ -28,6 +28,10 @@
 @recipe2 = Recipe.create(title: "Chicken Noodle Soup", description: "This recipe is for chicken noodle soup", recipe_type: 2, user_id: @user1.id)
 @recipe3 = Recipe.create(title: "Fresh Lasagna pasta", description: "This recipe is for lasagna noodles", recipe_type: 3, user_id: @user1.id)
 
+@recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
+@recipe2.image.attach(io: File.open('app/assets/images/chicken-noodle-soup.jpg'), filename: 'chicken-noodle-soup.jpg', content_type: "image/jpeg")
+@recipe3.image.attach(io: File.open('app/assets/images/homemade-pasta-lasagna-sheet.jpg'), filename: 'homemade-pasta-lasagna-sheet.jpg', content_type: "image/jpeg")
+
 @step1 = Step.create(step: "Add all ingredients together and mix", recipe_id: @recipe1.id)
 @step2 = Step.create(step: "Add all ingredients together and mix", recipe_id: @recipe2.id)
 @step3 = Step.create(step: "Add all ingredients together and mix", recipe_id: @recipe3.id)
