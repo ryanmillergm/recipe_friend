@@ -15,6 +15,9 @@ RSpec.describe 'As a user' do
       @fav1 = create(:favorite, user_id: @user1.id, recipe_id: @recipe1.id)
       @fav2 = create(:favorite, user_id: @user1.id, recipe_id: @recipe2.id)
       @fav3 = create(:favorite, user_id: @user1.id, recipe_id: @recipe3.id)
+      @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
+      @recipe2.image.attach(io: File.open('app/assets/images/chicken-noodle-soup.jpg'), filename: 'chicken-noodle-soup.jpg', content_type: "image/jpeg") 
+      @recipe3.image.attach(io: File.open('app/assets/images/homemade-pasta-lasagna-sheet.jpg'), filename: 'homemade-pasta-lasagna-sheet.jpg', content_type: "image/jpeg")
     end
 
     it 'I see a section showing a list of 4 of my favorites' do

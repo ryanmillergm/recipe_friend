@@ -6,6 +6,7 @@ RSpec.describe 'As a user' do
     @ingredients1 = create(:ingredient)
     @recipe1 = create(:recipe, user_id: @user1.id)
     @ri1 = create(:recipe_ingredient, recipe_id: @recipe1.id, ingredient_id: @ingredients1.id)
+    @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
   end
   it 'I can add a recipe I like to my favorites from show page' do
     visit root_path
