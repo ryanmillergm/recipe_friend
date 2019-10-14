@@ -74,5 +74,5 @@ Rails.application.configure do
     Bullet.rails_logger = true
   end
 
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 end
