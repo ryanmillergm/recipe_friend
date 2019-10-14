@@ -6,6 +6,7 @@ gem "active_model_serializers"
 gem 'figaro'
 gem 'faraday'
 gem 'aws-sdk'
+gem "aws-sdk-s3", require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
