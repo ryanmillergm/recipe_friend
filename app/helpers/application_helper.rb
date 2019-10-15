@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def measurement_volume
     [
-      ['fluid Ounce'],
+      ['fluid ounce'],
       ['cup'],
       ['pint'],
       ['quart'],
@@ -19,7 +19,7 @@ module ApplicationHelper
 
   def measurement
     [
-      ['fluid Ounce'],
+      ['ounce'],
       ['cup'],
       ['pint'],
       ['quart'],
