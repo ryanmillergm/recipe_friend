@@ -1,0 +1,16 @@
+<%= render '/dashboard/dashboard/dash_nav' %>
+<br>
+<h1>My Recipes</h1>
+<div>
+  <ul class="my-recipe-results">
+  <% @my_recipes.each_with_index do |recipe, i| %>
+    <section id="recipe-<% i + 1 %>">
+      <li class="title"><%= link_to recipe.title, dashboard_my_recipe_path(recipe.id) %></li>
+      <ul class="description">
+        <li><%= link_to recipe.description, dashboard_my_recipe_path(recipe.id) %></li>
+      </ul>
+    </section>
+    <br>
+  <% end %>
+  </ul>
+</div>
