@@ -1,11 +1,9 @@
-class Dashboard::MyRecipesController < ApplicationController
+class Dashboard::MyRecipesController < Dashboard::BaseController
   def index
-    if current_user
-      @user = current_user
-      @my_recipes = Recipe.my_recipes(@user.id)
-    else
-      flash[:message] = 'You must log in or register to become a member'
-      redirect_to new_session_path
-    end
+    @my_recipes = Recipe.my_recipes(@user.id)
+  end
+
+  def show
+    @user = current_user
   end
 end
