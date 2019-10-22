@@ -17,6 +17,8 @@ RSpec.describe 'As a user' do
   end
 
   it 'I can visit and see my recipes' do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
     visit dashboard_path
 
     click_on 'My Recipes'
