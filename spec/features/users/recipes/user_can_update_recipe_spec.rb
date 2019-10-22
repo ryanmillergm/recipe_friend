@@ -10,9 +10,20 @@ RSpec.describe 'As a user' do
   end
 
   it 'I can update a recipe' do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+    visit root_path
 
-    visit dashboard_my_recipes_path
+    click_on 'Log in'
+
+    expect(current_path).to eq(new_session_path)
+
+    fill_in 'session[email]', with: @user1.email
+    fill_in 'session[password]', with: @user1.password
+
+    click_on 'Log In'
+
+    click_on 'Dashboard'
+
+    click_on 'My Recipes'
 
     within(first('.my-recipe-results')) do
       click_on "#{@recipe1.title}"
@@ -20,13 +31,14 @@ RSpec.describe 'As a user' do
 
     click_on 'Edit Recipe'
 
-    expect(current_path).to eq(edit_user_recipe_path(@recipe1.id))
+    # expect(current_path).to eq(edit_user_recipe_path(@recipe1.id))
 
     fill_in 'recipe[title]', with: "Spaghetti and Meatballs"
     fill_in 'recipe[description]', with: "This is a recipe for spaghetti with meatballs"
-    select 'American', from: :recipe_type
+    select 'Italian', from: :recipe_type
 
-    click_on 'Create Recipe'
+    click_on 'Update Recipe'
+    save_and_open_page
 
     expect(current_path).to eq(edit_ingredient_path(@ingredients1.id))
 
