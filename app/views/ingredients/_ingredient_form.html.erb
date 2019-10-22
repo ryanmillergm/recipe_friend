@@ -1,0 +1,54 @@
+
+<br>
+  <h3> <%= @recipe.title %> </h3>
+  <p>Ingredients: </p>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <div class="ingredient">
+      <div class="detail-section">
+        <div class="detail">
+          <h5 class="ingredient-name"><%= ingredient.name %></h5>
+        </div>
+        <div class="detail">
+          <%= link_to 'Edit', edit_ingredient_path(ingredient.id)  %>
+        </div>
+        <div class="detail">
+          <%= link_to 'Delete', ingredient_path, method: :destroy, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <h5>Update: <%= @ingredient.name %></h5>
+  <section>
+    <%= form_for @ingredient do |f| %>
+    <div>
+      <div>
+        <%= f.hidden_field :recipe_id, value: @recipe.id %>
+      </div>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div>
+        <%= label_tag :recipe_type, "Ingredient Type" %>
+        <%= select_tag :ingredient_type, options_for_select(ingredient_type), class: "form-control" %>
+      </div>
+      <% recipe_ingredients = @recipes_facade.get_recipe_ingredients(@recipe.id, @ingredient.id) %>
+      <%= f.fields_for recipe_ingredients do |recipe_ingredient| %>
+        <div>
+          <%= label_tag :recipe_type, "Measurement Type" %>
+          <%= select_tag :measurement_type, options_for_select(measurement_type), class: "form-control" %>
+        </div>
+        <div>
+          <%= label_tag :recipe_type, "Measurement" %>
+          <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
+        </div>
+        <div>
+          <%= recipe_ingredient.label :quantity %>
+          <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
+        </div>
+      <% end %>
+    <%= f.submit 'Update Ingredient', class: "btn btn-primary" %>
+    <% end %>
+  </section>
+</div>
