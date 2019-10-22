@@ -33,6 +33,17 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    if @recipe.save
+      redirect_to edit_ingredient_path(@recipe.id)
+    else
+      flash[:error] = @recipe.errors.full_messages
+      render :new
+    end
+  end
+
   private
 
   def search_params
