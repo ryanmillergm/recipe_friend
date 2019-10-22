@@ -17,6 +17,27 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    @ingredient = @recipe.ingredients.first
+    @recipes_facade = RecipeFacade.new(@recipe)
+    # @ingredients = Recipe.find(params[:id]).ingredients
+  end
+
+  def update
+    @recipe = Recipe.find(params[:ingredient][:recipe_id])
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.update(ingredient_params)
+    if @ingredient.save
+      @ingredient.update(ingredient_type: params[:ingredient_type])
+      update_recipe_ingredient(@recipe, @ingredient)
+    else
+      flash[:error] = @ingredient.errors.full_messages
+      render :new
+    end
+  end
+
   private
 
   def ingredient_params
@@ -29,7 +50,6 @@ class IngredientsController < ApplicationController
   def create_recipe_ingredient(recipe, ingredient)
     @recipe_ingredient = RecipeIngredient.new(recipe_ingredients_params(recipe, ingredient))
     if @recipe_ingredient.save
-      # @recipe_ingredient
       flash[:message] = "Your ingredient has been added to #{@recipe.title}"
       redirect_to new_ingredient_path
     else
@@ -46,5 +66,17 @@ class IngredientsController < ApplicationController
       ingredient_id: ingredient.id,
       recipe_id: recipe.id
     }
+  end
+
+  def update_recipe_ingredient(recipe, ingredient)
+    @recipe_ingredient = RecipeIngredient.find_by(recipe_id: recipe.id)
+    binding.pry
+    if @recipe_ingredient.save
+      flash[:message] = "Your ingredient has been added to #{@recipe.title}"
+      redirect_to new_ingredient_path
+    else
+      flash[:error] = @recipe_ingredient.errors.full_messages
+      render :new
+    end
   end
 end
