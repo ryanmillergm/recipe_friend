@@ -9,7 +9,7 @@ RSpec.describe 'As a user' do
     @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
   end
 
-  xit 'I can update a recipe' do
+  it 'I can update a recipe' do
     visit root_path
 
     click_on 'Log in'
@@ -31,15 +31,13 @@ RSpec.describe 'As a user' do
 
     click_on 'Edit Recipe'
 
-    # expect(current_path).to eq(edit_user_recipe_path(@recipe1.id))
-
     fill_in 'recipe[title]', with: "Spaghetti and Meatballs"
     fill_in 'recipe[description]', with: "This is a recipe for spaghetti with meatballs"
     select 'Italian', from: :recipe_type
 
     click_on 'Update Recipe'
 
-    expect(current_path).to eq(edit_ingredient_path(@ingredients1.id))
+    expect(current_path).to eq(edit_ingredient_path(@recipe1.id))
 
     fill_in 'ingredient[name]', with: "Spaghetti noodles"
     select 'protein', from: :ingredient_type
@@ -47,10 +45,8 @@ RSpec.describe 'As a user' do
     select 'weight', from: :measurement_type
     select 'ounce', from: :measurement
 
-    fill_in 'ingredient[recipe_ingredients][quantity]', with: 12
+    fill_in 'ingredient[recipe_ingredient][quantity]', with: 12
 
     click_on 'Update Ingredient'
-
-    expect(current_path).to eq(dashboard_my_recipe(@recipe1.id))
   end
 end
