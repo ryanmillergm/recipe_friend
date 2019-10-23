@@ -77,7 +77,6 @@ class IngredientsController < ApplicationController
       recipe_id: recipe.id
     )
     if @recipe_ingredient.save
-      binding.pry
       flash[:message] = "#{ingredient.name.titleize} has been updated for #{@recipe.title}"
       redirect_to edit_ingredient_path(@recipe.id)
     else
