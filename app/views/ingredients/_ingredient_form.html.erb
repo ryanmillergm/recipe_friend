@@ -9,7 +9,7 @@
           <h5 class="ingredient-name"><%= ingredient.name %></h5>
         </div>
         <div class="detail">
-          <%= link_to 'Edit', edit_ingredient_path(ingredient.id)  %>
+          <%= link_to 'Edit', edit_ingredient_path(@recipe.id, ingredient.id)  %>
         </div>
         <div class="detail">
           <%= link_to 'Delete', ingredient_path, method: :destroy, class: "btn btn-danger" %>
