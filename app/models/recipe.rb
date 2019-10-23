@@ -12,4 +12,8 @@ class Recipe < ApplicationRecord
   def self.get_recipes(search_params)
     Recipe.where("title LIKE ?", "%#{search_params[:q].downcase.titleize}%").includes(:recipe_ingredients, :ingredients)
   end
+
+  def self.my_recipes(id)
+    Recipe.where(user_id: id)
+  end
 end
