@@ -3,7 +3,7 @@ module ApplicationHelper
     [
       ['volume'],
       ['weight'],
-      ['by_each'],
+      ['by_each']
     ]
   end
 
@@ -13,7 +13,7 @@ module ApplicationHelper
       ['cup'],
       ['pint'],
       ['quart'],
-      ['gallon'],
+      ['gallon']
     ]
   end
 
@@ -23,27 +23,20 @@ module ApplicationHelper
       ['cup'],
       ['pint'],
       ['quart'],
-      ['gallon'],
+      ['gallon']
     ]
   end
 
   def measurement_weight
     [
-      ['fluid Ounce'],
-      ['cup'],
-      ['pint'],
-      ['quart'],
-      ['gallon'],
+      ['ounce'],
+      ['pounds']
     ]
   end
 
   def measurement_each
     [
-      ['fluid Ounce'],
-      ['cup'],
-      ['pint'],
-      ['quart'],
-      ['gallon'],
+      ['each']
     ]
   end
 

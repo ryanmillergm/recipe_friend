@@ -22,7 +22,6 @@ class IngredientsController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @ingredient = @recipe.ingredients.first
     @recipes_facade = RecipeFacade.new(@recipe)
-    # @ingredients = Recipe.find(params[:id]).ingredients
   end
 
   def update
@@ -70,10 +69,17 @@ class IngredientsController < ApplicationController
 
   def update_recipe_ingredient(recipe, ingredient)
     @recipe_ingredient = RecipeIngredient.find_by(recipe_id: recipe.id)
-    binding.pry
+    @recipe_ingredient.update(
+      measurement_type: params[:measurement_type],
+      measurement: params[:measurement],
+      quantity: params[:ingredient][:recipe_ingredient][:quantity],
+      ingredient_id: ingredient.id,
+      recipe_id: recipe.id
+    )
     if @recipe_ingredient.save
-      flash[:message] = "Your ingredient has been added to #{@recipe.title}"
-      redirect_to new_ingredient_path
+      binding.pry
+      flash[:message] = "#{ingredient.name.titleize} has been updated for #{@recipe.title}"
+      redirect_to edit_ingredient_path(@recipe.id)
     else
       flash[:error] = @recipe_ingredient.errors.full_messages
       render :new
