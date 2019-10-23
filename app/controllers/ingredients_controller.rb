@@ -20,7 +20,11 @@ class IngredientsController < ApplicationController
   def edit
     @user = current_user
     @recipe = Recipe.find(params[:id])
-    @ingredient = @recipe.ingredients.first
+    if params[:format]
+      @ingredient = Ingredient.find(params[:format])
+    else
+      @ingredient = @recipe.ingredients.first
+    end
     @recipes_facade = RecipeFacade.new(@recipe)
   end
 
@@ -68,7 +72,7 @@ class IngredientsController < ApplicationController
   end
 
   def update_recipe_ingredient(recipe, ingredient)
-    @recipe_ingredient = RecipeIngredient.find_by(recipe_id: recipe.id)
+    @recipe_ingredient = RecipeIngredient.where(recipe_id: recipe.id).find_by(ingredient_id: ingredient.id)
     @recipe_ingredient.update(
       measurement_type: params[:measurement_type],
       measurement: params[:measurement],
@@ -78,7 +82,7 @@ class IngredientsController < ApplicationController
     )
     if @recipe_ingredient.save
       flash[:message] = "#{ingredient.name.titleize} has been updated for #{@recipe.title}"
-      redirect_to edit_ingredient_path(@recipe.id)
+      redirect_to edit_ingredient_path(recipe.id, ingredient.id)
     else
       flash[:error] = @recipe_ingredient.errors.full_messages
       render :new
