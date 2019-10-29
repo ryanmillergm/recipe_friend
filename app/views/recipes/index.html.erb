@@ -10,25 +10,27 @@
   <main class="main">
     <div class="card-container">
       <% @recipes.each_with_index do |recipe, i| %>
-        <div id="recipe-<% i + 1 %>" class="recipe">
+        <div class="recipe">
           <a href="#">
             <div class="recipe-image">
-              <img src="https://picsum.photos/200">
+              <img src=>
+              <% recipe_image = recipe.get_recipe(recipe.id) %>
+              <%= image_tag(url_for(recipe_image.thumbnail)) %>
+            </div>
+            <div class="recipe-title">
+              <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
             </div>
             <div class="description">
-              <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
               <p><%= link_to recipe.description, recipe_path(recipe.id) %></p>
               </div>
+            <div>
+              <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
+                <% end %>
+              </ul>
+            </div>
             </a>
           </div>
         <% end %>
       </div>
   </main>
 </body>
-
-
-    <% @recipes.each_with_index do |recipe, i| %>
-          <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
-            <% end %>
-          </ul>
-    <% end %>
