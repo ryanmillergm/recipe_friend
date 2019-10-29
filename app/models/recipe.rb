@@ -18,10 +18,14 @@ class Recipe < ApplicationRecord
   end
 
   def thumbnail
-    return self.image.variant(resize: '200x200').processed
+    return self.image.variant(resize: '300x300').processed
   end
 
   def show_image
     return self.image.variant(resize: '500x500').processed
+  end
+
+  def get_recipe(id)
+    Recipe.find(id)
   end
 end
