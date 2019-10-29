@@ -15,7 +15,9 @@
             <div class="recipe-image">
               <img src=>
               <% recipe_image = recipe.get_recipe(recipe.id) %>
-              <%= image_tag(url_for(recipe_image.thumbnail)) %>
+              <% if recipe_image.image.attached? %>
+                <%= image_tag(url_for(recipe_image.thumbnail)) %>
+              <% end %>
             </div>
             <div class="recipe-title">
               <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
