@@ -1,18 +1,36 @@
-<h1>Recipes</h1>
-<div>
-  <p>Results: <%= @recipes.count %></p>
-  <ul class="recipe-results">
-  <% @recipes.each_with_index do |recipe, i| %>
-    <section id="recipe-<% i + 1 %>">
-      <li class="title"><%= link_to recipe.title, recipe_path(recipe.id) %></li>
-      <ul class="description">
-        <li><%= link_to recipe.description, recipe_path(recipe.id) %></li>
-      </ul>
-      <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
+<body>
+  <header class="header">
+      <div class="main-title">
+        <h1 class="title">Recipes</h1>
+      </div>
+  </header>
+  <div class="recipe-count">
+    <p>Results: <%= @recipes.count %></p>
+  </div>
+  <main class="main">
+    <div class="card-container">
+      <% @recipes.each_with_index do |recipe, i| %>
+        <div class="recipe">
+          <a href="#">
+            <div class="recipe-image">
+              <img src=>
+              <% recipe_image = recipe.get_recipe(recipe.id) %>
+              <%= image_tag(url_for(recipe_image.thumbnail)) %>
+            </div>
+            <div class="recipe-title">
+              <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
+            </div>
+            <div class="description">
+              <p><%= link_to recipe.description, recipe_path(recipe.id) %></p>
+              </div>
+            <div>
+              <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
+                <% end %>
+              </ul>
+            </div>
+            </a>
+          </div>
         <% end %>
-      </ul>
-    </section>
-    <br>
-  <% end %>
-  </ul>
-</div>
+      </div>
+  </main>
+</body>

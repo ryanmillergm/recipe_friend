@@ -16,4 +16,16 @@ class Recipe < ApplicationRecord
   def self.my_recipes(id)
     Recipe.where(user_id: id)
   end
+
+  def thumbnail
+    return self.image.variant(resize: '300x300').processed
+  end
+
+  def show_image
+    return self.image.variant(resize: '500x500').processed
+  end
+
+  def get_recipe(id)
+    Recipe.find(id)
+  end
 end

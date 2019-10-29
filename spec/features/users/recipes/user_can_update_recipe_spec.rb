@@ -25,7 +25,7 @@ RSpec.describe 'As a user' do
 
     click_on 'My Recipes'
 
-    within(first('.my-recipe-results')) do
+    within(first('.recipe')) do
       click_on "#{@recipe1.title}"
     end
 

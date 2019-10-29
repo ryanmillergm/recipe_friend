@@ -34,3 +34,115 @@
   box-sizing: border-box;
   border: 2px solid #ccc;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: #f9f9f9;
+    height: 5em;
+}
+
+h1 {
+    text-align: left;
+    font-size: x-large;
+}
+
+p {
+    text-align: left;
+    font-size: x-large;
+    margin-bottom: 0rem;
+}
+
+.card-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+}
+
+.recipe {
+    width: 90%;
+    margin: 0.5em auto;
+    background-color: white;
+    border: 2px solid #ccc;
+}
+
+.recipe-image,
+.description {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.recipe-image {
+    padding: 1.2em 1em;
+}
+
+.description {
+    padding: 1em 2em;
+    font-size: 16px;
+}
+
+.recipe-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.recipe-title h2 {
+  text-align: left;
+  padding: 10px 0px 0px 50px;
+}
+/* FLEXBOX STYLES */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.recipe-count {
+  padding-left: 10px;
+  background-color: #f9f9f9;
+}
+
+.main {
+  background-color: #f9f9f9;
+}
+
+@media (min-width: 640px) {
+
+  .card-container {
+          display: flex;
+          flex-flow: wrap;
+      }
+
+  .recipe {
+      flex: 1 0 48%;
+      margin: 1%;
+  }
+}
+
+@media (min-width: 1001px) {
+    .recipe {
+        flex: 1 0 31%;
+    }
+
+    .recipe:last-of-type {
+        flex-grow: 0;
+    }
+}

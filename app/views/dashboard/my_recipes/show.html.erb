@@ -1,33 +1,6 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 <br>
-<% if @recipe.image.attached? %>
-  <%= image_tag(url_for(@recipe.image), height: '500', width: '500') %>
-<% end %>
-<h1><%= @recipe.title %></h1>
 <div>
-  <section class="description">
-    <%=  @recipe.description%>
-    <br>
-    <br>
-    <div class="ingredients">
-      <p>Ingredients:</p>
-      <ul class="ingredient"><% @recipe.ingredients.each do |ingredient| %>
-        <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(@recipe.id, ingredient.id) %>
-          <% if recipe_ingredient.quantity > 1 %>
-            <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></li>
-            <% else %>
-            <li class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></li>
-          <% end %>
-        <% end %>
-      </ul>
-      <% if current_user %>
-        <% if @recipes_facade.recipe_favorited?(@recipe.id, @user.id).nil? %>
-          <%= link_to 'Add to Favorites', favorites_path(@recipe), method: :post %>
-        <% else %>
-          <%= link_to 'Remove from my Favorites', favorite_path(@recipe), method: :delete %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render '/recipes/recipe_show' %>
     <%= link_to 'Edit Recipe', edit_user_recipe_path(@recipe.id) %>
-  </section>
 </div>

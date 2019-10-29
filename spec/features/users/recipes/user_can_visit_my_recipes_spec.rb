@@ -25,8 +25,9 @@ RSpec.describe 'As a user' do
 
     expect(current_path).to eq(dashboard_my_recipes_path)
 
-    within(first('.my-recipe-results')) do
-      expect(page).to have_css(".title")
+    within(first('.recipe')) do
+      expect(page).to have_css(".recipe-image")
+      expect(page).to have_css(".recipe-title")
       expect(page).to have_css(".description")
     end
   end
