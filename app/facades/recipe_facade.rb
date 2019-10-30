@@ -12,4 +12,8 @@ class RecipeFacade
     Favorite.where(user_id: user_id).find_by(recipe_id: recipe_id)
   end
 
+  def find_recipe(id)
+    Recipe.find(id)
+  end
+
 end

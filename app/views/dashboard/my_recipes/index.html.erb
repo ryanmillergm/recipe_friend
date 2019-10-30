@@ -1,5 +1,4 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
-<br>
 
 <body>
   <header class="header">
@@ -8,7 +7,11 @@
       </div>
   </header>
   <div class="recipe-count">
-    <p>Results: <%= @my_recipes.count %></p>
+    <% if @my_recipes.count <= 1 %>
+      <p><%= @my_recipes.count %> recipe</p>
+    <% else %>
+      <p><%= @my_recipes.count %> recipes</p>
+    <% end %>
   </div>
   <main class="main">
     <div class="card-container">
