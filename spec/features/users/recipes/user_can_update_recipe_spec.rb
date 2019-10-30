@@ -29,7 +29,7 @@ RSpec.describe 'As a user' do
       click_on "#{@recipe1.title}"
     end
 
-    click_on 'Edit Recipe'
+    click_button 'Edit Recipe'
 
     fill_in 'recipe[title]', with: "Spaghetti and Meatballs"
     fill_in 'recipe[description]', with: "This is a recipe for spaghetti with meatballs"
