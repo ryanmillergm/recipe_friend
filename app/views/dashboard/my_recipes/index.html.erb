@@ -7,7 +7,7 @@
       </div>
   </header>
   <div class="recipe-count">
-    <% if @my_recipes.count <= 1 %>
+    <% if @my_recipes.count == 1 %>
       <p><%= @my_recipes.count %> recipe</p>
     <% else %>
       <p><%= @my_recipes.count %> recipes</p>

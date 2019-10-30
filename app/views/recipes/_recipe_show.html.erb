@@ -29,16 +29,3 @@
     </div>
   </div>
 </div>
-<table class="favorites-button">
-  <tr>
-    <th>
-      <% if current_user %>
-        <% if @recipes_facade.recipe_favorited?(@recipe.id, @user.id).nil? %>
-          <%= button_to 'Add to Favorites', favorites_path(@recipe), method: :post, class: "btn btn-primary"  %>
-        <% else %>
-          <%= button_to 'Remove from my Favorites', favorite_path(@recipe), method: :delete, class: "btn btn-danger"  %>
-        <% end %>
-      <% end %>
-    </th>
-  </tr>
-</table>
