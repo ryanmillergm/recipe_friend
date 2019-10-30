@@ -53,12 +53,25 @@ p {
   justify-content: space-between;
 }
 
+.edit-delete-recipe-buttons {
+  height: 0px;
+  width: 100%;
+}
+
+.edit-delete-recipe-buttons th {
+  padding-top: 30px;
+  padding-bottom: 12px;
+  padding-left: 100px;
+  text-align: left;
+}
+
 .favorites-button {
   height: 200px;
   width: 100%;
 }
 
 .favorites-button th {
+  padding-top: 20px;
   padding-bottom: 12px;
   padding-left: 100px;
   text-align: left;
