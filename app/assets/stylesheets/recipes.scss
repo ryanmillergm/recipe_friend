@@ -52,12 +52,10 @@ body {
 
 h1 {
     text-align: left;
-    font-size: x-large;
 }
 
 p {
     text-align: left;
-    font-size: x-large;
     margin-bottom: 0rem;
 }
 
@@ -116,6 +114,9 @@ a {
 }
 
 .recipe-count {
+  font-size: 20px;
+  font-style: italic;
+  color: grey;
   padding-left: 10px;
   background-color: #f9f9f9;
 }
