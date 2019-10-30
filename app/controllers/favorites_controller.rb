@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
     if current_user
       @user = current_user
       @favorites = Favorite.where(user_id: @user.id)
+      @recipe_facade = RecipeFacade.new(@favorites)
     else
       flash[:message] = 'You must log in or register to become a member'
       redirect_to new_session_path
