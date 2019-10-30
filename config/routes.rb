@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
     resources :my_recipes, only: [:index, :show]
   end
+  
+  match "*path", to: "application#render_not_found", via: :all
 end
