@@ -2,18 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.new-recipe {
-  margin: auto;
-  margin-top: 100px;
-  width: 50%;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+}
+
+a {
+  color: black;
+  font-family: sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 0rem;
+}
+
+.card-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5em 0;
+}
+
+.description {
+  padding: 1em 2em;
   font-size: 16px;
-  background-color: #f9f9f9;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 30px 20px 12px 40px;
+}
+
+.description-show {
+  width: 60%;
 }
 
 .detail {
@@ -30,87 +55,67 @@
   justify-content: space-between;
 }
 
-.ingredient {
-  box-sizing: border-box;
-  border: 2px solid #ccc;
+.favorites-button {
+  height: 200px;
+  width: 100%;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
+.favorites-button th {
+  padding-bottom: 12px;
+  padding-left: 100px;
+  text-align: left;
 }
 
 .header {
-    background-color: #f9f9f9;
-    height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
 }
 
-h1 {
-    text-align: left;
+.ingredient {
+  padding: 20px, 20px, 20px, 50px;
 }
 
-p {
-    text-align: left;
-    margin-bottom: 0rem;
+.header {
+  background-color: #f9f9f9;
+  height: 5em;
 }
 
-.card-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0.5em 0;
+.main {
+  background-color: #f9f9f9;
+}
+
+.new-recipe {
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 30px 20px 12px 40px;
 }
 
 .recipe {
-    width: 90%;
-    margin: 0.5em auto;
-    background-color: white;
-    border: 2px solid #ccc;
+  width: 90%;
+  margin: 0.5em auto;
+  background-color: white;
+  border: 2px solid #ccc;
+}
+
+.recipe-description-show div{
+  display: flex;
+  flex-direction: column;
 }
 
 .recipe-image,
 .description {
-    width: 90%;
-    margin: 0 auto;
-}
-
-.recipe-image {
-    padding: 1.2em 1em;
-}
-
-.description {
-    padding: 1em 2em;
-    font-size: 16px;
-}
-
-.recipe-image img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-    font-family: sans-serif;
-}
-
-.recipe-title h2 {
-  text-align: left;
-  padding: 10px 0px 0px 50px;
-}
-/* FLEXBOX STYLES */
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f9f9f9;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .recipe-count {
@@ -121,8 +126,38 @@ a {
   background-color: #f9f9f9;
 }
 
-.main {
-  background-color: #f9f9f9;
+.recipe-image {
+    padding: 1.2em 1em;
+}
+
+.recipe-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.recipe-inline {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipe-show {
+}
+
+.recipe-title h2 {
+  text-align: left;
+  padding: 10px 0px 0px 50px;
+}
+
+.recipe-title-show {
+  text-align: left;
+  padding: 10px 0px 0px 50px;
+}
+/* FLEXBOX STYLES */
+
+#ingredients {
+  text-decoration: underline;
 }
 
 @media (min-width: 640px) {
