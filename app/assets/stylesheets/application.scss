@@ -14,21 +14,40 @@
  *= require_self
  */
 
- // .navbar a:hover {
- //   background-color: gainsboro;
- // }
 
-// #nav2 {
-//     float: center;
-//     padding: 12px;
-//     color: gainsboro;
-//     text-decoration: none;
-//     font-size: 17px;
-//     width: 16.6667%;
-//     text-align: center;
-//     border-right: 2px solid gainsboro;
-//     border-left: 2px solid gainsboro;
-// }
+a:link, a:visited, a:hover, a:active,  {
+  text-decoration:none;
+}
+
+a:hover {
+  color: grey;
+}
+
+body {
+  background-color: gainsboro;
+  margin: 0px 0px 20px 0px;
+  padding: 0;
+}
+
+.btn-lg {
+  padding: 20px 20px;
+  font-size: 70px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.container {
+  max-width: 95%;
+  width: 1300px;
+  background-color: white;
+  min-height: 900px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right: 4px solid lightgrey;
+  border-left: 4px solid lightgrey;
+}
+
+.search-field { margin-top: 7px;}
 
 #nav {
   padding-left: 15px;
@@ -36,39 +55,6 @@
   border-bottom: 2px outset white;
 }
 
- .container {
-   max-width: 95%;
-   width: 1300px;
-   background-color: white;
-   min-height: 900px;
-   padding-left: 0px;
-   padding-right: 0px;
-   border-right: 4px solid lightgrey;
-   border-left: 4px solid lightgrey;
- }
-
- .search-field { margin-top: 7px;}
-
- #work .img-responsive{
-   margin: 0 auto;
- }
-
- body {
-   background-color: gainsboro;
-   margin: 0px 0px 20px 0px;
-   padding: 0;
- }
- .btn-lg {
-   padding: 20px 20px;
-   font-size: 70px;
-   border-radius: 10px;
-   background-color: red;
- }
-
-a:link, a:visited, a:hover, a:active,  {
-    text-decoration:none;
-}
-
-a:hover {
-  color: grey;
+#work .img-responsive{
+  margin: 0 auto;
 }
