@@ -1,6 +1,25 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 <br>
-<div>
+<div class="edit-recipe">
     <%= render '/recipes/recipe_show' %>
-    <%= link_to 'Edit Recipe', edit_user_recipe_path(@recipe.id) %>
+    <table class="edit-delete-recipe-buttons">
+      <tr>
+        <th>
+          <%= button_to 'Edit Recipe', edit_user_recipe_path(@recipe.id), method: :get, class: "btn btn-primary" %>
+        </th>
+        <th class="delete-recipe">
+          <%= button_to 'Delete Recipe', user_recipe_path(@recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        </th>
+        <th>
+          <% if current_user %>
+            <% if @recipes_facade.recipe_favorited?(@recipe.id, @user.id).nil? %>
+              <%= button_to 'Add to Favorites', favorites_path(@recipe), method: :post, class: "btn btn-primary"  %>
+            <% else %>
+              <%= button_to 'Remove from my Favorites', favorite_path(@recipe), method: :delete, class: "btn btn-danger"  %>
+            <% end %>
+          <% end %>
+        </th>
+      </tr>
+    </table>
 </div>
+<br>
