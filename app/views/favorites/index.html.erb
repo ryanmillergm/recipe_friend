@@ -1,9 +1,18 @@
 <br>
-<h1>Favorites</h1>
-<br>
-<br>
-<% @favorites.each do |favorite_recipe| %>
-  <div>
-    <ul><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></ul>
+<div class="favorites">
+  <h1>Favorites</h1>
+  <div class="favorite-recipes">
+    <% @favorites.each do |favorite_recipe| %>
+    <div class="fav-recipe-image">
+      <img src=>
+      <% recipe_image = @recipe_facade.find_recipe(favorite_recipe.recipe_id) %>
+      <% if recipe_image.image.attached? %>
+        <%= image_tag(url_for(recipe_image.small_thumbnail)) %>
+      <% end %>
+    </div>
+      <ul><%= link_to favorite_recipe.title, recipe_path(favorite_recipe.recipe_id) %></ul>
+    <% end %>
   </div>
-<% end %>
+</div>
+<br>
+<br>
