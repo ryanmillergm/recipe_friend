@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   validates_presence_of :recipe_type
   validates_presence_of :user_id
 
-  has_many :recipe_ingredients
+  has_many :recipe_ingredients, dependent: :destroy
   has_many :ingredients, through: :recipe_ingredients
   has_many :steps
   has_one_attached :image

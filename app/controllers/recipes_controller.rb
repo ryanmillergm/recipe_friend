@@ -4,15 +4,15 @@ class RecipesController < ApplicationController
     @recipes = Recipe.get_recipes(search_params)
   end
 
-  def new
-    @user = current_user
-    @recipe = Recipe.new
-  end
-
   def show
     @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipes_facade = RecipeFacade.new(@recipes)
+  end
+
+  def new
+    @user = current_user
+    @recipe = Recipe.new
   end
 
   def create
@@ -42,6 +42,20 @@ class RecipesController < ApplicationController
     else
       flash[:error] = @recipe.errors.full_messages
       render :new
+    end
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe_title = recipe.title
+    if current_user && current_user.id == recipe.user_id
+      Favorite.where(recipe_id: recipe.id).destroy_all
+      Step.where(recipe_id: recipe.id).destroy_all
+      recipe.destroy
+      flash[:message] = "You have successfully deleted #{recipe_title}"
+      redirect_to dashboard_my_recipes_path
+    else
+      flash[:error] = "You do not have permission to perform this action. Your id now has a strike and you have been reported for attempting to attack this site."
     end
   end
 
