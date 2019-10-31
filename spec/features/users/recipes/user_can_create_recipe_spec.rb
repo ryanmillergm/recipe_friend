@@ -44,6 +44,10 @@ RSpec.describe 'As a user' do
     click_on 'Add Ingredient'
 
     expect(current_path).to eq(new_ingredient_path)
+
+    click_button 'Next'
+
+    expect(current_path).to eq(new_step_path)
   end
 
   it 'I cannot add a new recipe without require recipe fields' do
