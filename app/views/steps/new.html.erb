@@ -1,0 +1,28 @@
+<section>
+  <br>
+    <div class="new-recipe">
+      <h3> <%= @recipe.title %> </h3>
+      <p>Ingredients: </p>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <div>
+          <%= ingredient.name %>
+        </div>
+      <% end %>
+      <br>
+      <p>Steps: </p>
+      <% @recipe.steps.each_with_index do |step, i| %>
+        <div>
+          <p>Step <%= i + 1 %>. <%= step.step %></p>
+        </div>
+      <% end %>
+      <br>
+      <h5>Add each step to your directions for <% @recipe.title %>:</h5>
+  <%= form_for [@step] do |f| %>
+  <p>Add each step to your directions:</p>
+  <div class="form-group">
+    <%= f.label :step %>
+    <%= f.text_field :step, class: "form-control" %>
+  </div>
+  <%= f.submit 'Add step', class: "btn btn-primary"  %>
+  <% end %>
+</section>
