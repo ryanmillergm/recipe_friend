@@ -22,7 +22,8 @@
         </div>
       </div>
     </div>
-    <div class="recipe-image-show">
+    <div class="recipe-image">
+      <img src=>
       <% if @recipe.image.attached? %>
       <%= image_tag(url_for(@recipe.show_image)) %>
       <% end %>
