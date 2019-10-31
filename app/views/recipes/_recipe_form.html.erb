@@ -1,27 +1,27 @@
 <section>
-  <%= form_for [@user, @recipe] do |form| %>
+  <%= form_for [@user, @recipe] do |f| %>
   <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "form-control" %>
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= label_tag :recipe_type, "Recipe Type" %>
     <%= select_tag :recipe_type, options_for_select(recipe_type), class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :image, 'Add a Picture' %>
-    <%= form.file_field :image, class: "form-control" %>
+    <%= f.label :image, 'Add a Picture' %>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
     <% if @recipe.title == nil %>
-      <%= form.submit 'Create Recipe', class: "btn btn-primary" %>
+      <%= f.submit 'Create Recipe', class: "btn btn-primary" %>
     <% else %>
       <div class="detail-section">
         <div class="detail">
-          <%= form.submit 'Update Recipe', class: "btn btn-primary" %>
+          <%= f.submit 'Update Recipe', class: "btn btn-primary" %>
         </div>
         <div class="detail">
           <%= link_to 'Cancel', dashboard_my_recipes_path, class: "btn btn-danger" %>
