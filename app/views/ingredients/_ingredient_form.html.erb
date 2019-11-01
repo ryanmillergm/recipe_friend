@@ -48,10 +48,14 @@
           <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
         </div>
       <% end %>
-      <%= f.submit 'Update Ingredient', class: "btn btn-primary" %>
-    <% end %>
-    <div class="next-button">
-      <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
-    </div>
+      <div class="detail-section">
+        <div class="detail">
+          <%= f.submit 'Update Ingredient', class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="detail">
+          <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
+        </div>
+      </div>
   </section>
 </div>
