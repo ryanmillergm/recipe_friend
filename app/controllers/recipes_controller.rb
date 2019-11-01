@@ -36,12 +36,11 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.update(recipe_params)
-    if @recipe.save
+    if @recipe.update(recipe_params)
       redirect_to edit_ingredient_path(@recipe.id)
     else
       flash[:error] = @recipe.errors.full_messages
-      render :new
+      redirect_to edit_user_recipe_path(@recipe.id)
     end
   end
 

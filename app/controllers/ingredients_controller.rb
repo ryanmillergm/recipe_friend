@@ -31,13 +31,13 @@ class IngredientsController < ApplicationController
   def update
     @recipe = Recipe.find(params[:ingredient][:recipe_id])
     @ingredient = Ingredient.find(params[:id])
-    @ingredient.update(ingredient_params)
-    if @ingredient.save
+
+    if   @ingredient.update(ingredient_params)
       @ingredient.update(ingredient_type: params[:ingredient_type])
       update_recipe_ingredient(@recipe, @ingredient)
     else
       flash[:error] = @ingredient.errors.full_messages
-      render :new
+      redirect_to edit_ingredient_path(@recipe.id)
     end
   end
 
