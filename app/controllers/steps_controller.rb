@@ -17,6 +17,17 @@ class StepsController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @recipes_facade = RecipeFacade.new(@recipes)
+    @ingredient = @recipe.ingredients.first
+    if params[:format]
+      @step = Step.find(params[:format])
+    else
+      @step = @recipe.steps.first
+    end
+  end
+
   private
 
   def step_params
