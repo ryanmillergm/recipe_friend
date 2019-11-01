@@ -1,34 +1,43 @@
 <br>
-  <h3> <%= @recipe.title %> </h3>
-  <p>Ingredients: </p>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <div class="ingredient">
+  <div class="new-recipe">
+    <h3> <%= @recipe.title %> </h3>
+    <br>
+    <p>Steps: </p>
+    <br>
+    <% @recipe.steps.each_with_index do |step, i| %>
+    <div class="step-<%= i + 1 %>">
       <div class="detail-section">
         <div class="detail">
-          <h5 class="ingredient-name"><%= ingredient.name %></h5>
+          <p>Step <%= i + 1 %></p>
+          <h5 class="ingredient-name"><%= step.step %></h5>
         </div>
         <div class="detail">
-          <%= link_to 'Edit', edit_ingredient_path(@recipe.id, ingredient.id)  %>
-        </div>
-        <div class="detail">
-          <%= link_to 'Delete', ingredient_path, method: :destroy, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <p>Steps: </p>
-  <% @recipe.steps.each do |step| %>
-    <div class="step">
-      <div class="detail-section">
-        <div class="detail">
-          <h5 class="ingredient-name"><%= step.name %></h5>
-        </div>
-        <div class="detail">
-          <%= link_to 'Edit', edit_step_path(@recipe.id, step.id)  %>
+          <%= link_to 'Edit', edit_step_path(@recipe.id, step.id), class: "btn btn-success"   %>
         </div>
         <div class="detail">
           <%= link_to 'Delete', step_path, method: :destroy, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
+    <br>
+    <h5>Update: <%= @step.step %></h5>
+    <%= form_for [@step] do |f| %>
+    <p>Add each step to your directions:</p>
+    <div class="form-group">
+      <%= f.label :step %>
+      <%= f.text_field :step, class: "form-control" %>
+    </div>
+    <div>
+      <%= f.hidden_field :recipe_id, value: @recipe.id %>
+    </div>
+    <div class="detail-section">
+      <div class="detail">
+        <%= f.submit 'Update step', class: "btn btn-primary"  %>
+        <% end %>
+      </div>
+      <div class="detail">
+        <%= button_to 'Done', dashboard_my_recipe_path(@recipe.id), method: :get, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
