@@ -14,6 +14,7 @@
         <div>
           <p>Step <%= i + 1 %>. <%= step.step %></p>
         </div>
+        <br>
       <% end %>
       <br>
       <h5>Add each step to your directions for <% @recipe.title %>:</h5>
@@ -23,6 +24,16 @@
     <%= f.label :step %>
     <%= f.text_field :step, class: "form-control" %>
   </div>
-  <%= f.submit 'Add step', class: "btn btn-primary"  %>
-  <% end %>
+  <div>
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
+  </div>
+  <div class="detail-section">
+    <div class="detail">
+      <%= f.submit 'Add step', class: "btn btn-primary"  %>
+      <% end %>
+    </div>
+    <div class="detail">
+      <%= button_to 'Done', dashboard_my_recipe_path(@recipe.id), method: :get, class: "btn btn-success" %>
+    </div>
+  </div>
 </section>
