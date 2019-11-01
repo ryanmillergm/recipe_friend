@@ -29,4 +29,16 @@
       <% end %>
     </div>
   </div>
+  <br>
+  <div class="recipe-show-steps">
+    <h3>Directions:</h3>
+    <br>
+    <% @recipe.steps.each_with_index do |step, i| %>
+      <p>Step <%= i + 1 %>: </p>
+      <div class="recipe-step">
+        <%= step.step %>
+      </div>
+      <br>
+    <% end %>
+  </div>
 </div>
