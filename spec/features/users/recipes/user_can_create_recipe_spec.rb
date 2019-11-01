@@ -44,6 +44,18 @@ RSpec.describe 'As a user' do
     click_on 'Add Ingredient'
 
     expect(current_path).to eq(new_ingredient_path)
+
+    click_button 'Next'
+
+    fill_in 'step[step]', with: "Start a large pot of boiling water"
+
+    click_on 'Add step'
+
+    expect(page).to have_content("Start a large pot of boiling water")
+
+    click_button 'Done'
+
+    expect(page).to have_content("Start a large pot of boiling water")
   end
 
   it 'I cannot add a new recipe without require recipe fields' do

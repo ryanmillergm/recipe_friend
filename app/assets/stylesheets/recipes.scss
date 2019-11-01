@@ -61,7 +61,7 @@ p {
 .edit-delete-recipe-buttons th {
   padding-top: 30px;
   padding-bottom: 12px;
-  padding-left: 100px;
+  padding-left: 5%;
   text-align: left;
 }
 
@@ -73,7 +73,7 @@ p {
 .favorites-button th {
   padding-top: 20px;
   padding-bottom: 12px;
-  padding-left: 100px;
+  padding-left: 10%;
   text-align: left;
 }
 
@@ -153,7 +153,8 @@ p {
   flex-direction: row;
 }
 
-.recipe-show {
+.recipe-show-steps {
+  padding-left: 50px;
 }
 
 .recipe-title h2 {

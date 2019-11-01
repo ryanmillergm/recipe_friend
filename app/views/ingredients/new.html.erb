@@ -11,17 +11,17 @@
     <br>
     <h5>Add Ingredients</h5>
     <section>
-      <%= form_for @ingredient do |form| %>
+      <%= form_for @ingredient do |f| %>
       <div>
         <div>
-          <%= form.label :name %>
-          <%= form.text_field :name, class: "form-control" %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
         </div>
         <div>
           <%= label_tag :recipe_type, "Ingredient Type" %>
           <%= select_tag :ingredient_type, options_for_select(ingredient_type), class: "form-control" %>
         </div>
-        <%= form.fields_for :recipe_ingredients do |recipe_ingredient| %>
+        <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
           <div>
             <%= label_tag :recipe_type, "Measurement Type" %>
             <%= select_tag :measurement_type, options_for_select(measurement_type), class: "form-control" %>
@@ -35,8 +35,13 @@
             <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
           </div>
         <% end %>
-      <%= form.submit 'Add Ingredient', class: "btn btn-primary" %>
+        <div class="submit-ingredient">
+          <%= f.submit 'Add Ingredient', class: "btn btn-primary" %>
+        </div>
       <% end %>
+      <div class="next-button">
+        <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
+      </div>
   </section>
   </div>
 </div>
