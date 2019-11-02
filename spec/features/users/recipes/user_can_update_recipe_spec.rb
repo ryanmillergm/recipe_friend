@@ -38,8 +38,6 @@ RSpec.describe 'As a user' do
 
     click_on 'Update Recipe'
 
-    expect(current_path).to eq(edit_ingredient_path(@recipe1.id))
-
     fill_in 'ingredient[name]', with: "Spaghetti noodles"
     select 'protein', from: :ingredient_type
 
