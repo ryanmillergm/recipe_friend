@@ -17,6 +17,27 @@ class StepsController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @recipes_facade = RecipeFacade.new(@recipes)
+    @ingredient = @recipe.ingredients.first
+    if params[:format]
+      @step = Step.find(params[:format])
+    else
+      @step = @recipe.steps.first
+    end
+  end
+
+  def update
+    @step = Step.find(params[:id])
+    if @step.update(step_params)
+      flash[:success] = "Step has been updated to #{@step.step}"
+      redirect_to edit_step_path(@step.recipe_id)
+    else
+      redirect_to edit_step_path(@step.recipe_id)
+    end
+  end
+
   private
 
   def step_params

@@ -14,6 +14,9 @@
       <%= form_for @ingredient do |f| %>
       <div>
         <div>
+          <%= f.hidden_field :recipe_id, value: @recipe.id %>
+        </div>
+        <div>
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
         </div>

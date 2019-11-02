@@ -31,8 +31,6 @@ RSpec.describe 'As a user' do
 
     click_on 'Create Recipe'
 
-    expect(current_path).to eq(new_ingredient_path)
-
     fill_in 'ingredient[name]', with: "Spaghetti"
     select 'spice', from: :ingredient_type
 
@@ -42,8 +40,6 @@ RSpec.describe 'As a user' do
     fill_in 'ingredient[recipe_ingredients][quantity]', with: 1.5
 
     click_on 'Add Ingredient'
-
-    expect(current_path).to eq(new_ingredient_path)
 
     click_button 'Next'
 
@@ -120,8 +116,6 @@ RSpec.describe 'As a user' do
 
     click_on 'Create Recipe'
 
-    expect(current_path).to eq(new_ingredient_path)
-
     select 'spice', from: :ingredient_type
 
     select 'volume', from: :measurement_type
@@ -172,8 +166,6 @@ RSpec.describe 'As a user' do
     select 'American', from: :recipe_type
 
     click_on 'Create Recipe'
-
-    expect(current_path).to eq(new_ingredient_path)
 
     fill_in 'ingredient[name]', with: "Spaghetti"
     select 'spice', from: :ingredient_type

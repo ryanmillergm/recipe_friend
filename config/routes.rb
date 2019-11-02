@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, only: [:index, :show]
   resources :ingredients, only: [:create, :new, :edit, :update, :destroy]
+  resources :recipe_ingredients, only: [:destroy]
   resources :steps, only: [:create, :new, :edit, :update]
   resources :favorites, only: [:index, :create, :destroy]
 

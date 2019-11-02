@@ -2,17 +2,23 @@
 <br>
   <h3> <%= @recipe.title %> </h3>
   <p>Ingredients: </p>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <div class="ingredient">
+  <% @recipe.ingredients.each_with_index do |ingredient, i| %>
+    <div class="ingredient-<%= i + 1 %>">
       <div class="detail-section">
         <div class="detail">
           <h5 class="ingredient-name"><%= ingredient.name %></h5>
+          <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(@recipe.id, ingredient.id) %>
+            <% if recipe_ingredient.quantity > 1 %>
+              <div class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></div>
+              <% else %>
+              <div class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></div>
+            <% end %>
         </div>
         <div class="detail">
-          <%= link_to 'Edit', edit_ingredient_path(@recipe.id, ingredient.id)  %>
+          <%= link_to 'Edit', edit_ingredient_path(ingredient.id, @recipe.id), class: "btn btn-success"   %>
         </div>
         <div class="detail">
-          <%= link_to 'Delete', ingredient_path, method: :destroy, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <%= button_to 'Delete', recipe_ingredient_path(recipe_ingredient.id, @recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
@@ -34,7 +40,8 @@
         <%= select_tag :ingredient_type, options_for_select(ingredient_type), class: "form-control" %>
       </div>
       <% recipe_ingredients = @recipes_facade.get_recipe_ingredients(@recipe.id, @ingredient.id) %>
-      <%= f.fields_for recipe_ingredients do |recipe_ingredient| %>
+      <% if recipe_ingredients.nil? %>
+      <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
         <div>
           <%= label_tag :recipe_type, "Measurement Type" %>
           <%= select_tag :measurement_type, options_for_select(measurement_type), class: "form-control" %>
@@ -48,13 +55,32 @@
           <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
         </div>
       <% end %>
+      <div class="submit-ingredient">
+        <%= f.submit 'Add Ingredient', class: "btn btn-primary" %>
+      </div>
+      <% else %>
+      <%= f.fields_for recipe_ingredients do |recipe_ingredient| %>
+      <div>
+        <%= label_tag :recipe_type, "Measurement Type" %>
+        <%= select_tag :measurement_type, options_for_select(measurement_type), class: "form-control" %>
+      </div>
+      <div>
+        <%= label_tag :recipe_type, "Measurement" %>
+        <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
+      </div>
+      <div>
+        <%= recipe_ingredient.label :quantity %>
+        <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
+      </div>
+      <% end %>
       <div class="detail-section">
         <div class="detail">
           <%= f.submit 'Update Ingredient', class: "btn btn-primary" %>
-          <% end %>
+      <% end %>
+    <% end %>
         </div>
         <div class="detail">
-          <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
+          <%= button_to 'Next', edit_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
         </div>
       </div>
   </section>
