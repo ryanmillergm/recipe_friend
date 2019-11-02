@@ -33,9 +33,11 @@ RSpec.describe 'As a user' do
     click_button 'Edit Recipe'
 
     click_on 'Update Recipe'
+    within(".ingredient-1") do
+      click_button 'Delete'
+    end
 
-    # within(".ingredient-1") do
-    #   click_link 'Delete'
-    # end
+    expect(page).to have_content("Your ingredient has been removed")
+    expect(page).to_not have_content(@ingredients1.name)
   end
 end
