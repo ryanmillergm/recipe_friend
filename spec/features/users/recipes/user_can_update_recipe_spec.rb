@@ -7,6 +7,7 @@ RSpec.describe 'As a user' do
     @recipe1 = create(:recipe, user_id: @user1.id)
     @ri1 = create(:recipe_ingredient, recipe_id: @recipe1.id, ingredient_id: @ingredients1.id)
     @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
+    @step1 = Step.create(step: "Add all ingredients together and mix", recipe_id: @recipe1.id)
   end
 
   it 'I can update a recipe' do
@@ -48,5 +49,23 @@ RSpec.describe 'As a user' do
     fill_in 'ingredient[recipe_ingredient][quantity]', with: 12
 
     click_on 'Update Ingredient'
+
+    within(".ingredient-1") do
+      expect(page).to have_content("12.0 ounces Spaghetti noodles")
+    end
+
+    click_button 'Next'
+
+    fill_in 'step[step]', with: "Start a pot of boiling water"
+
+    click_on 'Update step'
+
+    within(".step-1") do
+      expect(page).to have_content( "Start a pot of boiling water")
+    end
+
+    click_button 'Done'
+
+    expect(current_path).to eq(dashboard_my_recipe_path(@recipe1.id))
   end
 end
