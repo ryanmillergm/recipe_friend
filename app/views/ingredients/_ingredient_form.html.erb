@@ -15,7 +15,7 @@
             <% end %>
         </div>
         <div class="detail">
-          <%= link_to 'Edit', edit_ingredient_path(ingredient.id, @recipe.id), class: "btn btn-success"   %>
+          <%= link_to 'Edit', edit_ingredient_path(ingredient.id, @recipe.id), class: "btn btn-secondary"   %>
         </div>
         <div class="detail">
           <%= button_to 'Delete', recipe_ingredient_path(recipe_ingredient.id, @recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
@@ -23,6 +23,9 @@
       </div>
     </div>
   <% end %>
+  <div class="detail">
+    <%= button_to 'Add Ingredient', new_ingredient_path(@recipe.id), method: :get, class: "btn btn-secondary" %>
+  </div>
   <br>
   <h5>Update: <%= @ingredient.name %></h5>
   <section>

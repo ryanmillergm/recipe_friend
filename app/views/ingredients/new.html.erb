@@ -4,9 +4,23 @@
     <h3> <%= @recipe.title %> </h3>
     <p>Ingredients: </p>
     <% @recipe.ingredients.each do |ingredient| %>
-      <div>
-        <%= ingredient.name %>
+    <div class="detail-section">
+      <div class="detail">
+        <h5 class="ingredient-name"><%= ingredient.name %></h5>
+        <% recipe_ingredient = @recipes_facade.get_recipe_ingredients(@recipe.id, ingredient.id) %>
+          <% if recipe_ingredient.quantity > 1 %>
+            <div class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement}s #{ingredient.name}" %></div>
+            <% else %>
+            <div class="name"><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{ingredient.name}" %></div>
+          <% end %>
       </div>
+      <div class="detail">
+        <%= link_to 'Edit', edit_ingredient_path(ingredient.id, @recipe.id), class: "btn btn-secondary"   %>
+      </div>
+      <div class="detail">
+        <%= button_to 'Delete', recipe_ingredient_path(recipe_ingredient.id, @recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
     <% end %>
     <br>
     <h5>Add Ingredients</h5>
@@ -38,13 +52,16 @@
             <%= recipe_ingredient.number_field :quantity, step: 0.25, class: "form-control" %>
           </div>
         <% end %>
-        <div class="submit-ingredient">
-          <%= f.submit 'Add Ingredient', class: "btn btn-primary" %>
-        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <%= f.submit 'Add Ingredient', class: "btn btn-primary" %>
+          </div>
       <% end %>
-      <div class="next-button">
-        <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
+          <div class="detail">
+            <%= button_to 'Next', new_step_path(@recipe.id), method: :get, class: "btn btn-success" %>
+          </div>
+        </div>
       </div>
-  </section>
+    </section>
   </div>
 </div>

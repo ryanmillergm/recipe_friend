@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
   def new
     @recipe = Recipe.find(params[:format])
     @ingredient = Ingredient.new
+    @recipes_facade = RecipeFacade.new(@recipe)
   end
 
   def create

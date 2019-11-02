@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'As a user' do
   before :each do
     @user1 = create(:user)
-    @user2 = create(:user)
     @ingredients1 = create(:ingredient)
     @recipe1 = create(:recipe, user_id: @user1.id)
     @ri1 = create(:recipe_ingredient, recipe_id: @recipe1.id, ingredient_id: @ingredients1.id)
     @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
+    @step1 = Step.create(step: "Add all ingredients together and mix", recipe_id: @recipe1.id)
   end
 
   it 'I can delete a recipe' do
@@ -32,12 +32,14 @@ RSpec.describe 'As a user' do
 
     click_button 'Edit Recipe'
 
-    click_on 'Update Recipe'
-    within(".ingredient-1") do
+    click_button 'Update'
+    click_button 'Next'
+
+    within(".step-1") do
       click_button 'Delete'
     end
 
-    expect(page).to have_content("Your ingredient has been removed")
-    expect(page).to_not have_content(@ingredients1.name)
+    expect(page).to have_content("Your step has been removed")
+    expect(page).to_not have_content(@step1.step)
   end
 end

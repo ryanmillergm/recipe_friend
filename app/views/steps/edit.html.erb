@@ -12,11 +12,14 @@
           <h5 class="ingredient-name"><%= step.step %></h5>
         </div>
         <div class="detail">
-          <%= link_to 'Edit', edit_step_path(@recipe.id, step.id), class: "btn btn-success"   %>
+          <%= button_to 'Edit', edit_step_path(@recipe.id, step.id), method: :get, class: "btn btn-secondary" %>
         </div>
         <div class="detail">
-          <%= link_to 'Delete', step_path, method: :destroy, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <%= button_to 'Delete', step_path(step.id, @recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
         </div>
+      </div>
+      <div class="detail">
+        <%= button_to 'Add Step', new_step_path(@recipe.id), method: :get, class: "btn btn-secondary" %>
       </div>
     </div>
     <% end %>

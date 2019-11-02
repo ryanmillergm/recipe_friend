@@ -11,10 +11,20 @@
       <br>
       <p>Steps: </p>
       <% @recipe.steps.each_with_index do |step, i| %>
-        <div>
-          <p>Step <%= i + 1 %>. <%= step.step %></p>
+      <div class="step-<%= i + 1 %>">
+        <div class="detail-section">
+          <div class="detail">
+            <p>Step <%= i + 1 %></p>
+            <h5 class="ingredient-name"><%= step.step %></h5>
+          </div>
+          <div class="detail">
+            <%= button_to 'Edit', edit_step_path(@recipe.id, step.id), method: :get, class: "btn btn-secondary" %>
+          </div>
+          <div class="detail">
+            <%= button_to 'Delete', step_path(step.id, @recipe.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          </div>
         </div>
-        <br>
+      </div>
       <% end %>
       <br>
       <h5>Add each step to your directions for <% @recipe.title %>:</h5>
