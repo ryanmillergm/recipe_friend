@@ -38,6 +38,20 @@ class StepsController < ApplicationController
     end
   end
 
+  def destroy
+    @step = Step.find(params[:id])
+    @recipe = Recipe.find(@step.recipe_id)
+    @step.destroy
+    @step = @recipe.steps.first
+    if @recipe.steps.empty?
+      flash[:success] = "Your step has been removed"
+      redirect_to new_step_path(@recipe.id)
+    else
+      flash[:success] = "Your step has been removed"
+      redirect_to edit_step_path(@step.id, @recipe.id)
+    end
+  end
+
   private
 
   def step_params
