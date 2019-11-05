@@ -1,0 +1,22 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <%= comment.content %>
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+<div>
+  <div class="comments_comment">
+    <%= form_for([comment, comment.comments.build]) do |f| %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id %>
+      <%= f.text_area :content, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Reply"  %>
+    <% end %>
+  </div>
+  <div>
+  </div>
+</div>
