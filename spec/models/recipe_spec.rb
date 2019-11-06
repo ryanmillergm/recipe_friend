@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  it_behaves_like "commentable"
+  # it_behaves_like "commentable"
 
   describe 'validations' do
     it { should validate_presence_of :title }
