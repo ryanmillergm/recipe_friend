@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
+  # it_behaves_like "commentable"
+
   describe 'validations' do
     it { should validate_presence_of :title }
     it { should validate_presence_of :description }
@@ -12,5 +14,6 @@ RSpec.describe Recipe, type: :model do
     it { should have_many(:ingredients).through :recipe_ingredients }
     it { should have_many :recipe_ingredients }
     it { should have_many :steps }
+    it { should have_many :comments }
   end
 end

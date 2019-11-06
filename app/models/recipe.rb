@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients, dependent: :destroy
   has_many :ingredients, through: :recipe_ingredients
   has_many :steps
+  has_many :comments, as: :commentable
   has_one_attached :image
 
   def self.get_recipes(search_params)
