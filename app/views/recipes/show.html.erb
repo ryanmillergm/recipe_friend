@@ -19,7 +19,9 @@
   <div class="comment-form">
     <%= render @recipe.comments %>
   </div>
+
   <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :recipe_id, value: @recipe.id %>
     <%= f.text_area :content, placeholder: "Comment" %><br/>
     <%= f.submit "Add Comment"  %>
