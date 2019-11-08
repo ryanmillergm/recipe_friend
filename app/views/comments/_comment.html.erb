@@ -2,9 +2,21 @@
   <article class="media">
     <div class="media-content">
       <div class="content">
-        <p>
-          <%= comment.content %>
-        </p>
+        <% if comment.user_id == @user.id %>
+          <p>
+            <%= comment.content %>
+          </p>
+          <div class="comment-edit-delete">
+            <p>
+              <%= link_to 'Edit', edit_recipe_comment_path(@recipe, comment) %>
+              <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, data: {confirm: "Are you sure?"} %>
+            </p>
+          </div>
+        <% else %>
+          <p>
+            <%= comment.content %> by <% @user_firstname %>
+          </p>
+        <% end %>
       </div>
     </div>
   </article>
