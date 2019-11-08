@@ -8,13 +8,15 @@ class CommentsController < ApplicationController
   def create
     @comment.comments.build(comment_params)
     @comment.save
+    @new_comment = @comment.comments.last
+    @new_comment.update(content: @new_comment.content.strip)
     redirect_to recipe_path(@recipe)
   end
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.find(params[:id])
-    @comment.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy_all
     redirect_to recipe_path(@recipe)
   end
 
