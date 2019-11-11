@@ -16,7 +16,7 @@
 </div>
 <% if current_user %>
 <div class="comments">
-  <h5>Comments:</h5>
+  <h5>Reviews:</h5>
   <div class="comment-form">
     <%= render @recipe.comments %>
   </div>
@@ -24,8 +24,32 @@
     <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
       <%= f.hidden_field :user_id, value: @user.id %>
       <%= f.hidden_field :recipe_id, value: @recipe.id %>
+
+      <div id="rating-form">
+        <label>Rating</label>
+      </div>
+
       <%= f.text_area :content, placeholder: "Comment" %><br/>
       <%= f.submit "Add Comment"  %>
     <% end %>
 <% end %>
 </div>
+
+<!-- JS script for Raty -->
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'comment[rating]'
+  });
+</script>
+
+<!-- JS Script for Raty -->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
