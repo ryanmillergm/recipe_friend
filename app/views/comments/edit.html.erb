@@ -1,0 +1,10 @@
+<div class="comment-edit">
+  <h4>Log In</h4>
+  <section>
+    <%= form_for [@recipe, @comment] do |f| %>
+      <%= f.hidden_field :recipe_id, value: @recipe.id %>
+      <%= f.text_area :content, placeholder: "Comment" %><br/>
+      <%= f.submit "Update Comment" %>
+    <% end %>
+  </section>
+</div>

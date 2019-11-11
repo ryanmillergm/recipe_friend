@@ -24,11 +24,11 @@ Rails.application.routes.draw do
   end
 
   resources :recipes do
-    resources :comments
+    resources :comments, only: [:create, :new, :edit, :update, :destroy]
   end
 
   resources :comments do
-    resources :comments
+    resources :comments, only: [:create, :new, :edit, :update, :destroy]
   end
 
   # match "*path", to: "application#render_not_found", via: :all

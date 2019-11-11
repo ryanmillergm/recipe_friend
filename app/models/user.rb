@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
 
   has_many :favorites
-  has_many :comments, as: :commentable
+  has_many :comments
   has_and_belongs_to_many :friends,
                         class_name: 'User',
                         join_table: :friends,
