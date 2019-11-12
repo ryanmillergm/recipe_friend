@@ -21,16 +21,16 @@
         <li class="nav-item">
           <%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="my-stuff">
           <a class="nav-link dropdown-toggle" href="/spreads" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My Stuff
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="<%= favorites_path %>">Favorites</a>
-            <a class="dropdown-item" href="<%= dashboard_my_recipes_path %>">My Recipes</a>
-            <a class="dropdown-item" href="<%= root_path %>">My Reviews</a>
-            <a class="dropdown-item" href="<%= root_path %>">My Photos</a>
-            <a class="dropdown-item" href="<%= new_user_recipe_path(current_user.id) %>">Add Recipe</a>
+            <a class="dropdown-item" id="favorite-path" href="<%= favorites_path %>">Favorites</a>
+            <a class="dropdown-item" id="my-recipes-path" href="<%= dashboard_my_recipes_path %>">My Recipes</a>
+            <a class="dropdown-item" id="my-reviews-path" href="<%= root_path %>">My Reviews</a>
+            <a class="dropdown-item" id="my-photos-path" href="<%= root_path %>">My Photos</a>
+            <a class="dropdown-item" id="add-recipe-path" href="<%= new_user_recipe_path(current_user.id) %>">Add Recipe</a>
           </div>
         </li>
         <% end %>
