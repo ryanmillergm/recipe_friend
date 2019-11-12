@@ -4,6 +4,7 @@
       <div class="content">
         <% if comment.user_id == @user.id %>
           <p>
+            <div class="review-rating" data-score = "<%= comment.rating %>"></div>
             <%= comment.content %>
           </p>
           <div class="comment-edit-delete">
@@ -14,6 +15,7 @@
           </div>
         <% else %>
           <p>
+            <div class="review-rating" data-score = "<%= comment.rating %>"></div>
             <%= comment.content %> by <% @user_firstname %>
           </p>
         <% end %>
@@ -33,3 +35,14 @@
   <div>
   </div>
 </div>
+
+<!-- JS Script for Raty -->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>

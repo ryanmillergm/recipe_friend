@@ -42,14 +42,3 @@
     scoreName: 'comment[rating]'
   });
 </script>
-
-<!-- JS Script for Raty -->
-<script>
-  $('.review-rating').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-</script>
