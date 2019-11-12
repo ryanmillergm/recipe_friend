@@ -16,4 +16,9 @@ class RecipeFacade
     Recipe.find(id)
   end
 
+  def get_rating(recipe_id)
+    recipe = Recipe.find(recipe_id)
+    average_rating = (recipe.comments.sum(:rating) / recipe.comments.count.to_f).round(2)
+  end
+
 end
