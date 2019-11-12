@@ -3,6 +3,10 @@
     <div class="description-show">
       <div class="recipe-title-show">
         <h1><%= @recipe.title %></h1>
+        <div class="review-rating" data-score = "<%= @recipes_facade.get_rating(@recipe.id) %>"></div>
+        <p>
+          <%= @recipe.comments.count %> Reviews
+        </p>
       </div>
       <div class="description">
         <%=  @recipe.description%>
