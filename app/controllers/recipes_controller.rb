@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   def index
     @query = search_params[:q]
     @recipes = Recipe.get_recipes(search_params)
+    @recipes_facade = RecipeFacade.new(@recipes)
   end
 
   def show

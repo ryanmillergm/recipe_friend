@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   validates_presence_of :title
-  validates_presence_of :description
+  validates_presence_of :description, presence: true, length: { minimum: 5 }
   validates_presence_of :recipe_type
   validates_presence_of :user_id
 

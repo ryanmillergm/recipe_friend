@@ -7,7 +7,6 @@ RSpec.describe 'As a user' do
     visit root_path
 
     click_on 'Log in'
-
     expect(current_path).to eq(new_session_path)
 
     fill_in 'session[email]', with: user.email
@@ -17,11 +16,7 @@ RSpec.describe 'As a user' do
 
     expect(current_path).to eq(user_path(user.id))
 
-    click_on 'Dashboard'
-
-    within('#nav-add-recipe') do
-      click_link 'Add Recipe'
-    end
+    find("#my-stuff").find("#add-recipe-path").click
 
     expect(current_path).to eq(new_user_recipe_path(user.id))
 
@@ -70,11 +65,7 @@ RSpec.describe 'As a user' do
 
     expect(current_path).to eq(user_path(user.id))
 
-    click_on 'Dashboard'
-
-    within('#nav-add-recipe') do
-      click_link 'Add Recipe'
-    end
+    find("#my-stuff").find("#add-recipe-path").click
 
     expect(current_path).to eq(new_user_recipe_path(user.id))
 
@@ -102,11 +93,7 @@ RSpec.describe 'As a user' do
 
     expect(current_path).to eq(user_path(user.id))
 
-    click_on 'Dashboard'
-
-    within('#nav-add-recipe') do
-      click_link 'Add Recipe'
-    end
+    find("#my-stuff").find("#add-recipe-path").click
 
     expect(current_path).to eq(new_user_recipe_path(user.id))
 
@@ -153,11 +140,7 @@ RSpec.describe 'As a user' do
 
     expect(current_path).to eq(user_path(user.id))
 
-    click_on 'Dashboard'
-
-    within('#nav-add-recipe') do
-      click_link 'Add Recipe'
-    end
+    find("#my-stuff").find("#add-recipe-path").click
 
     expect(current_path).to eq(new_user_recipe_path(user.id))
 

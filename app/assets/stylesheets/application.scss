@@ -47,6 +47,24 @@ body {
   border-left: 4px solid lightgrey;
 }
 
+.navbar a {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.navbar ul li a {
+ color: #111;
+ text-align: center;
+ text-decoration: none;
+ transform: all 5s;
+ font-family: sans-serif;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+
+}
+
 .search-field { margin-top: 7px;}
 
 #nav {
