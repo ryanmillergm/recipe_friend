@@ -1,4 +1,3 @@
-<%= render '/dashboard/dashboard/dash_nav' %>
 <br>
 <div class="edit-recipe">
     <%= render '/recipes/recipe_show' %>
@@ -23,3 +22,14 @@
     </table>
 </div>
 <br>
+
+<!-- JS Script for Raty -->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
