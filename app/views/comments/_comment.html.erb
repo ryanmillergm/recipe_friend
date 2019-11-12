@@ -3,21 +3,15 @@
     <div class="media-content">
       <div class="content">
         <% if comment.user_id == @user.id %>
-          <p>
             <div class="review-rating" data-score = "<%= comment.rating %>"></div>
             <%= comment.content %>
-          </p>
           <div class="comment-edit-delete">
-            <p>
-              <%= link_to 'Edit', edit_recipe_comment_path(@recipe, comment) %>
-              <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, data: {confirm: "Are you sure?"} %>
-            </p>
+            <%= link_to 'Edit', edit_recipe_comment_path(@recipe, comment) %>
+            <%= link_to 'Delete', recipe_comment_path(@recipe, comment), method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
         <% else %>
-          <p>
             <div class="review-rating" data-score = "<%= comment.rating %>"></div>
             <%= comment.content %> by <% @user_firstname %>
-          </p>
         <% end %>
       </div>
     </div>
