@@ -25,6 +25,7 @@
                 <%= image_tag(url_for(recipe_image.thumbnail)) %>
               <% end %>
             </div>
+            <div class="review-rating" id="review-rating-index" data-score = "<%= @recipes_facade.get_rating(recipe.id) %>"></div>
             <div class="recipe-title">
               <h2><%= link_to recipe.title, dashboard_my_recipe_path(recipe.id) %></h2>
             </div>
@@ -37,3 +38,14 @@
       </div>
   </main>
 </body>
+
+<!-- JS Script for Raty -->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
