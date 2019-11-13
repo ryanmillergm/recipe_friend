@@ -44,6 +44,20 @@ jobs: # a collection of steps
           paths:
             - vendor/bundle
 
+      - restore_cache:
+          keys:
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}
+            - asset-cache-v1
+
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
       # Only necessary if app uses webpacker or yarn in some other way
       # - restore_cache:
       #     keys:
