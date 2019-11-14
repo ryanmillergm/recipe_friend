@@ -36,9 +36,4 @@
 </div>
 
 <!-- JS script for Raty -->
-<script>
-  $('#rating-form').raty({
-    path: '/assets/',
-    scoreName: 'comment[rating]'
-  });
-</script>
+<%= render '/comments/review_rating_script' %>
