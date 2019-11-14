@@ -31,12 +31,4 @@
 </div>
 
 <!-- JS Script for Raty -->
-<script>
-  $('.review-rating').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-</script>
+<%= render '/comments/rating_script' %>

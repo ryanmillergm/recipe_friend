@@ -1,5 +1,8 @@
 <div class="comment-edit">
-  <h4>Log In</h4>
+  <div id="rating-form">
+    <label>Rating</label>
+  </div>
+  <h4>Comment:</h4>
   <section>
     <%= form_for [@recipe, @comment] do |f| %>
       <%= f.hidden_field :recipe_id, value: @recipe.id %>
@@ -8,3 +11,6 @@
     <% end %>
   </section>
 </div>
+
+<!-- JS script for Raty -->
+<%= render '/comments/review_rating_script' %>
