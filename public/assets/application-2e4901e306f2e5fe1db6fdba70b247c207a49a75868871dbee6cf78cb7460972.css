@@ -1,0 +1,443 @@
+/* line 1, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/comments.scss */
+.comment-edit {
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 30px 20px 12px 40px;
+}
+/* line 5, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/dashboard.scss */
+.fav-dashboard {
+  padding-left: 50px;
+  display: block;
+}
+
+/* line 10, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/dashboard.scss */
+.fav-recipes-dashboard {
+  padding-left: 25px;
+}
+/* line 5, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/favorites.scss */
+.favorites {
+  padding-left: 50px;
+  display: block;
+}
+
+/* line 10, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/favorites.scss */
+.favorite-recipes {
+  padding-left: 25px;
+}
+/* JQuery Raty Code */
+/* line 4, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  font-size: 2em;
+}
+
+@font-face {
+  font-family: "raty";
+  font-style: normal;
+  font-weight: normal;
+  src: url(/./fonts/raty.eot);
+  src: url(/./fonts/raty.eot?#iefix) format("embedded-opentype");
+  src: url(/./fonts/raty.svg#raty) format("svg");
+  src: url(/./fonts/raty.ttf) format("truetype");
+  src: url(/./fonts/raty.woff) format("woff");
+}
+/* line 19, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "raty";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+/* line 31, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.cancel-on-png:before {
+  content: "\e600";
+}
+
+/* line 35, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.cancel-off-png:before {
+  content: "\e601";
+}
+
+/* line 39, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.star-on-png:before {
+  content: "\f005";
+}
+
+/* line 43, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.star-off-png:before {
+  content: "\f006";
+}
+
+/* line 47, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/jquery.raty.scss */
+.star-half-png:before {
+  content: "\f123";
+}
+/* line 5, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* line 11, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+a {
+  color: black;
+  font-family: sans-serif;
+}
+
+/* line 16, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+body {
+  font-family: sans-serif;
+}
+
+/* line 23, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+p {
+  margin-bottom: 0rem;
+}
+
+/* line 27, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.card-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5em 0;
+}
+
+/* line 33, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.comments {
+  padding-left: 50px;
+  padding-bottom: 20px;
+}
+
+/* line 38, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.comments_comment {
+  padding-bottom: 20px;
+}
+
+/* line 42, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.comment-edit-delete {
+  font-size: 10px;
+}
+
+/* line 50, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.description {
+  padding: 1em 2em;
+  font-size: 16px;
+}
+
+/* line 55, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.description-show {
+  width: 60%;
+}
+
+/* line 59, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* line 68, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.detail-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 73, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.edit-delete-recipe-buttons {
+  height: 0px;
+  width: 100%;
+}
+
+/* line 78, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.edit-delete-recipe-buttons th {
+  padding-top: 30px;
+  padding-bottom: 12px;
+  padding-left: 5%;
+  text-align: left;
+}
+
+/* line 85, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.favorites-button {
+  height: 200px;
+  width: 100%;
+}
+
+/* line 90, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.favorites-button th {
+  padding-top: 20px;
+  padding-bottom: 12px;
+  padding-left: 10%;
+  text-align: left;
+}
+
+/* line 97, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+/* line 104, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.ingredient {
+  padding: 20px, 20px, 20px, 50px;
+}
+
+/* line 108, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.header {
+  background-color: #f9f9f9;
+  height: 5em;
+}
+
+/* line 113, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.main {
+  background-color: #f9f9f9;
+}
+
+/* line 117, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.new-recipe {
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 30px 20px 12px 40px;
+}
+
+/* line 131, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe {
+  width: 90%;
+  margin: 0.5em auto;
+  background-color: white;
+  border: 2px solid #ccc;
+}
+
+/* line 138, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-description-show div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 143, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-image,
+.description {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* line 149, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-count {
+  font-size: 20px;
+  font-style: italic;
+  color: grey;
+  padding-left: 10px;
+  background-color: #f9f9f9;
+}
+
+/* line 157, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-image {
+  padding: 1.2em 1em;
+}
+
+/* line 161, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 168, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-inline {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 173, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-show-steps {
+  padding-left: 50px;
+}
+
+/* line 177, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-title h2 {
+  text-align: left;
+  padding: 10px 0px 0px 50px;
+}
+
+/* line 182, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+.recipe-title-show {
+  text-align: left;
+  padding: 10px 0px 0px 50px;
+}
+
+/* FLEXBOX STYLES */
+/* line 188, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+#ingredients {
+  text-decoration: underline;
+}
+
+/* line 192, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+#review-rating-index {
+  padding: 0px 0px 0px 50px;
+}
+
+@media (min-width: 640px) {
+  /* line 198, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+  .card-container {
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  /* line 203, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+  .recipe {
+    flex: 1 0 48%;
+    margin: 1%;
+  }
+}
+@media (min-width: 1001px) {
+  /* line 210, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+  .recipe {
+    flex: 1 0 31%;
+  }
+
+  /* line 214, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/recipes.scss */
+  .recipe:last-of-type {
+    flex-grow: 0;
+  }
+}
+/* line 2, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/sessions.scss */
+.user-login {
+  margin: auto;
+  margin-top: 100px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 30px 20px 12px 40px;
+}
+/* line 5, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/users.scss */
+.register {
+  margin: auto;
+  margin-top: 30px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 30px 20px 12px 40px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 19, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+/* line 23, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+a:hover {
+  color: grey;
+}
+
+/* line 27, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+body {
+  background-color: gainsboro;
+  margin: 0px 0px 20px 0px;
+  padding: 0;
+}
+
+/* line 33, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+.btn-lg {
+  padding: 20px 20px;
+  font-size: 70px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+/* line 40, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+.container {
+  max-width: 95%;
+  width: 1300px;
+  background-color: white;
+  min-height: 900px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right: 4px solid lightgrey;
+  border-left: 4px solid lightgrey;
+}
+
+/* line 51, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+.navbar a {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+/* line 58, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+.navbar ul li a {
+  color: #111;
+  text-align: center;
+  text-decoration: none;
+  transform: all 5s;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* line 69, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+.search-field {
+  margin-top: 7px;
+}
+
+/* line 71, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+#nav {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 2px outset white;
+}
+
+/* line 77, /Users/ryan/turing/4module/projects/recipe_friend/app/assets/stylesheets/application.scss */
+#work .img-responsive {
+  margin: 0 auto;
+}
