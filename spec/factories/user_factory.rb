@@ -6,8 +6,9 @@ FactoryBot.define do
     sequence(:password) { "password" }
     sequence(:email) { |n| "user-#{n}@example.com" }
     sequence(:role) { rand(2) }
-    sequence(:avatar) { "avatar" }
     sequence(:about) { "about" }
     sequence(:telephone) { |n| n }
+    sequence(:location) { "location" }
+    sequence(:quote) { "quote" }
   end
 end
