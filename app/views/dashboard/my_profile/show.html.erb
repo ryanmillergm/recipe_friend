@@ -1,45 +1,49 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 
-<div class="my-profile">
-  <div class="my-profile-background-image">
-    <% if @user.background_image.attached? %>
+<div class="my-profile-container">
+  <div class="my-profile-header">
+    <div class="my-profile-background-image">
+      <% if @user.background_image.attached? %>
       <%= image_tag(url_for(background_image)) %>
-    <% else %>
+      <% else %>
       <%=image_tag("user-background-image.jpg", height: '200')%>
       <br>
-      <%= link_to 'Add Cover Photo', edit_dashboard_my_profile_path(@user.id) %>
-    <% end %>
-    <div class="my-profile-picture">
-      <% if @user.avatar.attached? %>
+      <div class="my-cover-photo-link">
+        <%= link_to 'Add Cover Photo', edit_dashboard_my_profile_path(@user.id) %>
+      </div>
+      <% end %>
+      <div class="my-profile-picture">
+        <% if @user.avatar.attached? %>
         <%= image_tag(url_for(avatar)) %>
-      <% else %>
+        <% else %>
         <%=image_tag("user_image.png", height: '100')%>
         <br>
-        <%= link_to 'Add Profile Photo', edit_dashboard_my_profile_path(@user.id) %>
-      <% end %>
-    </div>
-  </div>
-  <div class="my-profile-info">
-    <div class="username">
-      <%= @user.username %>
-      <div class="location">
-        <p>
-          Location: <%= @user.location %>
-        </p>
+          <%= link_to 'Add Profile Photo', edit_dashboard_my_profile_path(@user.id) %>
+        <% end %>
       </div>
-    </div>
-    <div class="quote">
-      <p>
-        Favorite Quote: "<%= @user.quote %>"
-      </p>
-    </div>
-    <div class="about">
-      <p>
-        About Me: <%= @user.about %>
-      </p>
-    </div>
-    <div class="edit-profile">
-      <%= link_to 'Edit Profile', edit_dashboard_my_profile_path(@user.id) %>
+      <div class="my-profile-info">
+        <div class="username">
+          <%= @user.username %>
+          <div class="location">
+            <p>
+              Location: <%= @user.location %>
+            </p>
+          </div>
+        </div>
+        <div class="quote">
+          <p>
+            Favorite Quote: "<%= @user.quote %>"
+          </p>
+        </div>
+        <div class="about">
+          <p>
+            About Me: <%= @user.about %>
+          </p>
+        </div>
+        <div class="edit-profile">
+          <%= link_to 'Edit Profile', edit_dashboard_my_profile_path(@user.id) %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,25 @@
+.my-cover-photo-link {
+  padding-left: 20px;
+}
+
+.my-profile-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 
 .my-profile-info {
-  padding-left: 20px
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.my-profile-background-image {
+  position: relative;
+}
+
+.my-profile-picture {
+  position: absolute;
+  top: 50px;
+  padding: 20px;
+  border-radius: 50%;
 }
