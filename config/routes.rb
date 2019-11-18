@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get '/', to: 'dashboard#index'
     resources :my_recipes, only: [:index, :show]
-    resources :my_profile, only: [:index]
+    resources :my_profile, only: [:show, :edit]
   end
 
   resources :recipes do
