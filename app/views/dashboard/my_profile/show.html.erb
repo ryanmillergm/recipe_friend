@@ -20,20 +20,26 @@
     </div>
   </div>
   <div class="my-profile-info">
-    <div class="location">
-      <p>
-        Location: <%= @user.location %>
-      </p>
-      <div class="quote">
+    <div class="username">
+      <%= @user.username %>
+      <div class="location">
         <p>
-          Favorite Quote: "<%= @user.quote %>"
+          Location: <%= @user.location %>
         </p>
       </div>
+    </div>
+    <div class="quote">
+      <p>
+        Favorite Quote: "<%= @user.quote %>"
+      </p>
     </div>
     <div class="about">
       <p>
         About Me: <%= @user.about %>
       </p>
+    </div>
+    <div class="edit-profile">
+      <%= link_to 'Edit Profile', edit_dashboard_my_profile_path(@user.id) %>
     </div>
   </div>
 </div>
