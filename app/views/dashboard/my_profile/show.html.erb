@@ -4,7 +4,7 @@
   <div class="my-profile-header">
     <div class="my-profile-background-image">
       <% if @user.background_image.attached? %>
-      <%= image_tag(url_for(background_image)) %>
+        <%= image_tag(url_for(@user.background_image), height: '200') %>
       <% else %>
       <%=image_tag("user-background-image.jpg", height: '200')%>
       <br>
@@ -14,7 +14,7 @@
       <% end %>
       <div class="my-profile-picture">
         <% if @user.avatar.attached? %>
-        <%= image_tag(url_for(avatar)) %>
+          <%= image_tag(url_for(@user.avatar), height: '100') %>
         <% else %>
         <%=image_tag("user_image.png", height: '100')%>
         <br>
