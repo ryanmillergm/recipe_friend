@@ -36,6 +36,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:success] = "Your profile has been updated"
+      redirect_to dashboard_my_profile_path(@user.id)
+    else
+      flash[:error] = "Oops! Something went wrong"
+      redirect_to edit_dashboard_my_profile_path(@user.id)
+    end
+  end
+
   private
 
   def user_params
@@ -45,9 +56,12 @@ class UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :email,
-                                 :avatar,
                                  :about,
-                                 :telephone)
+                                 :telephone,
+                                 :location,
+                                 :quote,
+                                 :avatar,
+                                 :background_image)
   end
 
   def ready_messages

@@ -20,7 +20,6 @@ class User < ApplicationRecord
                         foreign_key: :users_id,
                         association_foreign_key: :friend_id
 
-
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
