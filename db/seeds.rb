@@ -1,6 +1,6 @@
 
-@user1 = User.create(first_name: "ryan", last_name: "miller", username: "user1", password: "password", email: "user1@gmail.com", role: 1, avatar: "avatar", about: "Me", telephone: 5555555555)
-@user2 = User.create(first_name: "user", last_name: "user", username: "user2", password: "password", email: "user2@gmail.com", role: 0, avatar: "avatar", about: "Me", telephone: 5555555555)
+@user1 = User.create(first_name: "ryan", last_name: "miller", username: "user1", password: "password", email: "user1@gmail.com", role: 1, about: "Me", telephone: 5555555555)
+@user2 = User.create(first_name: "user", last_name: "user", username: "user2", password: "password", email: "user2@gmail.com", role: 0, about: "Me", telephone: 5555555555)
 
 @ingredient1 = Ingredient.create(name: "basil", ingredient_type: 0)
 @ingredient2 = Ingredient.create(name: "oregano", ingredient_type: 0)
