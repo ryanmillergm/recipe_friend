@@ -1,0 +1,34 @@
+<br>
+  <div class="register">
+    <h4>Create an Account</h4>
+    <section>
+      <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :avatar, 'Add Profile Picture' %>
+        <%= f.file_field :avatar, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :background_image, 'Add Cover Picture' %>
+        <%= f.file_field :background_image, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :location %>
+        <%= f.text_field :location, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :quote %>
+        <%= f.text_field :quote, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :about %>
+        <%= f.text_field :about, class: "form-control"  %>
+      </div>
+      <%= f.submit 'Update Profile', class: "btn btn-primary" %>
+      <% end %>
+  </section>
+  </div>
+</div>

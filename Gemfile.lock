@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
+    Jcrop (0.1.0)
     actioncable (5.2.3)
       actionpack (= 5.2.3)
       nio4r (~> 2.0)
@@ -937,6 +939,7 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.3)
       sprockets-rails (>= 2.0.0)
+    rails-assets-jcrop (2.0.4)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -1027,6 +1030,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  Jcrop (~> 0.1.0)
   active_model_serializers
   aws-sdk
   aws-sdk-s3
@@ -1048,6 +1052,7 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails-assets-jcrop!
   rspec-rails
   rspec_junit_formatter
   sass-rails (~> 5.0)

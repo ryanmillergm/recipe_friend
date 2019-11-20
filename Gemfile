@@ -7,6 +7,9 @@ gem 'figaro'
 gem 'faraday'
 gem 'aws-sdk'
 gem "aws-sdk-s3", require: false
+gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
+gem 'Jcrop', '~> 0.1.0'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

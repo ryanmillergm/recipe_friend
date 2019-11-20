@@ -16,11 +16,13 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :recipes, only: [:create, :new, :edit, :update, :destroy]
+    resources :crop_images, only: [:new, :create]
   end
 
   namespace :dashboard do
     get '/', to: 'dashboard#index'
     resources :my_recipes, only: [:index, :show]
+    resources :my_profile, only: [:show, :edit]
   end
 
   resources :recipes do

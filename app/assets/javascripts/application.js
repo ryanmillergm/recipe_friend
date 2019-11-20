@@ -11,10 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require jquery3
+//= require jquery.Jcrop
+//= require jcrop
 //= require_tree .
-
 
 // import Rails from 'rails-ujs';
 // Rails.start();

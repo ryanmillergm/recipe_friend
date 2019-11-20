@@ -30,12 +30,9 @@ RSpec.describe 'as a visitor' do
       fill_in 'user[password]', with: @password
       fill_in 'user[password_confirmation]', with: @password
       fill_in 'user[email]', with: @email
-      fill_in 'user[avatar]', with: @avatar
-      fill_in 'user[about]', with: @about
       fill_in 'user[telephone]', with: @telephone
 
       click_on 'Create Account'
-
       user = User.last
 
       expect(current_path).to eq(user_path(user.id))
@@ -76,8 +73,6 @@ RSpec.describe 'as a visitor' do
     fill_in 'user[password]', with: @password
     fill_in 'user[password_confirmation]', with: @password
     fill_in 'user[email]', with: @email
-    fill_in 'user[avatar]', with: @avatar
-    fill_in 'user[about]', with: @about
     fill_in 'user[telephone]', with: @telephone
 
     click_on 'Create Account'
