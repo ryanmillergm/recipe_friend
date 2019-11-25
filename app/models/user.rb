@@ -2,11 +2,7 @@ class User < ApplicationRecord
   attr_accessor :crop_x,
                 :crop_y,
                 :crop_w,
-                :crop_h,
-                :photo_crop_x,
-                :photo_crop_y,
-                :photo_crop_w,
-                :photo_crop_h
+                :crop_h
 
   after_update :crop
 
@@ -55,11 +51,6 @@ class User < ApplicationRecord
       y = self.crop_y.to_i
       w = self.crop_w.to_i
       h = self.crop_h.to_i
-      self.update(avatar_coords: "#{w}x#{h}+#{x}+#{y}")
-      # return self.avatar.variant(crop: "#{w}x#{h}+#{x}+#{y}").processed
-      binding.pry
-      # return self.update(avatar_coords: "#{w}x#{h}+#{x}+#{y}")
-      # self.avatar.variant(combine_options: {crop: "#{w}x#{h}+#{x}+#{y}" })
     end
   end
 
