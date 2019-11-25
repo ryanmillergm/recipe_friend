@@ -2,13 +2,7 @@ class User < ApplicationRecord
   attr_accessor :crop_x,
                 :crop_y,
                 :crop_w,
-                :crop_h,
-                :photo_crop_x,
-                :photo_crop_y,
-                :photo_crop_w,
-                :photo_crop_h
-
-  after_update :crop
+                :crop_h
 
   before_create :confirmation_token
   has_secure_password
@@ -41,26 +35,16 @@ class User < ApplicationRecord
     return self.avatar.variant(crop: self.avatar_coords ).processed
   end
 
+  def cropped_background
+    return self.background_image.variant(crop: self.background_coords ).processed
+  end
+
   def large
     return self.avatar.variant(resize: '600x600').processed
   end
 
   def thumb
     return self.avatar.variant(resize: '100x100').processed
-  end
-
-  def crop
-    if self.crop_x.present?
-      x = self.crop_x.to_i
-      y = self.crop_y.to_i
-      w = self.crop_w.to_i
-      h = self.crop_h.to_i
-      self.update(avatar_coords: "#{w}x#{h}+#{x}+#{y}")
-      # return self.avatar.variant(crop: "#{w}x#{h}+#{x}+#{y}").processed
-      binding.pry
-      # return self.update(avatar_coords: "#{w}x#{h}+#{x}+#{y}")
-      # self.avatar.variant(combine_options: {crop: "#{w}x#{h}+#{x}+#{y}" })
-    end
   end
 
   private

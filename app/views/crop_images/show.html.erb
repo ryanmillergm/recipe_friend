@@ -2,10 +2,11 @@
   <div class="row">
     <div class="col-md-12">
       <h3>Crop Image</h3>
-      <% if @user.avatar.attached? %>
+      <% if @user.background_image.attached? %>
         <div class="m-b-lg" id="crop-stage">
-          <%= image_tag(url_for(@user.avatar), id: 'crop-image', style: 'max-width:none;max-height:none;') %>
+          <%= image_tag(url_for(@user.background_image), id: 'crop-background', style: 'max-width:none;max-height:none;') %>
           <%= form_tag user_crop_images_url(user_id: @user.id) do %>
+            <%= hidden_field :background, value: "True" %>
             <%= hidden_field_tag :coords_x, nil, id: 'coords-x' %>
             <%= hidden_field_tag :coords_y, nil, id: 'coords-y' %>
             <%= hidden_field_tag :coords_h, nil, id: 'coords-h' %>

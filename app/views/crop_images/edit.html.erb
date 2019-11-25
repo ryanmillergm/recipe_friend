@@ -1,0 +1,14 @@
+<br>
+  <div class="register">
+    <h4>Add Cover Photo</h4>
+    <section>
+      <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :background_image, 'Add Cover Picture' %>
+        <%= f.file_field :background_image, class: "form-control" %>
+      </div>
+      <%= f.submit 'Update Profile', class: "btn btn-primary" %>
+      <% end %>
+  </section>
+  </div>
+</div>
