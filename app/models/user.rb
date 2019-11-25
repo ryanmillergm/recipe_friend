@@ -4,8 +4,6 @@ class User < ApplicationRecord
                 :crop_w,
                 :crop_h
 
-  after_update :crop
-
   before_create :confirmation_token
   has_secure_password
 
@@ -43,15 +41,6 @@ class User < ApplicationRecord
 
   def thumb
     return self.avatar.variant(resize: '100x100').processed
-  end
-
-  def crop
-    if self.crop_x.present?
-      x = self.crop_x.to_i
-      y = self.crop_y.to_i
-      w = self.crop_w.to_i
-      h = self.crop_h.to_i
-    end
   end
 
   private
