@@ -15,6 +15,7 @@ class CropImagesController < ApplicationController
         y = params[:coords_y]
         w = params[:coords_w]
         h = params[:coords_h]
+
       @user.update(avatar_coords: "#{w}x#{h}+#{x}+#{y}")
       @user.save
 
