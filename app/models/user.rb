@@ -35,6 +35,10 @@ class User < ApplicationRecord
     return self.avatar.variant(crop: self.avatar_coords ).processed
   end
 
+  def cropped_background
+    return self.background_image.variant(crop: self.background_coords ).processed
+  end
+
   def large
     return self.avatar.variant(resize: '600x600').processed
   end
