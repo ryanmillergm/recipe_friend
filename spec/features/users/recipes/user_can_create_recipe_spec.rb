@@ -46,7 +46,7 @@ RSpec.describe 'As a user' do
 
     click_button 'Done'
 
-    expect(page).to have_content("Start a large pot of boiling water")
+    expect(page).to have_content("Crop Image")
   end
 
   it 'I cannot add a new recipe without require recipe fields' do

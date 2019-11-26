@@ -64,6 +64,6 @@ RSpec.describe 'As a user' do
 
     click_button 'Done'
 
-    expect(current_path).to eq(dashboard_my_recipe_path(@recipe1.id))
+    expect(current_path).to eq(new_recipe_crop_recipe_image_path(@recipe1.id))
   end
 end
