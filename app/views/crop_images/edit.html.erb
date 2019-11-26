@@ -1,4 +1,7 @@
 <br>
+<% @user.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
   <div class="register">
     <h4>Add Cover Photo</h4>
     <section>
