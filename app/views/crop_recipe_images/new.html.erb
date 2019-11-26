@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Crop Image</h3>
+      <% if @recipe.image.attached? %>
+        <div class="m-b-lg" id="crop-stage">
+          <%= image_tag(url_for(@recipe.image), id: 'crop-image', style: 'max-width:none;max-height:none;') %>
+          <%= form_tag recipe_crop_recipe_images_url(recipe_id: @recipe.id) do %>
+            <%= hidden_field_tag :coords_x, nil, id: 'coords-x' %>
+            <%= hidden_field_tag :coords_y, nil, id: 'coords-y' %>
+            <%= hidden_field_tag :coords_h, nil, id: 'coords-h' %>
+            <%= hidden_field_tag :coords_w, nil, id: 'coords-w' %>
+          <%= submit_tag 'Submit', class: 'btn btn-primary', data: {disable_with: "..."} %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
