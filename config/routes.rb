@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :comments, only: [:create, :new, :edit, :update, :destroy]
+    resources :crop_recipe_images, only: [:new, :create]
   end
 
   resources :comments do

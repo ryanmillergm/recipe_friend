@@ -48,7 +48,7 @@ class UsersController < ApplicationController
         redirect_to dashboard_my_profile_path(@user.id)
       end
     else
-      flash[:error] = "Oops! Something went wrong"
+      flash[:error] = @user.errors.full_messages
       redirect_to edit_dashboard_my_profile_path(@user.id)
     end
   end

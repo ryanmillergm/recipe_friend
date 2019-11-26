@@ -22,7 +22,7 @@
               <img src=>
               <% recipe_image = recipe.get_recipe(recipe.id) %>
               <% if recipe_image.image.attached? %>
-                <%= image_tag(url_for(recipe_image.thumbnail)) %>
+                <%= image_tag(url_for(recipe_image.cropped_image)) %>
               <% end %>
             </div>
             <div class="review-rating" id="review-rating-index" data-score = "<%= @recipes_facade.get_rating(recipe.id) %>"></div>

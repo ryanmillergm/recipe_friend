@@ -20,10 +20,10 @@
 @ingredient16 = Ingredient.create(name: "potatoes", ingredient_type: 5)
 @ingredient17 = Ingredient.create(name: "beef stock", ingredient_type: 2)
 
-@recipe1 = Recipe.create(title: "Spaghetti", description: "This recipe is for Spaghetti", recipe_type: 2, user_id: @user1.id)
-@recipe2 = Recipe.create(title: "Chicken Noodle Soup", description: "This recipe is for chicken noodle soup", recipe_type: 2, user_id: @user1.id)
-@recipe3 = Recipe.create(title: "Fresh Lasagna pasta", description: "This recipe is for lasagna noodles", recipe_type: 3, user_id: @user1.id)
-@recipe4 = Recipe.create(title: "Pot Roast", description: "This recipe is for a delicious slow cooked beef potroast", recipe_type: 3, user_id: @user1.id)
+@recipe1 = Recipe.create(title: "Spaghetti", description: "This recipe is for Spaghetti", recipe_type: 2, user_id: @user1.id, image_coords: "1200x1200+0+0")
+@recipe2 = Recipe.create(title: "Chicken Noodle Soup", description: "This recipe is for chicken noodle soup", recipe_type: 2, user_id: @user1.id, image_coords: "1666.6666666666667x1666.6666666666667+0+0")
+@recipe3 = Recipe.create(title: "Fresh Lasagna pasta", description: "This recipe is for lasagna noodles", recipe_type: 3, user_id: @user1.id, image_coords:  "450x450+66+0")
+@recipe4 = Recipe.create(title: "Pot Roast", description: "This recipe is for a delicious slow cooked beef potroast", recipe_type: 3, user_id: @user1.id, image_coords: "1500x1500+0+0")
 
 @recipe1.image.attach(io: File.open('app/assets/images/Spaghetti-Meat-Sauce.jpg'), filename: 'Spaghetti-Meat-Sauce.jpg', content_type: "image/jpeg")
 @recipe2.image.attach(io: File.open('app/assets/images/chicken-noodle-soup.jpg'), filename: 'chicken-noodle-soup.jpg', content_type: "image/jpeg")
