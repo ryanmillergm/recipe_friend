@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :telephone, presence: true, uniqueness: true
   validates_presence_of :password, on: :create
+  validate :image_size
 
   has_many :favorites
   has_many :comments
@@ -29,6 +30,19 @@ class User < ApplicationRecord
     self.email_confirmed = true
     self.confirm_token = nil
     save!(:validate => false)
+  end
+
+  def image_size
+    if self.avatar.attached?
+      avatar.blob.analyze
+      errors.add :avatar, 'too big!' if avatar.blob.metadata[:width] > 4096
+      errors.add :avatar, 'too small!' if avatar.blob.metadata[:width] < 200 || avatar.blob.metadata[:height] < 200
+    end
+    if self.background_image.attached?
+      background_image.blob.analyze
+      errors.add :background_image, 'too big!' if background_image.blob.metadata[:width] > 4096
+      errors.add :background_image, 'too small!' if background_image.blob.metadata[:width] < 200 || background_image.blob.metadata[:height] < 200
+    end
   end
 
   def cropped_avatar
