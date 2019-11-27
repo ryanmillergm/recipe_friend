@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates_presence_of :username
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  validates :telephone, presence: true, uniqueness: true
+  # validates :telephone, presence: true, uniqueness: true
   validates_presence_of :password, on: :create
   validate :image_size
 

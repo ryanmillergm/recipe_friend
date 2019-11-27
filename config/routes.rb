@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'auth/google_oauth2', to: 'auth#google_oauth'
+  get 'auth/google_oauth2/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, only: [:index, :show]
   resources :ingredients, only: [:create, :new, :edit, :update, :destroy]
