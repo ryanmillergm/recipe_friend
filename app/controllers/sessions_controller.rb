@@ -58,7 +58,7 @@ class SessionsController < ApplicationController
       user.first_name = auth.info.name.split.first
       user.last_name = auth.info.name.split.last
       user.username = auth.info.name
-      # user.facebook_token = auth.credentials.token
+      user.facebook_token = auth.credentials.token
       user.email = auth.info.email
       user.email_confirmed = true
       user.confirm_token = nil
