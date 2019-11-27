@@ -10,9 +10,9 @@ gem "aws-sdk-s3", require: false
 gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
 gem 'Jcrop', '~> 0.1.0'
 gem 'jquery-rails'
-gem "omniauth"
+gem "omniauth", "~> 1.9.0"
 gem "omniauth-google-oauth2"
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', "~> 5.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
