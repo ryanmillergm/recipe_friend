@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
+  match 'auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes, only: [:index, :show]
   resources :ingredients, only: [:create, :new, :edit, :update, :destroy]
