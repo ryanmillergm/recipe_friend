@@ -12,6 +12,7 @@ gem 'Jcrop', '~> 0.1.0'
 gem 'jquery-rails'
 gem "omniauth"
 gem "omniauth-google-oauth2"
+gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
