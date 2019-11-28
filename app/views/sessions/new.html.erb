@@ -15,20 +15,22 @@
     <% end %>
   </section>
   <br>
-  <div class="facebook-oauth">
+  <div class="social-login">
+    <div class="facebook-oauth">
+      <div>
+        <%= link_to image_tag('facebook-login.png', width: '70%'), "/auth/facebook", :alt => "'Login using Facebook'"%>
+      </div>
+    </div>
+    <div class="or">
+      <p>or</p>
+    </div>
+    <div class="google-oauth">
+      <div class="d-inline-flex p-2 bd-highlight">
+        <%= link_to image_tag('google-sign-in.png', width: '78%'), auth_google_oauth2_path, :alt => "'Login using Google'"%>
+      </div>
+    </div>
     <div>
-      <%= link_to image_tag('facebook-login.png', width: '430'), "/auth/facebook", :alt => "'Login using Facebook'"%>
-    </div>
+      <p>Not a member yet? <%= link_to 'Click here to create an account', new_user_path %></p>
+      </div
   </div>
-  <div class="or">
-    <p>or</p>
-  </div>
-  <div class="google-oauth">
-    <div class="d-inline-flex p-2 bd-highlight">
-      <%= link_to image_tag('google-sign-in.png', width: '400'), auth_google_oauth2_path, :alt => "'Login using Google'"%>
-    </div>
-  </div>
-  <div>
-    <p>Not a member yet? <%= link_to 'Click here to create an account', new_user_path %></p>
-    </div
 </div>
