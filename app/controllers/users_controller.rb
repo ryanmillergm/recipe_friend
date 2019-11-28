@@ -44,9 +44,9 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       if params[:user][:avatar].present?
-        render '/crop_images/new'
+        redirect_to new_user_crop_image_path(@user.id)
       elsif params[:user][:background_image].present?
-        render '/crop_images/show'
+        redirect_to user_crop_image_path(@user.id)
       else
         flash[:success] = "Your profile has been updated"
         redirect_to dashboard_my_profile_path(@user.id)
