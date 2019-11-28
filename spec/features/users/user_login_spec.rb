@@ -37,7 +37,7 @@ RSpec.describe 'as a user' do
 
     click_on 'Log out'
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(new_session_path)
     expect(page).to have_content('You have successfully logged out.')
   end
 
