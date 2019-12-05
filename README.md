@@ -37,7 +37,7 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
 
 ## Running the Server Locally
  - `$ rails s`
- - Access local endpoints at `http://localhost:3000/graphql`
+ - Access local endpoints at `http://localhost:3000/ToBeDetermined`
  - Access deployed endpoints at `https://somewhere.com`
 
 ## Running the Test Suite
@@ -58,4 +58,4 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - Alexa skill set to read recipes
 
 ## Known Issues
- -
+ - CircleCi auto deployment to aws corrupts ActiveStorage images.
