@@ -36,7 +36,7 @@
               <div class="author">
                 <% author = User.find(recipe.user_id) %>
                 <p>
-                  <%= link_to "By #{author.first_name.capitalize}  #{author.last_name.first.capitalize}.", dashboard_my_profile_path(author.id), :style=> 'font-family: "Apple Chancery", cursive;' %>
+                  <%= link_to "By #{author.first_name.capitalize}  #{author.last_name.first.capitalize}.", user_path(author.id), :style=> 'font-family: "Apple Chancery", cursive;' %>
                 </p>
                 <div class="author-profile-picture">
                   <% if author.avatar.attached? %>
