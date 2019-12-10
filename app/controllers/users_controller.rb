@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @author = User.find(params[:id])
     render locals: {
       facade: UserDashboardFacade.new(current_user)
     }
