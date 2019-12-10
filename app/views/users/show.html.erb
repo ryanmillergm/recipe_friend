@@ -1,6 +1,45 @@
-<br>
-<%= "Logged in as #{@user.username}" %>
-<br>
-<% if @user.email_confirmed == false %>
-  <%= 'This account has not yet been activated. Please check your email to confirm your email address.' %>
-<% end %>
+
+<%= render '/dashboard/dashboard/dash_nav' %>
+
+<div class="my-profile-container">
+  <div class="my-profile-header">
+    <div class="my-profile-background-image">
+      <% if @author.background_image.attached? %>
+        <%= image_tag(url_for(@author.cropped_background)) %>
+      <% else %>
+        <%=image_tag("user-background-image.jpg", height: '200')%>
+        <br>
+        <div class="my-cover-photo-link">
+        </div>
+      <% end %>
+      <div class="my-profile-picture">
+        <% if @author.avatar.attached? %>
+          <%= image_tag(url_for(@author.cropped_avatar), height: '125', :id => "my-profile-picture") %>
+        <% else %>
+          <%=image_tag("user_image.png", height: '100')%>
+          <br>
+        <% end %>
+      </div>
+      <div class="my-profile-info">
+        <div class="username">
+          <%= @author.username %>
+        </div>
+        <div class="location">
+          <p>
+            Location: <%= @author.location %>
+          </p>
+        </div>
+        <div class="quote">
+          <p>
+            Favorite Quote: "<%= @author.quote %>"
+          </p>
+        </div>
+        <div class="about">
+          <p>
+            About Me: <%= @author.about %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
