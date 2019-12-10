@@ -24,6 +24,19 @@ p {
   margin-bottom: 0rem;
 }
 
+.author {
+  display: flex;
+  align-items: center;
+  float: right;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.author-profile-picture {
+  border-radius: 50%;
+}
+
 .card-container {
   width: 100%;
   margin: 0 auto;
@@ -155,14 +168,14 @@ p {
 }
 
 .recipe-image {
-    padding: 1.2em 1em;
+  padding: 1.2em 1em;
 }
 
 .recipe-image img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .recipe-inline {
