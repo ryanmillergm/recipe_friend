@@ -1,3 +1,7 @@
 <div class="recipe-results">
 
 </div>
+
+<% if @user.email_confirmed == false %>
+  <%= 'This account has not yet been activated. Please check your email to confirm your email address.' %>
+<% end %>
