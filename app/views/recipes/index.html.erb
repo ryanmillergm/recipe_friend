@@ -36,13 +36,13 @@
               <div class="author">
                 <% author = User.find(recipe.user_id) %>
                 <p>
-                  By <%= author.first_name.capitalize %> <%= author.last_name.first.capitalize %>.
+                  <%= link_to "By #{author.first_name.capitalize}  #{author.last_name.first.capitalize}.", dashboard_my_profile_path(author.id), :style=> 'font-family: "Apple Chancery", cursive;' %>
                 </p>
                 <div class="author-profile-picture">
                   <% if author.avatar.attached? %>
-                  <%= image_tag(url_for(author.cropped_avatar), height: '125', :id => "my-profile-picture") %>
+                  <%= image_tag(url_for(author.cropped_avatar), height: '40', :id => "my-profile-picture") %>
                   <% else %>
-                  <%= image_tag("user_image.png", height: '100')%>
+                  <%= image_tag("user_image.png", height: '40')%>
                   <% end %>
                 </div>
               </div>
