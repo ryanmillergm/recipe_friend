@@ -15,10 +15,10 @@ class SessionsController < ApplicationController
     elsif auth && auth[:provider] == "facebook"
       facebook_login(auth)
     else
-      user = User.find_by(email: login_params[:email])
-      if user&.authenticate(login_params[:password])
-        session[:user_id] = user.id
-        redirect_to user_path(user.id)
+      @user = User.find_by(email: login_params[:email])
+      if @user&.authenticate(login_params[:password])
+        session[:user_id] = @user.id
+        redirect_to root_path
       else
         flash[:error] = 'Oops! Looks like your email or password is invalid'
         render :new
