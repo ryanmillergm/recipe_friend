@@ -31,7 +31,22 @@
             <div class="review-rating" id="review-rating-index" data-score = "<%= @recipes_facade.get_rating(recipe.id) %>"></div>
             <div class="description">
               <p><%= link_to recipe.description, recipe_path(recipe.id) %></p>
+            </div>
+            <div>
+              <div class="author">
+                <% author = User.find(recipe.user_id) %>
+                <p>
+                  By <%= author.first_name.capitalize %> <%= author.last_name.first.capitalize %>.
+                </p>
+                <div class="author-profile-picture">
+                  <% if author.avatar.attached? %>
+                  <%= image_tag(url_for(author.cropped_avatar), height: '125', :id => "my-profile-picture") %>
+                  <% else %>
+                  <%= image_tag("user_image.png", height: '100')%>
+                  <% end %>
+                </div>
               </div>
+            </div>
             <div>
               <ul class="ingredients"><% recipe.ingredients.each do |ingredient| %>
                 <% end %>
