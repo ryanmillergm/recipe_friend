@@ -39,6 +39,11 @@
             About Me: <%= @author.about %>
           </p>
         </div>
+        <% if current_user.id != @author.id %>
+          <div class="friendship">
+            <%= link_to "Add Friend", user_friends_path(@user, @author), method: :create %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
