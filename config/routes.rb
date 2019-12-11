@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :recipes, only: [:create, :new, :edit, :update, :destroy]
     resources :crop_images, only: [:new, :create, :show, :edit]
+    resources :friends, only: [:create, :update, :index]
   end
 
   namespace :dashboard do
