@@ -1,0 +1,7 @@
+<%= render '/dashboard/dashboard/dash_nav' %>
+
+<div class="friends">
+  <% @user.friends.each do |friend| %>
+    <%= friend.username %>
+  <% end %>
+</div>
