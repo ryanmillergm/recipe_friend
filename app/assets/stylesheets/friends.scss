@@ -1,0 +1,68 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.friends {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  padding: 25px 50px 75px 50px;
+}
+
+.friend-accept {
+  margin: 10px 10px 5px 5px;
+}
+
+.friend-accept a {
+  color: white;
+  background-color: #3471eb;
+  padding: 5px 15px 5px 15px;
+  border-radius: 10%;
+}
+
+.friend-accept a:hover {
+  color: white;
+  background-color: #5d8def;
+}
+
+.friend-decline {
+  margin: 10px 10px 5px 5px;
+}
+
+.friend-decline a {
+  color: white;
+  background-color: grey;
+  padding: 5px 15px 5px 15px;
+  border-radius: 10%;
+}
+
+
+.friend-decline a:hover {
+  color: white;
+  background-color: #999999;
+}
+
+.friend-profile-picture {
+
+}
+
+.friend-request-container {
+  display: flex;
+  padding-left: 10px;
+}
+
+.friend-request-username {
+  padding-top: 15px;
+  padding-right: 10px;
+}
+
+.pending-friend-requests {
+  display: flex;
+  // vertical-align: text-bottom;
+}
+
+#friends-confirmed {
+  font-size: 24px;
+}
+
+#pending-friend-requests {
+  font-size: 24px;
+}
