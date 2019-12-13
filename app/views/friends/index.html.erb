@@ -1,7 +1,19 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 
+<div class="friend-requests">
+  <div class="friend-accept">
+    <p>Pending Friend Requests</p>
+    <% @user_facade.pending_friend_requests.each do |friend_request| %>
+      <%= friend_request.username %>
+      <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
+      <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
+    <% end %>
+  </div>
+</div>
+<br>
 <div class="friends">
-  <% @user.friends.each do |friend| %>
+  <p>Friends</p>
+  <% @user_facade.confirmed_friends.each do |friend| %>
     <%= friend.username %>
   <% end %>
 </div>
