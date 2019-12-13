@@ -24,13 +24,29 @@ class FriendsController < ApplicationController
       @user.friends << @friend
       new_friendship = Friend.where(friend_id: @friend.id).find_by(user_id: @user.id)
       new_friendship.update(confirmed: true)
-      binding.pry
       redirect_to user_friends_path(@user)
     elsif params[:format] == "decline"
       @friendship.destroy
       redirect_to user_friends_path(@user)
     else
       flash[:danger] = "Oops. Something went wrong."
+      redirect_to user_friends_path(@user)
+    end
+  end
+
+  def destroy
+    @user = current_user
+    friend = User.find(params[:id])
+    @user_facade = UserDashboardFacade.new(@user)
+    friendship = @user_facade.find_friend(@user, friend)
+    flash[:success] = "#{friend.username} has been removed from your friends list"
+    if friendship.confirmed == false
+      friendship.destroy
+      redirect_to user_friends_path(@user)
+    else
+      friendship.destroy
+      their_friendship = @user_facade.find_friend(friend, @user)
+      their_friendship.destroy
       redirect_to user_friends_path(@user)
     end
   end
