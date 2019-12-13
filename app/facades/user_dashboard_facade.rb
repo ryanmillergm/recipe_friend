@@ -18,7 +18,6 @@ class UserDashboardFacade
 
   def confirmed_friends
     @friends = []
-
     group1 = Friend.where(user_id: @user.id).where(confirmed:true)
 
     if !group1.empty?
@@ -27,14 +26,21 @@ class UserDashboardFacade
         @friends << user
       end
     end
-
     @friends
   end
 
-  def friend_requested
+  def sent_friend_requested
     @sent_requests = Friend.where(user_id: @user.id ).where(confirmed: false, blocked: false)
     @sent_requests.map do |friend|
-      User.find(friend.user_id)
+      User.find(friend.friend_id)
     end
+  end
+
+  def friendship_requested(friend)
+    possible_friend = nil
+    if friendship = Friend.where(user_id: friend.id).where(confirmed: false, blocked: false).find_by(friend_id: @user.id)
+      possible_friend = User.find(friendship.user_id)
+    end
+    possible_friend
   end
 end
