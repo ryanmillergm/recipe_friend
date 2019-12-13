@@ -2,7 +2,7 @@
 
 <div class="friends">
   <div class="friends-container">
-    <p id="pending-friend-requests">Pending Friend Requests</p>
+    <p id="friends-requests-titles">Pending Friend Requests</p>
     <div class="pending-friend-requests">
       <% @user_facade.pending_friend_requests.each do |friend_request| %>
       <div class="friend-profile-picture">
@@ -30,7 +30,7 @@
   <br>
 
   <div class="friends-container">
-    <p id="friends-confirmed">Friends</p>
+    <p id="friends-requests-titles">Friends</p>
     <div class="friends-confirmed">
       <% @user_facade.confirmed_friends.each do |friend| %>
       <div class="friend-profile-picture">
@@ -49,4 +49,27 @@
       <% end %>
     </div>
   </div>
+
+  <br>
+
+  <div class="friends-container">
+    <p id="friends-requests-titles">Friend Requests Sent</p>
+    <div class="friends-request-sent">
+      <% @user_facade.friend_requested.each do |friend_requested| %>
+      <div class="friend-profile-picture">
+        <% if friend_requested.avatar.attached? %>
+        <%= image_tag(url_for(friend_requested.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+        <% else %>
+        <%= image_tag("user_image.png", height: '40')%>
+        <% end %>
+      </div>
+      <div class="friend-confirmed">
+        <%= friend_requested.username %>
+      </div>
+      <div class="friend-remove">
+        <%= link_to "Cancel Friend Request", user_friend_path(@user, friend_requested), method: :delete, data: {confirm: "Are you sure you want to cancel this friend request?"} %>
+      </div>
+      <% end %>
+    </div>
   </div>
+</div>
