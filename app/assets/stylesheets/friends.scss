@@ -88,14 +88,15 @@
   padding-right: 10px;
 }
 
+.friends-request-sent {
+  display: flex;
+  padding-left: 10px;
+}
+
 .pending-friend-requests {
   display: flex;
 }
 
-#friends-confirmed {
-  font-size: 24px;
-}
-
-#pending-friend-requests {
+#friends-requests-titles {
   font-size: 24px;
 }
