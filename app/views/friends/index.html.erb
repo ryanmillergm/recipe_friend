@@ -1,9 +1,10 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 
 <div class="friends">
-  <p id="pending-friend-requests">Pending Friend Requests</p>
-  <div class="pending-friend-requests">
-    <% @user_facade.pending_friend_requests.each do |friend_request| %>
+  <div class="friends-container">
+    <p id="pending-friend-requests">Pending Friend Requests</p>
+    <div class="pending-friend-requests">
+      <% @user_facade.pending_friend_requests.each do |friend_request| %>
       <div class="friend-profile-picture">
         <% if friend_request.avatar.attached? %>
         <%= image_tag(url_for(friend_request.cropped_avatar), height: '40', :id => "my-profile-picture") %>
@@ -22,25 +23,30 @@
           <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
         </div>
       </div>
-    <% end %>
-  </div>
-  <br>
-  <p id="friends-confirmed">Friends</p>
-  <div class="friends-confirmed">
-    <% @user_facade.confirmed_friends.each do |friend| %>
-    <div class="friend-profile-picture">
-      <% if friend.avatar.attached? %>
-      <%= image_tag(url_for(friend.cropped_avatar), height: '40', :id => "my-profile-picture") %>
-      <% else %>
-      <%= image_tag("user_image.png", height: '40')%>
       <% end %>
     </div>
-    <div class="friend-confirmed">
-      <%= friend.username %>
-    </div>
-    <div class="friend-remove">
-      <%= link_to "Remove Friend", user_friend_path(@user, friend), method: :delete %>
-    </div>
-    <% end %>
   </div>
-</div>
+
+  <br>
+
+  <div class="friends-container">
+    <p id="friends-confirmed">Friends</p>
+    <div class="friends-confirmed">
+      <% @user_facade.confirmed_friends.each do |friend| %>
+      <div class="friend-profile-picture">
+        <% if friend.avatar.attached? %>
+        <%= image_tag(url_for(friend.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+        <% else %>
+        <%= image_tag("user_image.png", height: '40')%>
+        <% end %>
+      </div>
+      <div class="friend-confirmed">
+        <%= friend.username %>
+      </div>
+      <div class="friend-remove">
+        <%= link_to "Remove Friend", user_friend_path(@user, friend), method: :delete, data: {confirm: "Are you sure you want to remove this friend?"} %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
