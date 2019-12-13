@@ -30,4 +30,11 @@ class UserDashboardFacade
 
     @friends
   end
+
+  def friend_requested
+    @sent_requests = Friend.where(user_id: @user.id ).where(confirmed: false, blocked: false)
+    @sent_requests.map do |friend|
+      User.find(friend.user_id)
+    end
+  end
 end
