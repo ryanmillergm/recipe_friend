@@ -25,8 +25,8 @@
     <% end %>
   </div>
   <br>
+  <p id="friends-confirmed">Friends</p>
   <div class="friends-confirmed">
-    <p id="friends-confirmed">Friends</p>
     <% @user_facade.confirmed_friends.each do |friend| %>
     <div class="friend-profile-picture">
       <% if friend.avatar.attached? %>
@@ -35,7 +35,12 @@
       <%= image_tag("user_image.png", height: '40')%>
       <% end %>
     </div>
-    <%= friend.username %>
+    <div class="friend-confirmed">
+      <%= friend.username %>
+    </div>
+    <div class="friend-remove">
+      <%= link_to "Remove Friend", user_friend_path(@user, friend), method: :delete %>
+    </div>
     <% end %>
   </div>
 </div>
