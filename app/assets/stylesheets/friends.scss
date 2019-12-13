@@ -4,7 +4,7 @@
 
 .friends {
   font-family: Comic Sans MS, Comic Sans, cursive;
-  padding: 25px 50px 75px 50px;
+  padding: 25px 35px 75px 50px;
 }
 
 .friend-accept {
@@ -30,6 +30,15 @@
 .friends-confirmed {
   padding-top: 10px;
   display: flex;
+}
+
+.friends-container {
+  border-style: solid;
+  border-color: #999999;
+  border-width: 1px;
+  max-width: 60%;
+  min-width: 400px;
+  padding: 15px 20px 15px 20px;
 }
 
 .friend-decline {
@@ -81,7 +90,6 @@
 
 .pending-friend-requests {
   display: flex;
-  // vertical-align: text-bottom;
 }
 
 #friends-confirmed {
