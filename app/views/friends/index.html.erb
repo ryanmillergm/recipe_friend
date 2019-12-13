@@ -1,75 +1,77 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 
-<div class="friends">
-  <div class="friends-container">
-    <p id="friends-requests-titles">Pending Friend Requests</p>
-    <div class="pending-friend-requests">
-      <% @user_facade.pending_friend_requests.each do |friend_request| %>
-      <div class="friend-profile-picture">
-        <% if friend_request.avatar.attached? %>
-        <%= image_tag(url_for(friend_request.cropped_avatar), height: '40', :id => "my-profile-picture") %>
-        <% else %>
-        <%= image_tag("user_image.png", height: '40')%>
+<div class="friend-position">
+  <div class="friends">
+    <div class="friends-container">
+      <p id="friends-requests-titles">Pending Friend Requests</p>
+      <div class="pending-friend-requests">
+        <% @user_facade.pending_friend_requests.each do |friend_request| %>
+        <div class="friend-profile-picture">
+          <% if friend_request.avatar.attached? %>
+          <%= image_tag(url_for(friend_request.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+          <% else %>
+          <%= image_tag("user_image.png", height: '40')%>
+          <% end %>
+        </div>
+        <div class="friend-request-container">
+          <div class="friend-request-username">
+            <%= friend_request.username %>
+          </div>
+          <div class="friend-accept">
+            <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
+          </div>
+          <div class="friend-decline">
+            <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
+          </div>
+        </div>
         <% end %>
       </div>
-      <div class="friend-request-container">
-        <div class="friend-request-username">
-          <%= friend_request.username %>
-        </div>
-        <div class="friend-accept">
-          <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
-        </div>
-        <div class="friend-decline">
-          <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
-        </div>
-      </div>
-      <% end %>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <div class="friends-container">
-    <p id="friends-requests-titles">Friends</p>
-    <div class="friends-confirmed">
-      <% @user_facade.confirmed_friends.each do |friend| %>
-      <div class="friend-profile-picture">
-        <% if friend.avatar.attached? %>
-        <%= image_tag(url_for(friend.cropped_avatar), height: '40', :id => "my-profile-picture") %>
-        <% else %>
-        <%= image_tag("user_image.png", height: '40')%>
+    <div class="friends-container">
+      <p id="friends-requests-titles">Friends</p>
+      <div class="friends-confirmed">
+        <% @user_facade.confirmed_friends.each do |friend| %>
+        <div class="friend-profile-picture">
+          <% if friend.avatar.attached? %>
+          <%= image_tag(url_for(friend.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+          <% else %>
+          <%= image_tag("user_image.png", height: '40')%>
+          <% end %>
+        </div>
+        <div class="friend-confirmed">
+          <%= friend.username %>
+        </div>
+        <div class="friend-remove">
+          <%= link_to "Remove Friend", user_friend_path(@user, friend), method: :delete, data: {confirm: "Are you sure you want to remove this friend?"} %>
+        </div>
         <% end %>
       </div>
-      <div class="friend-confirmed">
-        <%= friend.username %>
-      </div>
-      <div class="friend-remove">
-        <%= link_to "Remove Friend", user_friend_path(@user, friend), method: :delete, data: {confirm: "Are you sure you want to remove this friend?"} %>
-      </div>
-      <% end %>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <div class="friends-container">
-    <p id="friends-requests-titles">Friend Requests Sent</p>
-    <div class="friends-request-sent">
-      <% @user_facade.friend_requested.each do |friend_requested| %>
-      <div class="friend-profile-picture">
-        <% if friend_requested.avatar.attached? %>
-        <%= image_tag(url_for(friend_requested.cropped_avatar), height: '40', :id => "my-profile-picture") %>
-        <% else %>
-        <%= image_tag("user_image.png", height: '40')%>
+    <div class="friends-container">
+      <p id="friends-requests-titles">Friend Requests Sent</p>
+      <div class="friends-request-sent">
+        <% @user_facade.sent_friend_requested.each do |friend_requested| %>
+        <div class="friend-profile-picture">
+          <% if friend_requested.avatar.attached? %>
+          <%= image_tag(url_for(friend_requested.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+          <% else %>
+          <%= image_tag("user_image.png", height: '40')%>
+          <% end %>
+        </div>
+        <div class="friend-confirmed">
+          <%= friend_requested.username %>
+        </div>
+        <div class="friend-remove">
+          <%= link_to "Cancel Friend Request", user_friend_path(@user, friend_requested), method: :delete, data: {confirm: "Are you sure you want to cancel this friend request?"} %>
+        </div>
         <% end %>
       </div>
-      <div class="friend-confirmed">
-        <%= friend_requested.username %>
-      </div>
-      <div class="friend-remove">
-        <%= link_to "Cancel Friend Request", user_friend_path(@user, friend_requested), method: :delete, data: {confirm: "Are you sure you want to cancel this friend request?"} %>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>
