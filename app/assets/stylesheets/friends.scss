@@ -4,7 +4,7 @@
 
 .friends {
   font-family: Comic Sans MS, Comic Sans, cursive;
-  padding: 25px 35px 75px 50px;
+  padding: 25px 35px 75px 0px;
 }
 
 .friend-accept {
@@ -58,8 +58,8 @@
   background-color: #999999;
 }
 
-.friend-profile-picture {
-
+.friend-position {
+  padding-left: 50px;
 }
 
 .friend-remove {
