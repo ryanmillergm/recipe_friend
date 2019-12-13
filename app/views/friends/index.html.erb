@@ -1,19 +1,41 @@
 <%= render '/dashboard/dashboard/dash_nav' %>
 
-<div class="friend-requests">
-  <div class="friend-accept">
-    <p>Pending Friend Requests</p>
+<div class="friends">
+  <p id="pending-friend-requests">Pending Friend Requests</p>
+  <div class="pending-friend-requests">
     <% @user_facade.pending_friend_requests.each do |friend_request| %>
-      <%= friend_request.username %>
-      <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
-      <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
+      <div class="friend-profile-picture">
+        <% if friend_request.avatar.attached? %>
+        <%= image_tag(url_for(friend_request.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+        <% else %>
+        <%= image_tag("user_image.png", height: '40')%>
+        <% end %>
+      </div>
+      <div class="friend-request-container">
+        <div class="friend-request-username">
+          <%= friend_request.username %>
+        </div>
+        <div class="friend-accept">
+          <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
+        </div>
+        <div class="friend-decline">
+          <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
-<br>
-<div class="friends">
-  <p>Friends</p>
-  <% @user_facade.confirmed_friends.each do |friend| %>
+  <br>
+  <div class="friends-confirmed">
+    <p id="friends-confirmed">Friends</p>
+    <% @user_facade.confirmed_friends.each do |friend| %>
+    <div class="friend-profile-picture">
+      <% if friend.avatar.attached? %>
+      <%= image_tag(url_for(friend.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+      <% else %>
+      <%= image_tag("user_image.png", height: '40')%>
+      <% end %>
+    </div>
     <%= friend.username %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
