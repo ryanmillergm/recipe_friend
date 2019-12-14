@@ -23,13 +23,17 @@
   background-color: #5d8def;
 }
 
+.friends-box {
+  display: flex;
+  padding-left: 10px;
+  padding-top: 10px
+}
+
 .friend-confirmed {
-  padding: 15px 15px 5px 15px;
+  padding: 0px 15px 5px 15px;
 }
 
 .friends-confirmed {
-  padding-top: 10px;
-  display: flex;
 }
 
 .friends-container {
@@ -88,13 +92,7 @@
   padding-right: 10px;
 }
 
-.friends-request-sent {
-  display: flex;
-  padding-left: 10px;
-}
-
 .pending-friend-requests {
-  display: flex;
 }
 
 #friends-requests-titles {
