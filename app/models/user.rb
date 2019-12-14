@@ -23,7 +23,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :friends,
                         class_name: 'User',
                         join_table: :friends,
-                        foreign_key: :users_id,
+                        foreign_key: :user_id,
                         association_foreign_key: :friend_id
 
   def email_activate

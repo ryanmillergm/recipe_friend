@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    render locals: {
-      facade: UserDashboardFacade.new(current_user)
-    }
+    @author = User.find(params[:id])
+    @user_facade = UserDashboardFacade.new(@user)
+    @friend = @user_facade.find_friend(@user, @author)
   end
 
   def new

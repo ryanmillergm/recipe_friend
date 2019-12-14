@@ -16,10 +16,11 @@
       <div class="my-profile-picture">
         <% if @user.avatar.attached? %>
           <%= image_tag(url_for(@user.cropped_avatar), height: '125', :id => "my-profile-picture") %>
+
           <%= link_to 'Edit Profile Photo', new_user_crop_image_path(@user.id) %>
         <% else %>
-        <%=image_tag("user_image.png", height: '100')%>
-        <br>
+          <%=image_tag("user_image.png", height: '100')%>
+          <br>
           <%= link_to 'Add Profile Photo', edit_dashboard_my_profile_path(@user.id) %>
         <% end %>
       </div>

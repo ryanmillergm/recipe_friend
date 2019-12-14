@@ -14,7 +14,7 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(root_path)
 
     find("#my-stuff").find("#add-recipe-path").click
 
@@ -63,7 +63,7 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(root_path)
 
     find("#my-stuff").find("#add-recipe-path").click
 
@@ -91,7 +91,7 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(root_path)
 
     find("#my-stuff").find("#add-recipe-path").click
 
@@ -138,7 +138,7 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(user.id))
+    expect(current_path).to eq(root_path)
 
     find("#my-stuff").find("#add-recipe-path").click
 

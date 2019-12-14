@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_232430) do
+ActiveRecord::Schema.define(version: 2019_12_10_233023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,11 +58,13 @@ ActiveRecord::Schema.define(version: 2019_11_27_232430) do
   end
 
   create_table "friends", force: :cascade do |t|
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.integer "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_friends_on_users_id"
+    t.boolean "confirmed", default: false
+    t.boolean "blocked", default: false
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -112,7 +114,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_232430) do
     t.bigint "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "email_confirmed"
+    t.boolean "email_confirmed", default: false
     t.string "confirm_token"
     t.string "quote"
     t.string "location"
@@ -128,7 +130,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_232430) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "recipes"
   add_foreign_key "favorites", "users"
-  add_foreign_key "friends", "users", column: "users_id"
+  add_foreign_key "friends", "users"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipes", "users"

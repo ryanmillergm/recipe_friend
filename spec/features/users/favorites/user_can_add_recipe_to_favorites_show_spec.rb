@@ -20,8 +20,8 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(@user1.id))
-    expect(page).to have_content(@user1.username)
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content(@user1.first_name)
 
     click_on 'Search Recipes'
 
@@ -49,8 +49,8 @@ RSpec.describe 'As a user' do
 
     click_on 'Log In'
 
-    expect(current_path).to eq(user_path(@user1.id))
-    expect(page).to have_content(@user1.username)
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content(@user1.first_name)
 
     click_on 'Search Recipes'
 

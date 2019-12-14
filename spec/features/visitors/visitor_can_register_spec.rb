@@ -36,7 +36,7 @@ RSpec.describe 'as a visitor' do
       user = User.last
 
       expect(current_path).to eq(user_path(user.id))
-      expect(page).to have_content("Logged in as #{user.username}")
+      expect(page).to have_content("#{user.username}'s account has been created")
       expect(page).to have_content('A confirmation email has been sent. To gain full access, please confirm your email. Thanks!')
       expect(page).to_not have_content('Sign In')
     end

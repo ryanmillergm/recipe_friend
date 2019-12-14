@@ -1,6 +1,89 @@
-<br>
-<%= "Logged in as #{@user.username}" %>
-<br>
-<% if @user.email_confirmed == false %>
-  <%= 'This account has not yet been activated. Please check your email to confirm your email address.' %>
-<% end %>
+
+<%= render '/dashboard/dashboard/dash_nav' %>
+
+<div class="my-profile-container">
+  <div class="my-profile-header">
+    <div class="my-profile-background-image">
+      <% if @author.background_image.attached? %>
+        <%= image_tag(url_for(@author.cropped_background)) %>
+      <% else %>
+        <%=image_tag("user-background-image.jpg", height: '200')%>
+        <br>
+        <div class="my-cover-photo-link">
+        </div>
+      <% end %>
+      <div class="my-profile-picture">
+        <% if @author.avatar.attached? %>
+          <%= image_tag(url_for(@author.cropped_avatar), height: '125', :id => "my-profile-picture") %>
+        <% else %>
+          <%=image_tag("user_image.png", height: '100')%>
+          <br>
+        <% end %>
+      </div>
+      <div class="my-profile-info">
+        <div class="username">
+          <%= @author.username %>
+        </div>
+        <div class="location">
+          <p>
+            Location: <%= @author.location %>
+          </p>
+        </div>
+        <div class="quote">
+          <p>
+            Favorite Quote: "<%= @author.quote %>"
+          </p>
+        </div>
+        <div class="about">
+          <p>
+            About Me: <%= @author.about %>
+          </p>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="friendship">
+        <% if @user != @author %>
+        <% friendship = @user_facade.friendship_requested(@author) %>
+        <% end %>
+        <% if friendship %>
+          <div class="friends">
+            <div class="friends-container">
+              <p id="friends-requests-titles">Pending Friend Requests</p>
+              <div class="pending-friend-requests">
+                <% @user_facade.pending_friend_requests.each do |friend_request| %>
+                <div class="friend-profile-picture">
+                  <% if friend_request.avatar.attached? %>
+                    <%= image_tag(url_for(friend_request.cropped_avatar), height: '40', :id => "my-profile-picture") %>
+                  <% else %>
+                    <%= image_tag("user_image.png", height: '40')%>
+                  <% end %>
+                </div>
+                <div class="friend-request-container">
+                  <div class="friend-request-username">
+                    <%= friend_request.username %>
+                  </div>
+                  <div class="friend-accept">
+                    <%= link_to "Accept", user_friend_path(@user, friend_request, "accept"), method: :patch %>
+                  </div>
+                  <div class="friend-decline">
+                    <%= link_to "Decline", user_friend_path(@user, friend_request, "decline"), method: :patch %>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% elsif current_user.id != @author.id && @friend == nil %>
+          <%= link_to "Add Friend", user_friends_path(@user, @author), method: :create %>
+          <% elsif @friend != nil && @friend.confirmed == false  %>
+          <% @friend.confirmed == false %>
+          <p>
+            Friend Request Pending
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
