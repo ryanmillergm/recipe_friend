@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # post '/alexa' do
+  #   p request.body.read
+  # end
+
   get 'auth/google_oauth2', to: 'auth#google_oauth'
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
