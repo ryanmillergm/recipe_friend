@@ -5,7 +5,13 @@ class Api::V1::RecipesController < Api::V1::ApiBaseController
   end
 
   def show
-    render json: RecipeSerializer.new(Recipe.where(title: params[:id].downcase.capitalize))
+    render json: RecipeSerializer.new(Recipe.where("title LIKE ?", "%#{search_params[:id].downcase.titleize}%"))
+  end
+
+  private
+
+  def search_params
+    params.permit(:id)
   end
 
 end
