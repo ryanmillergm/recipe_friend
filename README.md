@@ -58,4 +58,4 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - Alexa skill set to read recipes
 
 ## Known Issues
- - CircleCi auto deployment to aws corrupts ActiveStorage images.
+ - None
