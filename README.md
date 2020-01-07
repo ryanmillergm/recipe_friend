@@ -1,6 +1,6 @@
 # Recipe Friend
 
-This project is for users to find, add, share and convert recipes. Great for restaurants who need different batch sizes! Users can input in the number of portions they want and the recipe will automatically convert the quantity for ingredients. Recipes can be read by alexa for a hands free experience. This app also makes it easy to create a grocery list according to ingredients in a recipe. Recipe's are of course rated and commented on by any registered user. A user can create or join groups and once in a group can chat with each other in a chatroom. 
+This project is for users to find, add, share and convert recipes. Great for restaurants who need different batch sizes! Users can input in the number of portions they want and the recipe will automatically convert the quantity for ingredients. Recipes can be read by Alexa for a hands free experience. This app also makes it easy to create a grocery list according to ingredients in a recipe. Recipe's are of course rated and commented on by any registered user. A user can create or join groups and once in a group can chat with each other in a chatroom. 
 
 This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **comments**, **grocery_list**, **friends** and **groups**. All responses are JSON.
 
