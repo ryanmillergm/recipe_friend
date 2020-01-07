@@ -121,6 +121,7 @@ Body:
 
 ### Get a specific recipe by mutiple word description (String)
  - Pass in food params to api. Ex/ food = "fresh lasagna pasta"
+ 
 Request:
 ```
 GET /api/v1/recipes/#{food.gsub(/[ ]/, '%20')}
