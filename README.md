@@ -93,6 +93,32 @@ Body:
 }
 ```
 
+ ### Get a specific recipe
+Request:
+```
+GET /api/v1/recipes/spaghetti
+Accept: application/json
+```
+Example response:
+```
+Status: 200
+Content-Type: application/json
+Body:
+{
+ :data=>
+  [
+   {
+    :id=>"1", 
+    :type=>"recipe", 
+    :attributes=>{
+     :title=>"Spaghetti", 
+     :description=>"This recipe is for Spaghetti"
+     }
+   }
+  ]
+}
+```
+
 ## Core Contributors
  - Ryan Miller, [@ryanmillergm](https://github.com/ryanmillergm)
 
