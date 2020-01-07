@@ -93,7 +93,7 @@ Body:
 }
 ```
 
- ### Get a specific recipe
+### Get a specific recipe by name
 Request:
 ```
 GET /api/v1/recipes/spaghetti
@@ -113,6 +113,33 @@ Body:
     :attributes=>{
      :title=>"Spaghetti", 
      :description=>"This recipe is for Spaghetti"
+     }
+   }
+  ]
+}
+```
+
+### Get a specific recipe by mutiple word description (String)
+ - Pass in food params to api. Ex/ food = "fresh lasagna pasta"
+Request:
+```
+GET /api/v1/recipes/#{food.gsub(/[ ]/, '%20')}
+Accept: application/json
+```
+Example response:
+```
+Status: 200
+Content-Type: application/json
+Body:
+{
+ :data=>
+  [
+   {
+    :id=>"2", 
+    :type=>"recipe", 
+    :attributes=>{
+     :title=>"Chicken Noodle Soup", 
+     :description=>"This recipe is for chicken noodle soup"
      }
    }
   ]
