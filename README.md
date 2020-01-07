@@ -2,6 +2,8 @@
 
 This project is for users to find, add, share and convert recipes. Great for restaurants who need different batch sizes! Users can input in the number of portions they want and the recipe will automatically convert the quantity for ingredients. Recipes can be read by Alexa for a hands free experience. This app also makes it easy to create a grocery list according to ingredients in a recipe. Recipe's are of course rated and commented on by any registered user. A user can create or join groups and once in a group can chat with each other in a chatroom. 
 
+This application uses the microservice alexa_recipe to allow recipes to be accessed through Alexa. Alexa_recipe is located at https://github.com/ryanmillergm/recipe_alexa. Alexa can access the recipe_friend database and open recipes in chrome.
+
 This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **comments**, **grocery_list**, **friends** and **groups**. All responses are JSON.
 
 The app is deployed at http://recipehound.km6rdxpp4h.us-west-2.elasticbeanstalk.com/.
