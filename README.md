@@ -44,7 +44,54 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - `$ rspec`
 
 ## API Endpoints
- - None as of now...
+ ### Get all recipes
+Request:
+```
+GET /api/v1/recipes
+Accept: application/json
+```
+Example response:
+```
+Status: 200
+Content-Type: application/json
+Body:
+{
+ :data=>
+  [
+   {
+    :id=>"1", 
+    :type=>"recipe", 
+    :attributes=>{
+     :title=>"Spaghetti", 
+     :description=>"This recipe is for Spaghetti"
+     }
+    },
+   {
+    :id=>"2", 
+    :type=>"recipe", 
+    :attributes=>{
+     :title=>"Chicken Noodle Soup", 
+     :description=>"This recipe is for chicken noodle soup"
+     }
+    },
+   {
+    :id=>"3", 
+    :type=>"recipe", 
+    :attributes=>{
+     :title=>"Fresh Lasagna pasta", 
+     :description=>"This recipe is for lasagna noodles"
+     }
+    },
+   {
+    :id=>"4", 
+    :type=>"recipe", 
+    :attributes=>{:title=>"Pot Roast", 
+    :description=>"This recipe is for a delicious slow cooked beef potroast"
+    }
+   }
+  ]
+}
+```
 
 ## Core Contributors
  - Ryan Miller, [@ryanmillergm](https://github.com/ryanmillergm)
