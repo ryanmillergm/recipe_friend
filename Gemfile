@@ -15,6 +15,7 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-facebook', "~> 5.0.0"
 gem 'fast_jsonapi'
 gem 'devise'
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
