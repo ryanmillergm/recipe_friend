@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms
   root 'home#index'
 
   resources :users, only: [:create, :new, :update, :edit, :show] do
