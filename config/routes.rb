@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # post '/alexa' do
+  #   p request.body.read
+  # end
+
   get 'auth/google_oauth2', to: 'auth#google_oauth'
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -41,6 +45,13 @@ Rails.application.routes.draw do
   resources :comments do
     resources :comments, only: [:create, :new, :edit, :update, :destroy]
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :recipes, only: [:index, :show]
+    end
+  end
+
 
   # match "*path", to: "application#render_not_found", via: :all
 end
