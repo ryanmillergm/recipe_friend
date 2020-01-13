@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root controller: :rooms, action: :index
+  root 'home#index'
 
   resources :room_messages
   resources :rooms
