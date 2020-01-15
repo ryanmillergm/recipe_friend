@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   root 'home#index'
+
+  resources :room_messages
+  resources :rooms
 
   resources :users, only: [:create, :new, :update, :edit, :show] do
     member do

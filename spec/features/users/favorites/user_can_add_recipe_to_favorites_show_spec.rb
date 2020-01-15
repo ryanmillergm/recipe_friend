@@ -21,7 +21,9 @@ RSpec.describe 'As a user' do
     click_on 'Log In'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content(@user1.first_name)
+    # binding.pry
+    # save_and_open_page
+    expect(page).to have_content(@user1.first_name.capitalize)
 
     click_on 'Search Recipes'
 
@@ -50,7 +52,7 @@ RSpec.describe 'As a user' do
     click_on 'Log In'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content(@user1.first_name)
+    expect(page).to have_content(@user1.first_name.capitalize)
 
     click_on 'Search Recipes'
 

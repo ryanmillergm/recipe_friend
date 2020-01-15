@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
   validate :image_size
 
+  has_many :room_messages, dependent: :destroy
   has_many :favorites
   has_many :comments
   has_one_attached :avatar
@@ -59,6 +60,11 @@ class User < ApplicationRecord
 
   def thumb
     return self.avatar.variant(resize: '100x100').processed
+  end
+
+  def gravatar_url
+    gravatar_id = Digest::MD5::hexdigest(email).downcase
+    "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
 
   private

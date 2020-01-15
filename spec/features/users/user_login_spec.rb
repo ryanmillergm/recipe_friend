@@ -17,7 +17,7 @@ RSpec.describe 'as a user' do
     click_on 'Log In'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content(@user1.first_name)
+    expect(page).to have_content(@user1.first_name.capitalize)
   end
 
   it 'I can log out' do
@@ -33,7 +33,7 @@ RSpec.describe 'as a user' do
     click_on 'Log In'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content(@user1.first_name)
+    expect(page).to have_content(@user1.first_name.capitalize)
 
     click_on 'Log out'
 

@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def measurement_type
     [
       ['volume'],
