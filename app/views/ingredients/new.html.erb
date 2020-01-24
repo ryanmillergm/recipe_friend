@@ -24,7 +24,7 @@
     <% end %>
     <br>
     <h5>Add Ingredients</h5>
-    <section>
+    <section id="recipe-ingredient-id">
       <%= form_for @ingredient do |f| %>
       <div>
         <div>
@@ -45,7 +45,7 @@
           </div>
           <div>
             <%= label_tag :recipe_type, "Measurement" %>
-            <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
+            <%= select_tag :measurement, grouped_options_for_select(measurement), class: "form-control" %>
           </div>
           <div>
             <%= recipe_ingredient.label :quantity %>
