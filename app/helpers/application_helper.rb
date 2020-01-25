@@ -7,7 +7,7 @@ module ApplicationHelper
      ['weight',
        ['gram','ounce','pound']],
      ['by_each',
-     ['by_each']]
+     ['individual']]
     ]
   end
 
