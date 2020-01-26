@@ -51,7 +51,7 @@
         </div>
         <div>
           <%= label_tag :recipe_type, "Measurement" %>
-          <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
+          <%= select_tag :measurement, grouped_options_for_select(measurement), class: "form-control" %>
         </div>
         <div>
           <%= recipe_ingredient.label :quantity %>
@@ -69,7 +69,7 @@
       </div>
       <div>
         <%= label_tag :recipe_type, "Measurement" %>
-        <%= select_tag :measurement, options_for_select(measurement), class: "form-control" %>
+        <%= select_tag :measurement, grouped_options_for_select(measurement), class: "form-control" %>
       </div>
       <div>
         <%= recipe_ingredient.label :quantity %>
