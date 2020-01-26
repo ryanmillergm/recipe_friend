@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def measurement
+    [
+     ['volume',
+       ['fluid ounce','cup', 'pint', 'quart', 'gallon']],
+     ['weight',
+       ['gram','ounce','pound']],
+     ['by_each',
+     ['individual']]
+    ]
+  end
+
   def measurement_type
     [
       ['volume'],
@@ -18,15 +29,15 @@ module ApplicationHelper
     ]
   end
 
-  def measurement
-    [
-      ['ounce'],
-      ['cup'],
-      ['pint'],
-      ['quart'],
-      ['gallon']
-    ]
-  end
+  # def measurement
+  #   [
+  #     ['ounce'],
+  #     ['cup'],
+  #     ['pint'],
+  #     ['quart'],
+  #     ['gallon']
+  #   ]
+  # end
 
   def measurement_weight
     [
