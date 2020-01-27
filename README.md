@@ -158,7 +158,7 @@ Body:
  - Visit https://github.com/ryanmillergm/recipe_friend and click `New pull request`
  
 ## Current Iterations
- - Alexa skill set to read recipes
+ - Convert recipes according to portions
 
 ## Known Issues
  - None
