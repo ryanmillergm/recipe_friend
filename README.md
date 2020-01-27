@@ -24,6 +24,8 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - Figaro
  - Faraday
  - Active Model Serializers v0.10.0
+ - Redis
+ - Ngrok
 
 ## Local Setup
  - `$ git clone https://github.com/ryanmillergm/recipe_friend.git`
