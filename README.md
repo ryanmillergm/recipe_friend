@@ -11,7 +11,7 @@ The app is deployed at http://recipehound.km6rdxpp4h.us-west-2.elasticbeanstalk.
 View the project board at https://github.com/ryanmillergm/recipe_friend/projects/1
 
 ## Schema
-![schema](./public/images/schema.png)
+![schema](./public/images/recipe_friend_schema.png)
 
 ## Tech Stack
  - Framework: Ruby on Rails v5.2.3
