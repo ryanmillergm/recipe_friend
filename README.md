@@ -17,7 +17,7 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - Framework: Ruby on Rails v5.2.3
  - Language: Ruby
  - Database: PostgreSQL v7.12.1
- - Query Language: GraphQL v1.8.13
+ - Query Language: ActiveRecord
  - Testing: RSpec
 
 ## Other Packages
@@ -45,7 +45,7 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
 ## Running the Test Suite
  - `$ rspec`
 
-## API Endpoints
+## API Endpoints - (Specifically designed for Alexa Skill)
  ### Get all recipes
 Request:
 ```
