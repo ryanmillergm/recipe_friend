@@ -162,5 +162,8 @@ Body:
 ## Current Iterations
  - Convert recipes according to portions
 
+## Future Iterations
+ - Create a grocery list of ingredients from a recipe
+
 ## Known Issues
  - None
