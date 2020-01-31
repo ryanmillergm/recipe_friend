@@ -4,8 +4,6 @@ This project is a social media app for food and recipes. Add friends, join chat 
 
 This application uses the microservice alexa_recipe to allow recipes to be accessed through Alexa. Alexa_recipe is located at https://github.com/ryanmillergm/recipe_alexa. Alexa can access the recipe_friend database and open recipes in chrome.
 
-This REST API has several endpoints for basic CRUD functionality of **users**, **recipes**, **comments**, **grocery_list**, **friends** and **groups**. All responses are JSON.
-
 The app is deployed at http://recipehound.km6rdxpp4h.us-west-2.elasticbeanstalk.com/.
 
 View the project board at https://github.com/ryanmillergm/recipe_friend/projects/1
