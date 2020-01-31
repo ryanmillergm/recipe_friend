@@ -37,11 +37,13 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - `$ bundle exec figaro install`
 
 ## Additional steps
- -
+ - To run chat locally, install Redis. If you’re running Ubuntu, you can use `apt install redis-server`, on Mac you can use `brew install redis`
+ - Open a terminal and run Redis in addition to running your localhost:3000 `rails server`. Once the server is up & running you’ll be able to use `redis-cli` to connect to the server.
+ -  You may have to run `redis-server` on another terminal to start the server before you can connect to it.
 
 ## Running the Server Locally
  - `$ rails s`
- - Access local endpoints at `http://localhost:3000/ToBeDetermined`
+ - Access local endpoints at `http://localhost:3000`
  - Access deployed endpoints at `https://somewhere.com`
 
 ## Running the Test Suite
