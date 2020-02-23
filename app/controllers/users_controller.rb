@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @user = current_user
     @author = User.find(params[:id])
     @user_facade = UserDashboardFacade.new(@user)
     @friend = @user_facade.find_friend(@user, @author)
@@ -37,11 +37,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
     if @user.update(user_params)
       if params[:user][:avatar].present?
         redirect_to new_user_crop_image_path(@user.id)
@@ -58,6 +56,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def set_user
+      @user = current_user
+    end
 
   def user_params
     params.require(:user).permit(:first_name,
