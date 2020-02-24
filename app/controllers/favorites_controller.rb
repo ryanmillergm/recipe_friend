@@ -1,7 +1,8 @@
 class FavoritesController < ApplicationController
+  before_action :set_user, only: [:index, :show, :create, :edit, :update, :destroy]
+
   def index
     if current_user
-      @user = current_user
       @favorites = Favorite.where(user_id: @user.id)
       @recipe_facade = RecipeFacade.new(@favorites)
     else
@@ -11,7 +12,6 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @user = current_user
     @recipe = Recipe.find(params[:format].to_i)
     @favorite = Favorite.find_or_create_by(favorite_params(@user, @recipe))
     flash[:success] = "#{@recipe.title} has been added to your favorites!"
@@ -19,7 +19,6 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
     @recipe = Recipe.find(params[:id])
     @favorite = Favorite.where(user_id: @user.id).find_by(recipe_id: @recipe.id)
     @favorite.destroy
@@ -28,6 +27,10 @@ class FavoritesController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def favorite_params(user, recipe)
     fav_params = {
