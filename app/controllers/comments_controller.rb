@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_commentable, only: :create
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   def new
     @comment = Comment.new
@@ -15,24 +16,25 @@ class CommentsController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to recipe_path(@recipe)
   end
 
   def edit
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = Comment.find(params[:id])
   end
 
   def update
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = Comment.find(params[:id])
     @comment.update(content: params[:comment][:content].strip)
     redirect_to recipe_path(@recipe)
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content, :user_id, :rating)

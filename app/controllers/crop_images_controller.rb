@@ -1,15 +1,13 @@
 class CropImagesController < ApplicationController
+  before_action :set_user, only: [:new, :show, :create, :edit, :update, :destroy]
 
   def new
-    @user = current_user
   end
 
   def show
-    @user = current_user
   end
 
   def create
-    @user = current_user
     if params[:coords_x].present? &&
       params[:coords_y].present? &&
       params[:coords_w].present? &&
@@ -40,6 +38,11 @@ class CropImagesController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+
+  def set_user
     @user = current_user
   end
 end

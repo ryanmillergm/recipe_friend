@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy]
+
   def index
     @query = search_params[:q]
     @recipes = Recipe.get_recipes(search_params)
@@ -6,18 +8,15 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipes_facade = RecipeFacade.new(@recipes)
   end
 
   def new
-    @user = current_user
     @recipe = Recipe.new
   end
 
   def create
-    @user = current_user
     @recipe = Recipe.new(recipe_params)
     @recipe.update(title: recipe_params[:title].downcase.titleize)
     @recipe.update(user_id: @user.id)
@@ -31,7 +30,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @user = current_user
     @recipe = Recipe.find(params[:id])
   end
 
@@ -64,6 +62,10 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def search_params
     params.permit(:q)

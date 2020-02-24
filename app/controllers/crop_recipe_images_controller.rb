@@ -1,13 +1,12 @@
 class CropRecipeImagesController < ApplicationController
+  before_action :set_user, only: [:new, :create]
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
-    @user = current_user
   end
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @user = current_user
     if params[:coords_x].present? &&
       params[:coords_y].present? &&
       params[:coords_w].present? &&
@@ -30,5 +29,11 @@ class CropRecipeImagesController < ApplicationController
       flash[:success] = "Successfully Saved"
       redirect_to dashboard_my_recipe_path(@recipe.id)
     end
+  end
+
+  private
+
+  def set_user
+    @user = current_user
   end
 end
