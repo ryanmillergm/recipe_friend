@@ -1,11 +1,11 @@
 class FriendsController < ApplicationController
+  before_action :set_user, only: [:index, :show, :create, :edit, :update, :destroy]
+
   def index
-    @user = current_user
     @user_facade = UserDashboardFacade.new(@user)
   end
 
   def create
-    @user = current_user
     @uathor = User.find(params[:format])
     friendship = Friend.new(user_id: params[:user_id], friend_id: params[:format])
     if friendship.save
@@ -16,7 +16,6 @@ class FriendsController < ApplicationController
   end
 
   def update
-    @user = current_user
     @friendship = Friend.where(friend_id: @user.id).find_by(user_id: params[:id])
     @friend = User.find(@friendship.user_id)
     if params[:format] == "accept"
@@ -35,7 +34,6 @@ class FriendsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
     friend = User.find(params[:id])
     @user_facade = UserDashboardFacade.new(@user)
     friendship = @user_facade.find_friend(@user, friend)
@@ -49,5 +47,11 @@ class FriendsController < ApplicationController
       their_friendship.destroy
       redirect_to user_friends_path(@user)
     end
+  end
+
+  private
+
+  def set_user
+    @user = current_user
   end
 end
