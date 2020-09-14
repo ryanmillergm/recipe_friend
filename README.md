@@ -24,15 +24,17 @@ View the project board at https://github.com/ryanmillergm/recipe_friend/projects
  - Active Model Serializers v0.10.0
  - Redis
  - Ngrok
+ - ImageMagick
 
 ## Local Setup
  - `$ git clone https://github.com/ryanmillergm/recipe_friend.git`
  - `$ cd recipe_friend`
  - `$ bundle exec install`
+ - `$ brew install ImageMagick`
+ - `$ bundle exec figaro install`
  - `$ bundle exec rails db:create`
  - `$ bundle exec rails db:migrate`
  - `$ bundle exec rails db:seed`
- - `$ bundle exec figaro install`
 
 ## Additional steps
  - To run chat locally, install Redis. If you’re running Ubuntu, you can use `apt install redis-server`, on Mac you can use `brew install redis`
